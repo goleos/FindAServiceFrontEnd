@@ -1,6 +1,3 @@
-// URL for talking to the backend
-export const BACKEND_URL = 'https://findaservicebackend.azurewebsites.net/';
-
 // Routes in the app
 export const ROUTES = {
     home: '/home',

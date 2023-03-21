@@ -74,7 +74,7 @@ const ProviderRegisterPage = () => {
                 setIsSubmitting(false);
                 setError('errorMessage', {
                     type: 'manual',
-                    message: "Error"
+                    message: err.response ? err.response.data.message : "Error"
                 });
             }
         }
