@@ -1,12 +1,53 @@
-# Getting Started with Create React App
+## Frontend Development Instructions
+- Frontend root:
+    - Remote (Azure): https://findaservicefrontend.azurewebsites.net/
+    - Local: https://localhost:3000/
+
+### To work with the frontend
+1. Install Node.js
+2. After you `git clone` the repository from the root folder run
+```bash
+npm init
+```
+3. The node_modules folder should appear in the root folder
+4. To start the backend server locally (for testing, the app will be connected to the remote one on Azure) run:
+```bash
+npm start
+```
+5.The server should automatically restart whenever you make changes to a file
+6. Check the server started by going to http://localhost:3000/
+
+## Folder Structure
+
+```
+.
+├── public                # The compiled index.html page and any images
+├── src                   # Source files
+│   ├── pages             # All the components for pages
+│   ├── stores            # JS classes used to store state that 
+│   │                     #  can be accessed from all pages as needed
+│   ├── utils             # 
+│   │    ├── components   # General components used throughout the whole app
+│   │    ├── fonts        # Google fonts
+│   │    ├── helpers      # Constants and other useful reusable bits of JS
+│   │    └── styles       # Any styled components, the main css file and the theme
+│   ├── App.js            # Where the Routing between pages happens
+│   └── index.js          # Entrypoint of the app
+├── .env                  # Declares environmental variables
+├── .gitignore            # Declares which files not to push to github
+├── package.json          # Declares Node.js scripts and libraries used
+└── README.md
+```
+
+## Auto-generated React Docs
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +55,32 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+#### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+#### Analyzing the Bundle Size
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+#### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+#### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+#### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+#### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
