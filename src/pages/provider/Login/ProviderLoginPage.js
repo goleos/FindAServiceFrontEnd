@@ -15,7 +15,6 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import FormHelperText from "@mui/material/FormHelperText";
 import axiosConfig from "../../../utils/helpers/axiosConfig";
 import Alert from "@mui/material/Alert";
-import LoginStore from "../../../stores/LoginStore";
 import { observer } from "mobx-react";
 import { useStore } from "../../../stores/RootStore";
 import {
@@ -28,6 +27,8 @@ import {
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
+import LoadingButton from "@mui/lab/LoadingButton";
+import LoginStoreInstance from "../../../stores/LoginStore";
 
 // Form validation schema
 const registerSchema = yup.object({
@@ -59,7 +60,7 @@ const ProviderRegisterPage = () => {
             try {
                 const res = await axiosConfig().post("/provider/login", data);
                 if (res.data.status) {
-                    LoginStore.login(res.data.token);
+                    LoginStoreInstance.login(res.data.token);
                     providerStore.requestCurrentProvider();
                     navigate('/home?fromLogin');
                 } else {
@@ -140,7 +141,10 @@ const ProviderRegisterPage = () => {
                         } />
                         <LinkContainer>Don't have an account? <NavLink to={"/provider/register"}><LinkSpan>Register for free </LinkSpan></NavLink></LinkContainer>
                         <ButtonContainer>
-                            <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                            {isSubmitting
+                                ? <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
+                                : <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                            }
                         </ButtonContainer>
                     </FormContainer>
                 </StyledBox>

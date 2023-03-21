@@ -64,4 +64,5 @@ class LoginStore {
     }
 }
 
-export default new LoginStore();
+const LoginStoreInstance = new LoginStore()
+export default LoginStoreInstance;

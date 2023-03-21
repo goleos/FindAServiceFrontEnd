@@ -1,4 +1,4 @@
-import axios, {AxiosRequestHeaders} from 'axios';
+import axios from 'axios';
 import LoginStore from '../../stores/LoginStore';
 import {BACKEND_URL} from "./constants";
 
