@@ -1,0 +1,37 @@
+/*  General styles applied to the whole app */
+
+/* Import fonts */
+@font-face {
+  font-family: "PoppinsRegular";
+  src: local('PoppinsRegular'), url("../fonts/Poppins/Poppins-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "PoppinsSemiBold";
+  src: local('PoppinsSemiBold'), url("../fonts/Poppins/Poppins-SemiBold.ttf") format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'PoppinsRegular', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'PoppinsSemiBold', sans-serif;
+}
+
