@@ -8,6 +8,10 @@ class LoginStore {
 
     authStatus = false;
 
+    provider = false;
+
+    admin = false;
+
     constructor() {
         makeAutoObservable(this);
         this.setAuthStatus();
@@ -40,8 +44,13 @@ class LoginStore {
 
     // Set authentication status
     setAuthStatus() {
-        let tokenOk = this.checkToken();
-        if (tokenOk) {
+        let token = this.parseToken();
+
+        if (token !== false) {
+
+            this.provider = token.status === "provider";
+            this.admin = token.status === "admin";
+
             this.authStatus = true;
 
             return true;
@@ -54,14 +63,23 @@ class LoginStore {
     }
 
     // Check if token is ok
-    checkToken() {
+    parseToken() {
         try {
-            jwt_decode(this.getToken());
-            return true;
+            return jwt_decode(this.getToken());
         } catch (err) {
             return false;
         }
     }
+
+    isProvider() {
+        return this.provider;
+    }
+
+    isAdmin() {
+        return this.admin;
+    }
+
+
 }
 
 const LoginStoreInstance = new LoginStore()

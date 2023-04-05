@@ -1,10 +1,21 @@
 // Routes in the app
 export const ROUTES = {
-    home: '/home',
+    home: '*',
     provider: {
-        login: '*',
+        login: '/provider/login',
         register: '/provider/register',
-    }
+        home: '/provider/home'
+    },
+    customer: {
+        login: '*',
+        register: '/customer/register',
+        home: '/customer/home'
+    },
+    admin: {
+        login: '/admin/login',
+        register: '/admin/register',
+        home: '/admin/home'
+    },
 }
 
 // Breakpoints for media queries

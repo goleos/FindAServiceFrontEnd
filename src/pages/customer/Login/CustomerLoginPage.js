@@ -40,7 +40,7 @@ const schema = yup.object({
         .required('Password is required')
 });
 
-const ProviderLoginPage = () => {
+const CustomerLoginPage = () => {
 
     const { userStore } = useStore();
 
@@ -58,11 +58,11 @@ const ProviderLoginPage = () => {
         if (!!errors) {
             setIsSubmitting(true);
             try {
-                const res = await axiosConfig().post("/provider/login", data);
+                const res = await axiosConfig().post("/customer/login", data);
                 if (res.data.status) {
                     LoginStoreInstance.login(res.data.token);
                     userStore.requestCurrentUser();
-                    navigate('/provider/home?fromLogin');
+                    navigate('/customer/home?fromLogin');
                 } else {
                     setIsSubmitting(false);
                     setError('errorMessage', {
@@ -71,6 +71,7 @@ const ProviderLoginPage = () => {
                     })
                 }
             } catch (err) {
+                console.log(err)
                 setIsSubmitting(false);
                 setError('errorMessage', {
                     type: 'manual',
@@ -97,7 +98,7 @@ const ProviderLoginPage = () => {
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
-                        <Title>Provider Login</Title>
+                        <Title>Login</Title>
                         <Subtitle>Enter your credentials below</Subtitle>
                     </TitleContainer>
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
@@ -141,14 +142,14 @@ const ProviderLoginPage = () => {
                         } />
                         <LinkContainer>
                             Don't have an account?
-                            <NavLink to={"/provider/register"}>
-                                <LinkSpan> Register for free</LinkSpan>
+                            <NavLink to={"/customer/register"}>
+                                <LinkSpan> Register for free </LinkSpan>
                             </NavLink>
                         </LinkContainer>
                         <LinkContainer>
-                            Are you looking for a service?
-                            <NavLink to={"/customer/login"}>
-                                <LinkSpan> Login as a customer</LinkSpan>
+                            Are you a service provider?
+                            <NavLink to={"/provider/login"}>
+                                <LinkSpan> Login as a provider </LinkSpan>
                             </NavLink>
                         </LinkContainer>
                         <ButtonContainer>
@@ -164,6 +165,6 @@ const ProviderLoginPage = () => {
     )
 }
 
-export default observer(ProviderLoginPage);
+export default observer(CustomerLoginPage);
 
 

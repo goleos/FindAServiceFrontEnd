@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {NavLink, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -16,14 +16,12 @@ import FormHelperText from "@mui/material/FormHelperText";
 import axiosConfig from "../../../utils/helpers/axiosConfig";
 import Alert from "@mui/material/Alert";
 import { observer } from "mobx-react";
-import { useStore } from "../../../stores/RootStore";
 import {
-    ButtonContainer, FormContainer,
-    LinkContainer, LinkSpan,
+    ButtonContainer,
+    FormContainer,
     Page,
     StyledBox,
     StyledContainer,
-    Subtitle,
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
@@ -40,9 +38,7 @@ const schema = yup.object({
         .required('Password is required')
 });
 
-const ProviderLoginPage = () => {
-
-    const { userStore } = useStore();
+const AdminLoginPage = () => {
 
     // For rerouting to Login Page
     let navigate = useNavigate();
@@ -58,11 +54,10 @@ const ProviderLoginPage = () => {
         if (!!errors) {
             setIsSubmitting(true);
             try {
-                const res = await axiosConfig().post("/provider/login", data);
+                const res = await axiosConfig().post("/admin/login", data);
                 if (res.data.status) {
                     LoginStoreInstance.login(res.data.token);
-                    userStore.requestCurrentUser();
-                    navigate('/provider/home?fromLogin');
+                    navigate('/admin/home?fromLogin');
                 } else {
                     setIsSubmitting(false);
                     setError('errorMessage', {
@@ -71,6 +66,7 @@ const ProviderLoginPage = () => {
                     })
                 }
             } catch (err) {
+                console.log(err)
                 setIsSubmitting(false);
                 setError('errorMessage', {
                     type: 'manual',
@@ -97,8 +93,7 @@ const ProviderLoginPage = () => {
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
-                        <Title>Provider Login</Title>
-                        <Subtitle>Enter your credentials below</Subtitle>
+                        <Title>Admin Login</Title>
                     </TitleContainer>
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
@@ -139,18 +134,6 @@ const ProviderLoginPage = () => {
                         <ErrorMessage errors={errors} name="errorMessage" render={({ message }) =>
                             <Alert severity="error">{message}</Alert>
                         } />
-                        <LinkContainer>
-                            Don't have an account?
-                            <NavLink to={"/provider/register"}>
-                                <LinkSpan> Register for free</LinkSpan>
-                            </NavLink>
-                        </LinkContainer>
-                        <LinkContainer>
-                            Are you looking for a service?
-                            <NavLink to={"/customer/login"}>
-                                <LinkSpan> Login as a customer</LinkSpan>
-                            </NavLink>
-                        </LinkContainer>
                         <ButtonContainer>
                             {isSubmitting
                                 ? <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
@@ -164,6 +147,6 @@ const ProviderLoginPage = () => {
     )
 }
 
-export default observer(ProviderLoginPage);
+export default observer(AdminLoginPage);
 
 

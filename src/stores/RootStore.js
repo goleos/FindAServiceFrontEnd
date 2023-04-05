@@ -1,11 +1,11 @@
 import { createContext, useContext } from "react";
-import ProviderStore from "./ProviderStore";
+import UserStore from "./UserStore";
 
 /**
  * Initializing all the stores used for managing app state
  */
 export const store = {
-    providerStore: new ProviderStore()
+    userStore: new UserStore()
 }
 
 export const StoreContext = createContext(store);

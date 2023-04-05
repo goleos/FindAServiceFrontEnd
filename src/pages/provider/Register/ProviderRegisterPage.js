@@ -27,7 +27,7 @@ import {
 } from "../../../utils/styles/formStyles";
 
 // Form validation schema
-const registerSchema = yup.object({
+const schema = yup.object({
     firstName: yup.string()
         .required('First Name is required')
         .trim(),
@@ -59,7 +59,7 @@ const ProviderRegisterPage = () => {
 
     // Handling form submission
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
-        resolver: yupResolver(registerSchema),
+        resolver: yupResolver(schema),
     });
 
     const onSubmit = async (data) => {
@@ -67,7 +67,7 @@ const ProviderRegisterPage = () => {
             try {
                 const res = await axiosConfig().post( "/provider/register", data);
                 if (res.data.status) {
-                    navigate('/login?fromRegister');
+                    navigate('/provider/login?fromRegister');
                 } else {
                     setError('errorMessage', {
                         type: 'manual',
@@ -202,7 +202,18 @@ const ProviderRegisterPage = () => {
                         <ErrorMessage errors={errors} name="errorMessage" render={({ message }) =>
                             <Alert severity="error">{message}</Alert>
                         } />
-                        <LinkContainer>Already have an account? <NavLink to={"/login"}><LinkSpan>Log in </LinkSpan></NavLink></LinkContainer>
+                        <LinkContainer>
+                            Already have an account?
+                            <NavLink to={"/provider/login"}>
+                                <LinkSpan> Log in </LinkSpan>
+                            </NavLink>
+                        </LinkContainer>
+                        <LinkContainer>
+                            Are you looking for a service?
+                            <NavLink to={"/customer/register"}>
+                                <LinkSpan> Make a customer account</LinkSpan>
+                            </NavLink>
+                        </LinkContainer>
                         <ButtonContainer>
                             <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
                         </ButtonContainer>

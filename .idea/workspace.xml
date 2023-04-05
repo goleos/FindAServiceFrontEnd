@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e83f0303-70f4-4933-915b-313d14ef0b4d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/admin/Login/AdminLoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/customer/Login/CustomerLoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/customer/Register/CustomerRegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Register/ProviderRegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Register/ProviderRegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/LoginStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/LoginStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ProviderStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/UserStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/RootStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/RootStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/axiosConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/axiosConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +38,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/stores" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/stores" />
+      <recent name="$PROJECT_DIR$/src/pages/admin" />
+      <recent name="$PROJECT_DIR$/src/pages/customer" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -39,10 +61,22 @@
       <option name="presentableId" value="Default" />
       <updated>1679423433644</updated>
       <workItem from="1679423437212" duration="1696000" />
+      <workItem from="1679676066908" duration="5087000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

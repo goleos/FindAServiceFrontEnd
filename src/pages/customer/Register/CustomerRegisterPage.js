@@ -15,8 +15,6 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import FormHelperText from "@mui/material/FormHelperText";
 import axiosConfig from "../../../utils/helpers/axiosConfig";
 import Alert from "@mui/material/Alert";
-import { observer } from "mobx-react";
-import { useStore } from "../../../stores/RootStore";
 import {
     ButtonContainer, FormContainer,
     LinkContainer, LinkSpan,
@@ -27,54 +25,53 @@ import {
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
-import LoadingButton from "@mui/lab/LoadingButton";
-import LoginStoreInstance from "../../../stores/LoginStore";
 
 // Form validation schema
-const schema = yup.object({
+const registerSchema = yup.object({
+    firstName: yup.string()
+        .required('First Name is required')
+        .trim(),
+    lastName: yup.string()
+        .required('Last Name is required')
+        .trim(),
     email: yup.string()
         .required('Email is required')
         .email('Incorrect email format')
         .trim(),
     password: yup.string()
         .required('Password is required')
+        .min(8, 'Password must be at least 8 characters'),
+    confirmPassword: yup.string()
+        .required('Confirm Password is required')
+        .oneOf([yup.ref('password')], 'Passwords must match')
 });
 
-const ProviderLoginPage = () => {
-
-    const { userStore } = useStore();
+const CustomerRegisterPage = () => {
 
     // For rerouting to Login Page
     let navigate = useNavigate();
 
     // Handling form submission
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(registerSchema),
     });
-
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onSubmit = async (data) => {
         if (!!errors) {
-            setIsSubmitting(true);
             try {
-                const res = await axiosConfig().post("/provider/login", data);
+                const res = await axiosConfig().post( "/customer/register", data);
                 if (res.data.status) {
-                    LoginStoreInstance.login(res.data.token);
-                    userStore.requestCurrentUser();
-                    navigate('/provider/home?fromLogin');
+                    navigate('/customer/login?fromRegister');
                 } else {
-                    setIsSubmitting(false);
                     setError('errorMessage', {
                         type: 'manual',
                         message: res.data.message
                     })
                 }
             } catch (err) {
-                setIsSubmitting(false);
                 setError('errorMessage', {
                     type: 'manual',
-                    message: err.response ? err.response.data.message : "Error"
+                    message: err.response.data.message
                 });
             }
         }
@@ -82,25 +79,41 @@ const ProviderLoginPage = () => {
 
     // Show/Hide Passwords
     const [showPassword1, togglePassword1] = useState(false);
+    const [showPassword2, togglePassword2] = useState(false);
 
     const handleClickShowPassword1 = () => {
         togglePassword1(!showPassword1);
     };
 
-    // Is the user coming after registration?
-    let url = new URL(window.location.href);
-    let fromRegister = url.searchParams.get('fromRegister');
-    console.log(fromRegister);
+    const handleClickShowPassword2 = () => {
+        togglePassword2(!showPassword2);
+    };
 
     return (
         <Page>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
-                        <Title>Provider Login</Title>
-                        <Subtitle>Enter your credentials below</Subtitle>
+                        <Title>Register</Title>
+                        <Subtitle>Create a new account</Subtitle>
                     </TitleContainer>
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
+                        <TextField
+                            {...register('firstName')}
+                            id="firstName"
+                            label="First Name"
+                            variant="outlined"
+                            error={!!errors.firstName}
+                            helperText={errors.firstName ? errors.firstName.message : ''}
+                        />
+                        <TextField
+                            {...register('lastName')}
+                            id="lastName"
+                            label="Last Name"
+                            variant="outlined"
+                            error={!!errors.lastName}
+                            helperText={errors.lastName ? errors.lastName.message : ''}
+                        />
                         <TextField
                             {...register('email')}
                             id="email"
@@ -136,26 +149,49 @@ const ProviderLoginPage = () => {
                                 </FormHelperText>
                             )}
                         </FormControl>
+                        <FormControl variant="outlined">
+                            <InputLabel htmlFor="confirmPassword">Confirm Password</InputLabel>
+                            <OutlinedInput
+                                {...register('confirmPassword')}
+                                id="confirmPassword"
+                                type={showPassword2 ? 'text' : 'password'}
+                                error={!!errors.confirmPassword}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword2}
+                                            edge="end"
+                                        >
+                                            {showPassword2 ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Confirm Password"
+                            />
+                            {!!errors.confirmPassword && (
+                                <FormHelperText error id="confirmPassword-error">
+                                    {errors.confirmPassword.message}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
                         <ErrorMessage errors={errors} name="errorMessage" render={({ message }) =>
                             <Alert severity="error">{message}</Alert>
                         } />
                         <LinkContainer>
-                            Don't have an account?
-                            <NavLink to={"/provider/register"}>
-                                <LinkSpan> Register for free</LinkSpan>
+                            Already have an account?
+                            <NavLink to={"/customer/login"}>
+                                <LinkSpan> Log in </LinkSpan>
                             </NavLink>
                         </LinkContainer>
                         <LinkContainer>
-                            Are you looking for a service?
-                            <NavLink to={"/customer/login"}>
-                                <LinkSpan> Login as a customer</LinkSpan>
+                            Are you a service provider?
+                            <NavLink to={"/provider/register"}>
+                                <LinkSpan> Make a provider account </LinkSpan>
                             </NavLink>
                         </LinkContainer>
                         <ButtonContainer>
-                            {isSubmitting
-                                ? <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
-                                : <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
-                            }
+                            <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
                         </ButtonContainer>
                     </FormContainer>
                 </StyledBox>
@@ -164,6 +200,4 @@ const ProviderLoginPage = () => {
     )
 }
 
-export default observer(ProviderLoginPage);
-
-
+export default CustomerRegisterPage;

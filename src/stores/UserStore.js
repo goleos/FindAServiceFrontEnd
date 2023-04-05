@@ -1,12 +1,13 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
+import LoginStore from "./LoginStore";
 
 /**
  * Class for managing current user state and information
  */
-export default class ProviderStore {
+export default class UserStore {
 
-    currentProvider = undefined
+    currentUser = undefined
 
     requested = false;
 
@@ -15,18 +16,18 @@ export default class ProviderStore {
     }
 
     // Get current user information
-    getCurrentProvider() {
-        if (this.currentProvider === undefined) {
-            this.requestCurrentProvider();
+    getCurrentUser() {
+        if (this.currentUser === undefined) {
+            this.requestCurrentUser();
 
             return undefined;
         } else {
-            return this.currentProvider;
+            return this.currentUser;
         }
     }
 
     // Request current user information from the backend
-    requestCurrentProvider() {
+    requestCurrentUser() {
         if (!this.requested) {
             runInAction(() => {
                 this.requested = true;
@@ -35,9 +36,11 @@ export default class ProviderStore {
             return;
         }
 
-        axiosConfig().get('/provider/currentProvider').then(data => {
+        let route = LoginStore.isProvider() ? '/provider/currentProvider' : 'customer/currentCustomer'
+
+        axiosConfig().get(route).then(data => {
             runInAction(() => {
-                this.currentProvider = data.data;
+                this.currentUser = data.data;
                 this.requested = false
             })
         })

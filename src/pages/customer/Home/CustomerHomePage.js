@@ -1,16 +1,16 @@
 import {observer} from "mobx-react";
-import { useStore } from "../../../stores/RootStore";
+import {useStore} from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
 
 
-const ProviderHomePage = () => {
+const CustomerHomePage = () => {
     const { userStore } = useStore();
 
     // Get current user
-    let provider = userStore.getCurrentUser();
+    let customer = userStore.getCurrentUser();
 
     // Loading
-    if (provider === undefined) {
+    if (customer === undefined) {
         return (
             <CircularLoading />
         )
@@ -18,9 +18,9 @@ const ProviderHomePage = () => {
 
     return (
         <div>
-            Hi, {provider.firstName}
+            Hi, {customer.firstName}
         </div>
     )
 }
 
-export default observer(ProviderHomePage);
+export default observer(CustomerHomePage);
