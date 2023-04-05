@@ -49,5 +49,6 @@ window.env = {
   "npm_node_execpath": "/usr/local/bin/node",
   "npm_config_prefix": "/usr/local",
   "REACT_APP_NODE_ENV": "development",
-  "REACT_APP_BACKEND_URL": "http://localhost:5000/"
+  "REACT_APP_BACKEND_URL": "http://localhost:5000/",
+  "REACT_APP_GOOGLE_CLIENT_ID": "123901235961-p3jdjp7mlhjjnaalgdv2fpr8d623mvte.apps.googleusercontent.com"
 };

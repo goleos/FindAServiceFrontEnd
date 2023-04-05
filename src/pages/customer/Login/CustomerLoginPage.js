@@ -23,12 +23,13 @@ import {
     Page,
     StyledBox,
     StyledContainer,
-    Subtitle,
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
 import LoadingButton from "@mui/lab/LoadingButton";
 import LoginStoreInstance from "../../../stores/LoginStore";
+import { GoogleLogin } from '@react-oauth/google';
+import styled from "@emotion/styled";
 
 // Form validation schema
 const schema = yup.object({
@@ -88,6 +89,39 @@ const CustomerLoginPage = () => {
         togglePassword1(!showPassword1);
     };
 
+    // For Google authentication
+    const responseMessage = async (response) => {
+
+        console.log(response)
+
+        try {
+            const res = await axiosConfig().post("/customer/googleLogin", response);
+            if (res.data.status) {
+                LoginStoreInstance.login(res.data.token);
+                userStore.requestCurrentUser();
+                navigate('/customer/home?fromLogin');
+            } else {
+                setError('errorMessage', {
+                    type: 'manual',
+                    message: res.data.message
+                })
+            }
+        } catch (err) {
+            console.log(err)
+            setError('errorMessage', {
+                type: 'manual',
+                message: err.response ? err.response.data.message : "Error"
+            });
+        }
+    };
+    const errorMessage = (err) => {
+        console.log(err)
+        setError('errorMessage', {
+            type: 'manual',
+            message: err.response ? err.response.data.message : "Error"
+        });
+    };
+
     // Is the user coming after registration?
     let url = new URL(window.location.href);
     let fromRegister = url.searchParams.get('fromRegister');
@@ -99,8 +133,11 @@ const CustomerLoginPage = () => {
                 <StyledBox>
                     <TitleContainer>
                         <Title>Login</Title>
-                        <Subtitle>Enter your credentials below</Subtitle>
                     </TitleContainer>
+                    <SubtitleContainer>
+                        <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+                        <Subtitle><span>OR</span></Subtitle>
+                    </SubtitleContainer>
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             {...register('email')}
@@ -164,6 +201,29 @@ const CustomerLoginPage = () => {
         </Page>
     )
 }
+
+
+const SubtitleContainer = styled.div`
+  margin: 20px 0 0 0;
+  text-align: center;
+`
+
+
+const Subtitle = styled.div`
+  color: ${props => props.theme.palette.info.main};
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 35px 0 15px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid ${props => props.theme.palette.info.main};
+  line-height: 0.1em;
+
+  span {
+    background: #fff;
+    padding: 0 10px;
+  }
+`
 
 export default observer(CustomerLoginPage);
 
