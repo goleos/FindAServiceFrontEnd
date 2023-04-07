@@ -9,7 +9,8 @@ export const ROUTES = {
     customer: {
         login: '*',
         register: '/customer/register',
-        home: '/customer/home'
+        home: '/customer/home',
+        verify: '/customer/verify/:customerId/:token'
     },
     admin: {
         login: '/admin/login',

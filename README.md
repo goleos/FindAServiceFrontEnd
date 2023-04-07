@@ -17,6 +17,10 @@ npm start
 5.The server should automatically restart whenever you make changes to a file
 6. Check the server started by going to http://localhost:3000/
 
+## Attributions (to add in the footer later)
+<a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Roundicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Pixel perfect - Flaticon</a>
+
 ## Folder Structure
 
 ```

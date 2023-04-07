@@ -100,6 +100,7 @@ const ProviderLoginPage = () => {
                         <Title>Provider Login</Title>
                         <Subtitle>Enter your credentials below</Subtitle>
                     </TitleContainer>
+                    {fromRegister !== null && <Alert severity="success">Successful registration</Alert> }
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             {...register('email')}

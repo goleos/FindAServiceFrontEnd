@@ -9,7 +9,7 @@ window.env = {
   "TMPDIR": "/var/folders/_j/bxtkm_3965b8w97m4mjd8qgr0000gn/T/",
   "npm_config_global_prefix": "/usr/local",
   "COLOR": "1",
-  "TERM_SESSION_ID": "e7b2450d-cfb6-4f97-97d6-8e76fe29cb5b",
+  "TERM_SESSION_ID": "9f7694ce-1175-4846-a76d-0c23d855b48a",
   "npm_config_noproxy": "",
   "npm_config_registry": "http://registry.npmjs.org/",
   "npm_config_local_prefix": "/Users/cortana/UniDrive/OneDrive - University of Southampton/Y4-Master-SEM2/Web Dev/code/FindAServiceFrontEnd",
@@ -48,7 +48,7 @@ window.env = {
   "SECURITYSESSIONID": "186aa",
   "npm_node_execpath": "/usr/local/bin/node",
   "npm_config_prefix": "/usr/local",
-  "REACT_APP_NODE_ENV": "development",
-  "REACT_APP_BACKEND_URL": "http://localhost:5000/",
+  "REACT_APP_NODE_ENV": "production",
+  "REACT_APP_BACKEND_URL": "https://findaservicebackend.azurewebsites.net/",
   "REACT_APP_GOOGLE_CLIENT_ID": "123901235961-p3jdjp7mlhjjnaalgdv2fpr8d623mvte.apps.googleusercontent.com"
 };

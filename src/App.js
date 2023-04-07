@@ -10,6 +10,7 @@ import CustomerLoginPage from "./pages/customer/Login/CustomerLoginPage";
 import CustomerRegisterPage from "./pages/customer/Register/CustomerRegisterPage";
 import AppRoutes from "./pages/AppRoutes";
 import AdminLoginPage from "./pages/admin/Login/AdminLoginPage";
+import EmailVerificationPage from "./pages/customer/Login/EmailVerificationPage";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
             <Route path={ROUTES.customer.login} element={<CustomerLoginPage/>} />
             <Route path={ROUTES.customer.register} element={<CustomerRegisterPage />} />
             <Route path={ROUTES.admin.login} element={<AdminLoginPage/>} />
+            <Route path={ROUTES.customer.verify}
+                     element={<EmailVerificationPage/>} />
           </>
         }
       </Routes>

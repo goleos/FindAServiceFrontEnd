@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {NavLink, useNavigate } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,6 +25,7 @@ import {
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 // Form validation schema
 const registerSchema = yup.object({
@@ -49,26 +50,35 @@ const registerSchema = yup.object({
 const CustomerRegisterPage = () => {
 
     // For rerouting to Login Page
-    let navigate = useNavigate();
+    //let navigate = useNavigate();
 
     // Handling form submission
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
         resolver: yupResolver(registerSchema),
     });
 
+    const [registrationStatus, setRegistrationStatus] = useState(false);
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const onSubmit = async (data) => {
         if (!!errors) {
+            setIsSubmitting(true);
             try {
                 const res = await axiosConfig().post( "/customer/register", data);
                 if (res.data.status) {
-                    navigate('/customer/login?fromRegister');
+                    setRegistrationStatus(true)
+                    setIsSubmitting(false)
+                    // navigate('/customer/login?fromRegister');
                 } else {
+                    setIsSubmitting(false);
                     setError('errorMessage', {
                         type: 'manual',
                         message: res.data.message
                     })
                 }
             } catch (err) {
+                setIsSubmitting(false);
                 setError('errorMessage', {
                     type: 'manual',
                     message: err.response.data.message
@@ -97,6 +107,7 @@ const CustomerRegisterPage = () => {
                         <Title>Register</Title>
                         <Subtitle>Create a new account</Subtitle>
                     </TitleContainer>
+                    {registrationStatus && <Alert severity="success">An email was sent to your account please verify</Alert> }
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             {...register('firstName')}
@@ -191,7 +202,10 @@ const CustomerRegisterPage = () => {
                             </NavLink>
                         </LinkContainer>
                         <ButtonContainer>
-                            <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                            {isSubmitting
+                                ? <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
+                                : <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                            }
                         </ButtonContainer>
                     </FormContainer>
                 </StyledBox>

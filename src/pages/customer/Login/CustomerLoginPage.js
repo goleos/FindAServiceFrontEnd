@@ -122,10 +122,10 @@ const CustomerLoginPage = () => {
         });
     };
 
-    // Is the user coming after registration?
-    let url = new URL(window.location.href);
-    let fromRegister = url.searchParams.get('fromRegister');
-    console.log(fromRegister);
+    // // Is the user coming after registration?
+    // let url = new URL(window.location.href);
+    // let fromRegister = url.searchParams.get('fromRegister');
+    // console.log(fromRegister);
 
     return (
         <Page>

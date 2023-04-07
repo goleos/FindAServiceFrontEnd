@@ -1,5 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import jwt_decode from "jwt-decode";
+import axiosConfig from "../utils/helpers/axiosConfig";
 
 /**
  * Class for managing Login functionality
@@ -11,6 +12,8 @@ class LoginStore {
     provider = false;
 
     admin = false;
+
+    emailVerified = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -79,6 +82,16 @@ class LoginStore {
         return this.admin;
     }
 
+    isVerified(customerId, emailToken) {
+        this.verifyEmail(customerId, emailToken);
+        return this.emailVerified;
+    }
+
+    verifyEmail(customerId, emailToken) {
+        axiosConfig().get(`/customer/verify/${customerId}/${emailToken}`).then(data => {
+            this.emailVerified =  data.data.status
+        })
+    }
 
 }
 
