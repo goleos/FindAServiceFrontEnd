@@ -1,6 +1,7 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 import LoginStore from "./LoginStore";
+import {PROFILE_IMAGE} from "../utils/helpers/constants";
 
 /**
  * Class for managing current user state and information
@@ -28,6 +29,15 @@ export default class UserStore {
 
     // Request current user information from the backend
     requestCurrentUser() {
+        if (LoginStore.isAdmin()) {
+            this.currentUser = {
+                firstName: "Admin",
+                lastName: "",
+                profileImage: PROFILE_IMAGE
+            }
+            return
+        }
+
         if (!this.requested) {
             runInAction(() => {
                 this.requested = true;

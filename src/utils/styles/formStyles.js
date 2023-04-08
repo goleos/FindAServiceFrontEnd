@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import {border} from "./themeConfig";
 
 export const Page = styled.div`
   background-color: ${props => props.theme.palette.primary.light};
@@ -52,6 +54,18 @@ export const ButtonContainer = styled.div`
 export const LinkContainer = styled.div`
   color: ${props => props.theme.palette.info.main};
   font-size: 0.9rem;
+`
+
+export const StyledTextField = styled(TextField)`
+  background-color: ${props => props.theme.palette.info.light};
+  border-radius: ${border.borderRadius};
+  fieldset {
+    border-radius: ${border.borderRadius};
+  }
+  
+  input, textarea {
+    font-family: 'PoppinsRegular', sans-serif;
+  }
 `
 
 export const LinkSpan = styled.span`

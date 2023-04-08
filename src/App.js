@@ -8,9 +8,9 @@ import LoginStore from './stores/LoginStore';
 import {observer} from "mobx-react";
 import CustomerLoginPage from "./pages/customer/Login/CustomerLoginPage";
 import CustomerRegisterPage from "./pages/customer/Register/CustomerRegisterPage";
-import AppRoutes from "./pages/AppRoutes";
 import AdminLoginPage from "./pages/admin/Login/AdminLoginPage";
 import EmailVerificationPage from "./pages/customer/Login/EmailVerificationPage";
+import Dashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           // Route to Login and Register if user is not logged
           LoginStore.isAuth() ?
           <>
-            <Route path={ROUTES.home} element={<AppRoutes/>} />
+            <Route path={ROUTES.home} element={<Dashboard/>} />
           </>
           :
           <>

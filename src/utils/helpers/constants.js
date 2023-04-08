@@ -4,18 +4,24 @@ export const ROUTES = {
     provider: {
         login: '/provider/login',
         register: '/provider/register',
-        home: '/provider/home'
+        home: '/provider/home',
+        serviceRequests: '/provider/service-requests',
+        myServices: '/provider/my-services',
+        createService: '/provider/create-service'
     },
     customer: {
         login: '*',
         register: '/customer/register',
         home: '/customer/home',
-        verify: '/customer/verify/:customerId/:token'
+        verify: '/customer/verify/:customerId/:token',
+        myServiceRequests: '/customer/my-service-requests',
+        services: '/customer/services'
     },
     admin: {
         login: '/admin/login',
         register: '/admin/register',
-        home: '/admin/home'
+        home: '/admin/home',
+        newProviders: '/admin/new-providers'
     },
 }
 
@@ -40,3 +46,5 @@ export const device = {
     desktop: `(max-width: ${size.desktop})`,
     desktopL: `(max-width: ${size.desktop})`
 }
+
+export const PROFILE_IMAGE = "https://findaservice.blob.core.windows.net/app/user.png"

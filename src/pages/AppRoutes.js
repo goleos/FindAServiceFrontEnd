@@ -34,9 +34,6 @@ const AppRoutes = () => {
             </Routes>
         )
     }
-
-
-
 }
 
 export default observer(AppRoutes);
