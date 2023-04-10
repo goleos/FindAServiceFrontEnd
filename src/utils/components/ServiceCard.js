@@ -11,7 +11,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 const ServiceCard = () => {
   return (
-    <Card sx={{ width: "40%" }}>
+    <Card sx={{}}>
       <CardHeader
         title="Full apartment clean"
         subheader="Cleaning"
@@ -28,10 +28,16 @@ const ServiceCard = () => {
         sx={{ height: 140 }}
       />
       <CardContent>
+        {/* <Typography variant="h4" color="text.primary">
+          Full apartment clean
+        </Typography> */}
         <Typography variant="body2" color="text.secondary">
           A deep clean of all rooms in your apartment
         </Typography>
       </CardContent>
+      <CardActions>
+        <Button variant="contained">Request</Button>
+      </CardActions>
     </Card>
   );
 };
