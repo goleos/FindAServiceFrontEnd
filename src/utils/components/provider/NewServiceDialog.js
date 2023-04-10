@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Fab,
   FormControl,
   FormLabel,
   InputAdornment,
@@ -53,13 +54,22 @@ const NewServiceDialog = () => {
 
   return (
     <>
-      <Button
-        variant="contained"
+      <Fab
         onClick={handleOpenDialog}
-        startIcon={<AddIcon />}
+        color="primary"
+        variant="extended"
+        size="large"
+        sx={{
+          width: 170,
+          height: 50,
+          position: "fixed",
+          bottom: 40,
+          right: 30,
+        }}
       >
-        Add New Service
-      </Button>
+        <AddIcon sx={{ mr: 1 }} />
+        New Service
+      </Fab>
       <Snackbar
         open={successAlertOpen}
         autoHideDuration={7000}
