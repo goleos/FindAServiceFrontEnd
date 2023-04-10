@@ -39,7 +39,9 @@ const ServicesStack = () => {
 
   const sampleServiceCards = sampleData.map((serviceCard) => (
     <Grid
-      xs={6}
+      xs={12}
+      sm={12}
+      md={6}
       sx={{
         paddingLeft: 2,
         paddingRight: 1,
@@ -67,14 +69,14 @@ const ServicesStack = () => {
         padding: 1,
         overflow: "scroll",
         scrollbarWidth: "none",
-        maxHeight: "80vh",
+        maxHeight: "90vh",
       }}
     >
       <Grid
         container
         spacing={{ xs: 1, md: 2 }}
         rowSpacing={1}
-        columnSpacing={{ xs: 1, sm: 2, md: 2 }}
+        columnSpacing={{ xs: 1, sm: 1, md: 2 }}
       >
         {/* TODO: Fix rendering using native Grid rendering */}
         {sampleServiceCards}
