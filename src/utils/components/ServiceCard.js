@@ -6,11 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { CardActionArea, CardHeader, IconButton, Stack } from "@mui/material";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import { CardActionArea, Stack } from "@mui/material";
 import ProfileCard from "./user/ProfileCard";
 import Divider from "@mui/material/Divider";
-import { AlignHorizontalCenter, Padding } from "@mui/icons-material";
 
 const ServiceCard = (props) => {
   return (
