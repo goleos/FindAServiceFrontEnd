@@ -23,32 +23,32 @@ const ServiceCard = (props) => {
             alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <div>
+            <Stack spacing={1}>
               <Typography variant="h5" color="text.primary">
                 {props.title}
               </Typography>
               <ProfileCard />
-            </div>
-            <div>
+            </Stack>
+            <Stack>
               <Typography variant="h5" color="text.primary">
                 £{props.price}
               </Typography>
-            </div>
+            </Stack>
           </Stack>
           <Divider />
           <Typography variant="body2" color="text.secondary">
             {props.description}
           </Typography>
         </CardContent>
-        <CardActions sx={{ justifyContent: "flex-end" }}>
-          {props.perspective === "provider" && (
-            <Button variant="outlined">Manage</Button>
-          )}
-          {props.perspective === "customer" && (
-            <Button variant="contained">Request</Button>
-          )}
-        </CardActions>
       </CardActionArea>
+      <CardActions sx={{ justifyContent: "flex-end" }}>
+        {props.perspective === "provider" && (
+          <Button variant="outlined">Manage</Button>
+        )}
+        {props.perspective === "customer" && (
+          <Button variant="contained">Request</Button>
+        )}
+      </CardActions>
     </Card>
   );
 };
