@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { useStore } from "../../../stores/RootStore";
+// import { useStore } from "../../../stores/RootStore";
 import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
 import ServicesStack from "../../../utils/components/ServicesStack";
 /* Documentation used:
@@ -9,10 +9,10 @@ https://mui.com/material-ui/react-select/
 */
 
 const ProviderMyServicesPage = () => {
-  const { userStore } = useStore();
+  // const { userStore } = useStore();
 
   // Get current user
-  let provider = userStore.getCurrentUser();
+  // let provider = userStore.getCurrentUser();
 
   return (
     <>

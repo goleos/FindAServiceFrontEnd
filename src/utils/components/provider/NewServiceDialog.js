@@ -2,21 +2,19 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import {
+  Alert,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
   FormControl,
-  FormControlLabel,
-  FormGroup,
   FormLabel,
-  IconButton,
   InputAdornment,
   InputLabel,
   Select,
+  Snackbar,
   TextField,
-  ToggleButtonGroup,
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -24,13 +22,15 @@ import Chip from "@mui/material/Chip";
 import { FormContainer } from "../../../utils/styles/formStyles";
 import { PhotoCamera } from "@mui/icons-material";
 
-/* Documentation pages used:
+/* mui documentation pages used:
 https://mui.com/material-ui/api/form-control/
 https://mui.com/material-ui/react-dialog/
 https://mui.com/material-ui/react-select/
+https://mui.com/material-ui/react-snackbar/#customization
 */
 const NewServiceDialog = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
   const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
 
@@ -42,6 +42,15 @@ const NewServiceDialog = () => {
     setDialogOpen(false);
   };
 
+  const handleSubmit = () => {
+    setDialogOpen(false);
+    setSuccessAlertOpen(true);
+  };
+
+  const handleCloseSuccessAlert = (event) => {
+    setSuccessAlertOpen(false);
+  };
+
   return (
     <>
       <Button
@@ -51,6 +60,15 @@ const NewServiceDialog = () => {
       >
         Add New Service
       </Button>
+      <Snackbar
+        open={successAlertOpen}
+        autoHideDuration={7000}
+        onClose={handleCloseSuccessAlert}
+      >
+        <Alert severity="success">
+          New service successfully created and submitted for approval
+        </Alert>
+      </Snackbar>
       <Dialog open={dialogOpen}>
         <DialogTitle>Add a new service</DialogTitle>
         <DialogContent>
@@ -147,7 +165,9 @@ const NewServiceDialog = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancel</Button>
-          <Button variant="contained">Submit for approval</Button>
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit for approval
+          </Button>
         </DialogActions>
       </Dialog>
     </>
