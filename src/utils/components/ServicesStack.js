@@ -7,6 +7,57 @@ import Box from "@mui/system/Box";
 import ServiceCard from "./ServiceCard";
 
 const ServicesStack = () => {
+  const sampleData = [
+    {
+      id: 1,
+      image:
+        "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg",
+      title: "Cleaning of your entire apartment",
+      price: "120.99",
+      description: "A deep clean of all rooms in your apartment",
+      perspective: "provider",
+    },
+    {
+      id: 2,
+      image:
+        "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg",
+      title: "Cleaning of your entire apartment",
+      price: "120.99",
+      description: "A deep clean of all rooms in your apartment",
+      perspective: "provider",
+    },
+    {
+      id: 3,
+      image:
+        "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg",
+      title: "Cleaning of your entire apartment",
+      price: "120.99",
+      description: "A deep clean of all rooms in your apartment",
+      perspective: "provider",
+    },
+  ];
+
+  const sampleServiceCards = sampleData.map((serviceCard) => (
+    <Grid
+      xs={6}
+      sx={{
+        paddingLeft: 2,
+        paddingRight: 1,
+        paddingTop: 2,
+        paddingBottom: 2,
+      }}
+    >
+      <ServiceCard
+        key={serviceCard.id}
+        image={serviceCard.image}
+        title={serviceCard.title}
+        price={serviceCard.price}
+        description={serviceCard.description}
+        perspective={serviceCard.perspective}
+      />
+    </Grid>
+  ));
+
   return (
     <Box
       sx={{
@@ -25,72 +76,8 @@ const ServicesStack = () => {
         rowSpacing={1}
         columnSpacing={{ xs: 1, sm: 2, md: 2 }}
       >
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>{" "}
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>{" "}
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>{" "}
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>{" "}
-        <Grid
-          xs={6}
-          sx={{
-            paddingLeft: 2,
-            paddingRight: 1,
-            paddingTop: 2,
-            paddingBottom: 2,
-          }}
-        >
-          <ServiceCard />
-        </Grid>
+        {/* TODO: Fix rendering using native Grid rendering */}
+        {sampleServiceCards}
       </Grid>
     </Box>
   );
