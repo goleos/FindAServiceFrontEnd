@@ -1,7 +1,11 @@
 import { observer } from "mobx-react";
 import { useStore } from "../../../stores/RootStore";
-import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
+import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
+/* Documentation used:
+https://mui.com/material-ui/api/form-control/
+https://mui.com/material-ui/react-dialog/
+https://mui.com/material-ui/react-select/
+*/
 
 const ProviderMyServicesPage = () => {
   const { userStore } = useStore();
@@ -12,9 +16,7 @@ const ProviderMyServicesPage = () => {
   return (
     <>
       <div>My services Page</div>
-      <Button variant="contained" startIcon={<AddIcon />} Add New Service>
-        Add New Service
-      </Button>
+      <NewServiceDialog />
     </>
   );
 };
