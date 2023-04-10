@@ -12,15 +12,11 @@ import ProfileCard from "./user/ProfileCard";
 import Divider from "@mui/material/Divider";
 import { AlignHorizontalCenter, Padding } from "@mui/icons-material";
 
-const ServiceCard = () => {
+const ServiceCard = (props) => {
   return (
-    <Card sx={{}}>
+    <Card sx={{ borderRadius: 3 }}>
       <CardActionArea>
-        <CardMedia
-          image="https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
-          title="Hi"
-          sx={{ height: 140 }}
-        />
+        <CardMedia image={props.image} sx={{ height: 140 }} />
         <CardContent>
           <Stack
             direction={"row"}
@@ -29,24 +25,28 @@ const ServiceCard = () => {
           >
             <div>
               <Typography variant="h5" color="text.primary">
-                Cleaning of your entire apartment
+                {props.title}
               </Typography>
               <ProfileCard />
             </div>
             <div>
               <Typography variant="h5" color="text.primary">
-                £120.99
+                £{props.price}
               </Typography>
             </div>
           </Stack>
           <Divider />
           <Typography variant="body2" color="text.secondary">
-            A deep clean of all rooms in your apartment
+            {props.description}
           </Typography>
         </CardContent>
         <CardActions sx={{ justifyContent: "flex-end" }}>
-          <Button variant="outlined">Edit</Button>
-          <Button variant="contained">Request</Button>
+          {props.perspective === "provider" && (
+            <Button variant="outlined">Manage</Button>
+          )}
+          {props.perspective === "customer" && (
+            <Button variant="contained">Request</Button>
+          )}
         </CardActions>
       </CardActionArea>
     </Card>
