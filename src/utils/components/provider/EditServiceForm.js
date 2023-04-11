@@ -19,6 +19,7 @@ import {
 } from "../../../utils/styles/formStyles";
 import { PhotoCamera } from "@mui/icons-material";
 import Button from "@mui/material/Button";
+import UploadPhotosGrid from "../UploadPhotosGrid";
 
 const EditServiceForm = () => {
   const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
@@ -121,22 +122,7 @@ const EditServiceForm = () => {
             </FormControl>
           </Grid>
           <Grid item xs={12}>
-            <FormControl>
-              <FormLabel>Upload Photos</FormLabel>
-              {/* <IconButton>
-                <input accept="image/*" type="file" />
-                <PhotoCamera />
-              </IconButton> */}
-              <Button
-                variant="contained"
-                // TODO: Explain why component prop is used
-                component="label"
-                startIcon={<PhotoCamera />}
-              >
-                Choose Photos
-                <input hidden accept="image/*" multiple type="file" />
-              </Button>
-            </FormControl>
+            <UploadPhotosGrid />
           </Grid>
         </Grid>
       </FormContainer>
