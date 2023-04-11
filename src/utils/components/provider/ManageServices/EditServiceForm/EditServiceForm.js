@@ -1,7 +1,6 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import {
   FormControl,
-  FormLabel,
   InputAdornment,
   InputLabel,
   Select,
@@ -14,12 +13,9 @@ import {
   FormContainer,
   Title,
   TitleContainer,
-  Subtitle,
-  StyledTextField,
-} from "../../../utils/styles/formStyles";
-import { PhotoCamera } from "@mui/icons-material";
-import Button from "@mui/material/Button";
-import UploadPhotosGrid from "../UploadPhotosGrid";
+} from "../../../../styles/formStyles";
+import UploadPhotosGrid from "../../../UploadPhotosGrid";
+import ServiceCategorySelect from "../../../services/ServiceCategorySelect";
 
 const EditServiceForm = () => {
   const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
@@ -47,13 +43,7 @@ const EditServiceForm = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              id="serviceCategory"
-              label="Category"
-              type="text"
-              fullWidth
-              required
-            />
+            <ServiceCategorySelect />
           </Grid>
           <Grid item xs={12}>
             <TextField

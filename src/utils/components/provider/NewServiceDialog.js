@@ -1,28 +1,9 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import {
-  Alert,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Fab,
-  FormControl,
-  FormLabel,
-  InputAdornment,
-  InputLabel,
-  Select,
-  Snackbar,
-  TextField,
-} from "@mui/material";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Chip from "@mui/material/Chip";
-import { FormContainer } from "../../../utils/styles/formStyles";
-import { PhotoCamera } from "@mui/icons-material";
-import EditServiceForm from "./EditServiceForm";
+import { Dialog, DialogActions, DialogContent, Fab } from "@mui/material";
+import EditServiceForm from "./ManageServices/EditServiceForm/EditServiceForm";
+import { Snackbar, Alert } from "@mui/material";
 
 /* mui documentation pages used:
 https://mui.com/material-ui/api/form-control/
@@ -69,7 +50,7 @@ const NewServiceDialog = () => {
         <AddIcon sx={{ mr: 1 }} />
         New Service
       </Fab>
-      {/* <Snackbar
+      <Snackbar
         open={successAlertOpen}
         autoHideDuration={7000}
         onClose={handleCloseSuccessAlert}
@@ -77,7 +58,7 @@ const NewServiceDialog = () => {
         <Alert severity="success">
           New service successfully created and submitted for approval
         </Alert>
-      </Snackbar> */}
+      </Snackbar>
       <Dialog open={dialogOpen} maxWidth={false} fullWidth>
         {/* <DialogTitle>Add a new service</DialogTitle> */}
         <DialogContent>

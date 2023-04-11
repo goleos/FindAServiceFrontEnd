@@ -2,10 +2,10 @@
 https://mui.com/material-ui/react-image-list/
 */
 
-import { ImageList, ImageListItem } from "@mui/material";
+import { ImageList } from "@mui/material";
 
 const UploadedImageList = () => {
-  return <ImageList></ImageList>;
+  return <ImageList>Photos</ImageList>;
 };
 
 export default UploadedImageList;

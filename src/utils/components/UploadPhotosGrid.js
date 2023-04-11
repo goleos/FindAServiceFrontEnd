@@ -1,8 +1,7 @@
-import { FormControl, Grid, ImageList } from "@mui/material";
+import { FormControl } from "@mui/material";
 import { PhotoCamera } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import { FormLabel } from "@mui/material";
-import { Fab } from "@mui/material";
 import UploadedImageList from "./UploadedImageList";
 
 const UploadPhotosGrid = () => {
