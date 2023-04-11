@@ -20,7 +20,7 @@ import { useStore } from "../../../stores/RootStore";
 import {
     ButtonContainer, FormContainer,
     LinkContainer, LinkSpan,
-    Page,
+    FormPage,
     StyledBox,
     StyledContainer,
     Subtitle,
@@ -93,7 +93,7 @@ const ProviderLoginPage = () => {
     console.log(fromRegister);
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
@@ -161,7 +161,7 @@ const ProviderLoginPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
     )
 }
 

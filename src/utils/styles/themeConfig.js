@@ -18,6 +18,14 @@ export const theme = createTheme({
             light: '#ffffff',
             main: '#9094a3'
         },
+        success: {
+            main: '#66bb6a',
+            light: '#ffffff'
+        },
+        error: {
+            main: '#f44336',
+            light: '#ffffff'
+        },
         warning: {
             main:  'rgba(255, 255, 255, 0.5)'
         }

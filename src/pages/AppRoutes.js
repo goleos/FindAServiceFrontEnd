@@ -5,6 +5,7 @@ import {ROUTES} from "../utils/helpers/constants";
 import ProviderHomePage from "./provider/Home/ProviderHomePage";
 import AdminHomePage from "./admin/Home/AdminHomePage";
 import CustomerHomePage from "./customer/Home/CustomerHomePage";
+import ProviderProfile from "./provider/Profile/ProviderProfilePage";
 
 
 const AppRoutes = () => {
@@ -12,28 +13,36 @@ const AppRoutes = () => {
     let provider = LoginStore.isProvider();
     let admin = LoginStore.isAdmin();
 
+    let routeNodes = []
+
+    // Routes available for all
+    routeNodes.push(
+        <Route path={ROUTES.provider.profile}
+               element={<ProviderProfile/>} />
+    )
+
     if (provider) {
-        return (
-            <Routes>
-                <Route path={ROUTES.provider.home}
-                       element={<ProviderHomePage/>} />
-            </Routes>
+        routeNodes.push(
+            <Route path={ROUTES.provider.home}
+                   element={<ProviderHomePage/>} />
         )
     } else if (admin) {
-        return (
-            <Routes>
-                <Route path={ROUTES.admin.home}
-                       element={<AdminHomePage/>} />
-            </Routes>
+        routeNodes.push(
+            <Route path={ROUTES.admin.home}
+                   element={<AdminHomePage/>} />
         )
     } else {
-        return (
-            <Routes>
-                <Route path={ROUTES.customer.home}
-                       element={<CustomerHomePage/>} />
-            </Routes>
+        routeNodes.push(
+            <Route path={ROUTES.customer.home}
+                   element={<CustomerHomePage/>} />
         )
     }
+
+    return (
+        <Routes>
+            {routeNodes}
+        </Routes>
+    )
 }
 
 export default observer(AppRoutes);

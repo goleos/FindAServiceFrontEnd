@@ -19,7 +19,7 @@ import { observer } from "mobx-react";
 import {
     ButtonContainer,
     FormContainer,
-    Page,
+    FormPage,
     StyledBox,
     StyledContainer,
     Title,
@@ -89,7 +89,7 @@ const AdminLoginPage = () => {
     console.log(fromRegister);
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
@@ -143,7 +143,7 @@ const AdminLoginPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
     )
 }
 

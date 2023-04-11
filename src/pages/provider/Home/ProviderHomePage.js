@@ -1,6 +1,8 @@
 import {observer} from "mobx-react";
 import { useStore } from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
+import {Page} from "../../../utils/styles/pageStyles";
+import ApprovalPending from "../ApprovalPending";
 
 
 const ProviderHomePage = () => {
@@ -16,10 +18,17 @@ const ProviderHomePage = () => {
         )
     }
 
+    // Unapproved Providers
+    if (!provider.isApproved) {
+        return (
+            <ApprovalPending />
+        )
+    }
+
     return (
-        <div>
+        <Page>
             Hi, {provider.firstName}
-        </div>
+        </Page>
     )
 }
 

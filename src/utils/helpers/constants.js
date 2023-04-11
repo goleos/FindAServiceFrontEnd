@@ -7,7 +7,8 @@ export const ROUTES = {
         home: '/provider/home',
         serviceRequests: '/provider/service-requests',
         myServices: '/provider/my-services',
-        createService: '/provider/create-service'
+        createService: '/provider/create-service',
+        profile: '/provider/profile/:providerId'
     },
     customer: {
         login: '*',

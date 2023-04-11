@@ -18,7 +18,7 @@ import Alert from "@mui/material/Alert";
 import {
     ButtonContainer, FormContainer,
     LinkContainer, LinkSpan,
-    Page,
+    FormPage,
     StyledBox,
     StyledContainer,
     Subtitle,
@@ -100,7 +100,7 @@ const CustomerRegisterPage = () => {
     };
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
@@ -210,7 +210,7 @@ const CustomerRegisterPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
     )
 }
 
