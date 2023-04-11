@@ -16,19 +16,23 @@ const ServiceCard = (props) => {
       <CardActionArea>
         <CardMedia image={props.image} sx={{ height: 140 }} />
         <CardContent>
+          <Typography variant="h5" color="text.primary">
+            {props.title}
+          </Typography>
           <Stack
             direction={"row"}
-            alignItems={"center"}
+            alignItems={"start"}
             justifyContent={"space-between"}
           >
             <Stack spacing={1}>
-              <Typography variant="h5" color="text.primary">
-                {props.title}
-              </Typography>
               <ProfileCard />
             </Stack>
             <Stack>
-              <Typography variant="h5" color="text.primary">
+              <Typography
+                variant="h6"
+                color="text.primary"
+                sx={{ fontSize: 20 }}
+              >
                 £{props.price}
               </Typography>
             </Stack>
