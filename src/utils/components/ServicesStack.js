@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 import Box from "@mui/system/Box";
 import ServiceCard from "./ServiceCard";
 
-const ServicesStack = () => {
+const ServicesStack = (props) => {
   const sampleData = [
     {
       id: 1,
@@ -37,7 +37,7 @@ const ServicesStack = () => {
     },
   ];
 
-  const sampleServiceCards = sampleData.map((serviceCard) => (
+  const sampleServiceCards = props.services.map((service) => (
     <Grid
       xs={12}
       sm={12}
@@ -50,12 +50,14 @@ const ServicesStack = () => {
       }}
     >
       <ServiceCard
-        key={serviceCard.id}
-        image={serviceCard.image}
-        title={serviceCard.title}
-        price={serviceCard.price}
-        description={serviceCard.description}
-        perspective={serviceCard.perspective}
+        key={service.id}
+        image={
+          "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
+        }
+        title={service.title}
+        price={service.price}
+        description={service.description}
+        perspective={"provider"}
       />
     </Grid>
   ));
