@@ -1,7 +1,6 @@
 import { createContext, useContext } from "react";
 import UserStore from "./UserStore";
 import AdminStore from "./AdminStore";
-import ProviderProfileStore from "./ProviderProfileStore";
 
 /**
  * Initializing all the stores used for managing app state

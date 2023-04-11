@@ -3,8 +3,15 @@
  */
 
 import { createTheme } from "@mui/material/styles"
+import PoppinsFont from "../fonts/Poppins/Poppins-Regular.ttf"
 
 export const theme = createTheme({
+    typography: {
+        fontFamily: [
+            PoppinsFont,
+            'sans-serif'
+        ].join(','),
+    },
     palette: {
         primary: {
             light: '#f4f8f8',
@@ -19,11 +26,11 @@ export const theme = createTheme({
             main: '#9094a3'
         },
         success: {
-            main: '#66bb6a',
+            main: '#26A96C',
             light: '#ffffff'
         },
         error: {
-            main: '#f44336',
+            main: '#C5283D',
             light: '#ffffff'
         },
         warning: {

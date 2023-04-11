@@ -62,6 +62,8 @@ export const StyledTextField = styled(TextField)`
   fieldset {
     border-radius: ${border.borderRadius};
   }
+  width: 100%;
+  
   
   input, textarea {
     font-family: 'PoppinsRegular', sans-serif;

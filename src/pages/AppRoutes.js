@@ -18,23 +18,23 @@ const AppRoutes = () => {
     // Routes available for all
     routeNodes.push(
         <Route path={ROUTES.provider.profile}
-               element={<ProviderProfile/>} />
+               element={<ProviderProfile/>} key={0}/>
     )
 
     if (provider) {
         routeNodes.push(
             <Route path={ROUTES.provider.home}
-                   element={<ProviderHomePage/>} />
+                   element={<ProviderHomePage/>} key={1}/>
         )
     } else if (admin) {
         routeNodes.push(
             <Route path={ROUTES.admin.home}
-                   element={<AdminHomePage/>} />
+                   element={<AdminHomePage/>} key={1}/>
         )
     } else {
         routeNodes.push(
             <Route path={ROUTES.customer.home}
-                   element={<CustomerHomePage/>} />
+                   element={<CustomerHomePage/>} key={1}/>
         )
     }
 

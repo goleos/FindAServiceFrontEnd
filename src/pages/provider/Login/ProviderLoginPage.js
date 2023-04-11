@@ -96,11 +96,11 @@ const ProviderLoginPage = () => {
         <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
+                    {fromRegister !== null && <Alert severity="success">Successful registration</Alert> }
                     <TitleContainer>
                         <Title>Provider Login</Title>
                         <Subtitle>Enter your credentials below</Subtitle>
                     </TitleContainer>
-                    {fromRegister !== null && <Alert severity="success">Successful registration</Alert> }
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             {...register('email')}

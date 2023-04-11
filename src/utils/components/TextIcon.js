@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {device} from "../helpers/constants";
 
 /**
  * User profile image
@@ -33,6 +34,12 @@ const Container = styled.div`
   gap: 5px;
   color: ${props => props.color};
   width: 150px;
+
+  @media only screen and ${device.tablet} {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 

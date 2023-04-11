@@ -7,23 +7,69 @@ import {
     TimelineConnector,
     TimelineContent,
     TimelineDot,
-    TimelineItem, TimelineOppositeContent, timelineOppositeContentClasses,
+    TimelineItem, TimelineOppositeContent,
     TimelineSeparator
 } from "@mui/lab";
 import {faCheckCircle, faHourglass} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, {useState} from "react";
 import formatDate from "../../../../utils/helpers/formatDate";
+import Button from "@mui/material/Button";
+import {ButtonContainer, StyledTextField} from "../../../../utils/styles/formStyles";
+import * as yup from "yup";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import axiosConfig from "../../../../utils/helpers/axiosConfig";
+import {useNavigate} from "react-router-dom";
+import {ROUTES} from "../../../../utils/helpers/constants";
+import LoadingButton from "@mui/lab/LoadingButton";
 
+// Form validation schema
+const schema = yup.object({
+    reason: yup.string()
+        .required('Reason is required')
+        .trim()
+});
 
 const ProfileUpdates = (props) => {
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
+
+    // Handling form submission
+    const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
+        resolver: yupResolver(schema),
+    });
+
     const profileUpdates = props.store.getProfileUpdates();
+    const provider = props.store.getProvider();
+
+    // Save button event
+    const onSubmit = async (data) => {
+        setIsSubmitting(true);
+        try {
+            await axiosConfig().post( `/profile_update/${provider.id}`, data);
+            navigate(ROUTES.admin.home)
+        } catch (err) {
+            setIsSubmitting(false);
+            setError('errorMessage', {
+                type: 'manual',
+                message: err.response.data.message
+            });
+        }
+    }
+
 
     // Loading
     if (profileUpdates === undefined) {
         return (
             <CircularLoading />
+        )
+    }
+
+    if (provider === null) {
+        return (
+            <></>
         )
     }
 
@@ -55,16 +101,41 @@ const ProfileUpdates = (props) => {
 
     return (
         <Container>
-            <SectionTitle>Update History</SectionTitle>
-            <Timeline
-                sx={{
-                    [`& .${timelineOppositeContentClasses.root}`]: {
-                        flex: 0.2,
-                    },
-                }}
-            >
-                {updateNodes}
-            </Timeline>
+            <UpdateHistoryContainer>
+                <SectionTitle>Update History</SectionTitle>
+                {updateNodes.length >= 1 ?
+                    <Timeline>
+                        {updateNodes}
+                    </Timeline>
+                    :
+                    <p>No updates were requested</p>
+                }
+            </UpdateHistoryContainer>
+            {!provider.isApproved &&
+                <>
+                    <SectionTitle>Request Update</SectionTitle>
+                    <FormContainer onSubmit={handleSubmit(onSubmit)}>
+                        <StyledTextField
+                            {...register('reason')}
+                            id="description"
+                            label="Reason"
+                            variant="outlined"
+                            multiline
+                            rows={7}
+                            error={!!errors.description}
+                            helperText={errors.description ? errors.description.message : ''}
+                        />
+                        {isSubmitting ?
+                            <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
+                            :
+                            <ButtonContainer>
+                                <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                            </ButtonContainer>
+                        }
+
+                    </FormContainer>
+                </>
+            }
         </Container>
     )
 }
@@ -77,9 +148,15 @@ const Container = styled.div`
   gap: 20px;
   border-radius: ${border.borderRadius};
   background-color: ${props => props.theme.palette.info.light};
-  padding: 10px 20px;
+  padding: 10px 20px 5px 20px;
 `
 
 const SectionTitle = styled.h3`
+`
+const FormContainer = styled.form`
+    padding-bottom: 20px;
+`
+
+const UpdateHistoryContainer = styled.div`
 `
 

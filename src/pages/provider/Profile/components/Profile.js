@@ -16,6 +16,12 @@ const Profile = (props) => {
         )
     }
 
+    if (provider === null) {
+        return (
+            <p>Provider no longer available</p>
+        )
+    }
+
     return (
         <Container>
             <ProfileDetails provider={provider}/>
