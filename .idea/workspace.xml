@@ -3,15 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/Home/AdminHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Home/AdminHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/Home/ProviderTile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Home/ProviderTile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menu/DesktopMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menu/DesktopMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menu/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menu/MenuItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/ProviderProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/ProviderProfilePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileUpdates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileUpdates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/RootStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/RootStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/AdminStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/AdminStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ProviderProfileStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ProviderProfileStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/components/TextIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/TextIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/formStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/formStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/themeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/themeConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

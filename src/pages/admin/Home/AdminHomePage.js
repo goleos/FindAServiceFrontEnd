@@ -7,7 +7,11 @@ import ProviderTile from "./ProviderTile";
 import {Title} from "../../../utils/components/Title";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
 
-
+/**
+ * List of unapproved providers
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const AdminHomePage = () => {
 
     const { adminStore } = useStore();
@@ -20,7 +24,7 @@ const AdminHomePage = () => {
         )
     }
 
-    // Create book nodes
+    // Create provider tiles
     let providerNodes = [];
 
     unApprovedProviders.forEach((elem, index) => {

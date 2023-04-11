@@ -44,7 +44,7 @@ const ProfileUpdates = (props) => {
     const profileUpdates = props.store.getProfileUpdates();
     const provider = props.store.getProvider();
 
-    // Save button event
+    // Sent update request
     const onSubmit = async (data) => {
         setIsSubmitting(true);
         try {
@@ -67,6 +67,7 @@ const ProfileUpdates = (props) => {
         )
     }
 
+    // If provider was deleted
     if (provider === null) {
         return (
             <></>

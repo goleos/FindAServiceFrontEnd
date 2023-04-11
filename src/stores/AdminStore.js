@@ -2,7 +2,7 @@ import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
 /**
- * Class for managing current user state and information
+ * Class for managing admin actions
  */
 export default class AdminStore {
 
@@ -12,7 +12,7 @@ export default class AdminStore {
         makeAutoObservable(this);
     }
 
-    // Get current user information
+    // Get unapproved providers
     getUnapprovedProviders() {
         if (this.unapprovedProviders === undefined) {
             this.requestUnapprovedProviders();
@@ -23,7 +23,7 @@ export default class AdminStore {
         }
     }
 
-    // Request current user information from the backend
+    // Request unapproved providers from backend
     requestUnapprovedProviders() {
         if (!this.requested) {
             runInAction(() => {

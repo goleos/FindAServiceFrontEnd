@@ -4,7 +4,12 @@ import ProfileDetails from "./ProfileDetails";
 import styled from "@emotion/styled";
 import {border} from "../../../../utils/styles/themeConfig";
 
-
+/**
+ * Component that displays all profile information
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Profile = (props) => {
 
     const provider = props.store.getProvider();

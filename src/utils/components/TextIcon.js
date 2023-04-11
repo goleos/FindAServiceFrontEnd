@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {device} from "../helpers/constants";
 
 /**
- * User profile image
+ * Any text with an icon next to it
  * @param props
  * @constructor
  */

@@ -8,7 +8,7 @@ import {useTheme} from "@mui/material";
 import {TextIcon} from "../../../utils/components/TextIcon";
 
 /**
- * User name and image
+ * Provider tile in the list of unapproved providers
  * @param props
  * @constructor
  */

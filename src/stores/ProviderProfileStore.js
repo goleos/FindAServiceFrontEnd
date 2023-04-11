@@ -2,7 +2,7 @@ import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
 /**
- * Class for managing current user state and information
+ * Class for managing the profile of a provider
  */
 export default class ProviderProfileStore {
 
@@ -17,7 +17,7 @@ export default class ProviderProfileStore {
         this.providerId = id
     }
 
-    // Get current user information
+    // Get provider information
     getProvider() {
         if (this.provider === undefined) {
             this.requestProvider();
@@ -28,7 +28,7 @@ export default class ProviderProfileStore {
         }
     }
 
-    // Request current user information from the backend
+    // Request provider information from the backend
     requestProvider() {
         if (!this.requested) {
             runInAction(() => {
@@ -46,7 +46,7 @@ export default class ProviderProfileStore {
         })
     }
 
-    // Get current user information
+    // Get provider profile updates
     getProfileUpdates() {
         if (this.profileUpdates === undefined) {
             this.requestProfileUpdates();
@@ -57,7 +57,7 @@ export default class ProviderProfileStore {
         }
     }
 
-    // Request current user information from the backend
+    // Request provider profile updates from the backend
     requestProfileUpdates() {
         if (!this.requested) {
             runInAction(() => {

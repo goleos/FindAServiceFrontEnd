@@ -14,8 +14,6 @@ import {useNavigate} from "react-router-dom";
 import {useStore} from "../../../../stores/RootStore";
 import LoginStore from "../../../../stores/LoginStore";
 
-
-
 const ProfileDetails = (props) => {
 
     const { adminStore } = useStore();

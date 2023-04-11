@@ -7,7 +7,11 @@ import LoginStore from "../../../stores/LoginStore";
 import ProfileUpdates from "./components/ProfileUpdates";
 import styled from "@emotion/styled";
 
-
+/**
+ * Profile page of a provider
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProviderProfilePage = () => {
 
     let params = useParams();

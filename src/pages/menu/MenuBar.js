@@ -15,7 +15,7 @@ import MenuItem from "./MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {device, ROUTES} from "../../utils/helpers/constants";
 
-
+// Contents of the menu
 const MenuBar = () => {
 
     let provider = LoginStore.isProvider();
