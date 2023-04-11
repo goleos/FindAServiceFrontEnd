@@ -2,28 +2,31 @@
  * Light and dark theme color palettes
  */
 
-import { createTheme } from "@mui/material/styles"
+import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
-    palette: {
-        primary: {
-            light: '#f4f8f8',
-            main: '#083D77',
-        },
-        secondary: {
-            main: '#00BBF9',
-            dark: '#000'
-        },
-        info: {
-            light: '#ffffff',
-            main: '#9094a3'
-        },
-        warning: {
-            main:  'rgba(255, 255, 255, 0.5)'
-        }
-    }
+  palette: {
+    primary: {
+      light: "#f4f8f8",
+      main: "#083D77",
+    },
+    secondary: {
+      main: "#00BBF9",
+      dark: "#000",
+    },
+    info: {
+      light: "#ffffff",
+      main: "#9094a3",
+    },
+    warning: {
+      main: "rgba(255, 255, 255, 0.5)",
+    },
+    delete: {
+      main: "#d50000",
+    },
+  },
 });
 
 export const border = {
-    borderRadius: "10px"
-}
+  borderRadius: "10px",
+};

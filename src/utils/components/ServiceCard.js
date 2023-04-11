@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { CardActionArea, Stack } from "@mui/material";
+import { CardActionArea, Chip, Stack } from "@mui/material";
 import ProfileCard from "./user/ProfileCard";
 import Divider from "@mui/material/Divider";
 
@@ -16,9 +16,21 @@ const ServiceCard = (props) => {
       <CardActionArea>
         <CardMedia image={props.image} sx={{ height: 140 }} />
         <CardContent>
-          <Typography variant="h5" color="text.primary">
-            {props.title}
-          </Typography>
+          <Stack
+            direction={"column"}
+            // justifyContent={"space-between"}
+            // alignItems={"center"}
+          >
+            <Typography variant="h5" color="text.primary">
+              {props.title}
+            </Typography>
+            <Chip
+              label="Awaiting approval"
+              sx={{ marginLeft: 0, fontSize: 13, inlineSize: "min-content" }}
+              color="primary"
+              size="small"
+            />
+          </Stack>
           <Stack
             direction={"row"}
             alignItems={"start"}
@@ -44,6 +56,11 @@ const ServiceCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ justifyContent: "flex-end" }}>
+        {props.perspective === "provider" && (
+          <Button variant="contained" color="delete">
+            Delete
+          </Button>
+        )}
         {props.perspective === "provider" && (
           <Button variant="outlined">Manage</Button>
         )}
