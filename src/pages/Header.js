@@ -7,7 +7,7 @@ import {ProfileImage} from "../utils/components/ProfileImage";
 import {border, theme} from "../utils/styles/themeConfig";
 import {faBars, faBell} from "@fortawesome/free-solid-svg-icons";
 import Box from "@mui/material/Box";
-import {device} from "../utils/helpers/constants";
+import {device, ROUTES} from "../utils/helpers/constants";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {MenuItem} from "@mui/material";
 import {NavLink} from "react-router-dom";
@@ -23,6 +23,8 @@ const Header = () => {
     const { userStore } = useStore();
 
     let user = userStore.getCurrentUser();
+
+    let provider = LoginStore.isProvider();
 
     // User Menu
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -94,6 +96,19 @@ const Header = () => {
                         onClose={handleCloseUserMenu}
                     >
                         <UserName>{user.firstName} {user.lastName}</UserName>
+
+                        {provider &&
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <NavLink to={`/provider/profile/${user.id}`}><SettingText>My Profile</SettingText></NavLink>
+                            </MenuItem>
+                        }
+
+                        {provider &&
+                            <MenuItem onClick={handleCloseUserMenu}>
+                                <NavLink to={ROUTES.provider.editProfile}><SettingText>Settings</SettingText></NavLink>
+                            </MenuItem>
+                        }
+
                         <MenuItem onClick={handleLogOut}>
                             <NavLink to={"/"}><SettingText>Logout</SettingText></NavLink>
                         </MenuItem>

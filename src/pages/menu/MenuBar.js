@@ -36,6 +36,10 @@ const MenuBar = () => {
             <NavLink to={ROUTES.provider.myServices} key={2}>
                 <MenuItem icon={faToolbox} text="My Services"/>
             </NavLink>)
+        items.push(
+            <NavLink to={ROUTES.provider.editProfile} key={3}>
+                <MenuItem icon={faCog} text="Settings"/>
+            </NavLink>)
     } else if (admin) {
         items.push(
             <NavLink to={ROUTES.admin.home} key={0}>
@@ -59,11 +63,6 @@ const MenuBar = () => {
                 <MenuItem icon={faComments} text="Requests Made"/>
             </NavLink>)
     }
-
-    items.push(
-        <NavLink to={"/settings"} key={3}>
-            <MenuItem icon={faCog} text="Settings"/>
-        </NavLink>)
 
     return (
         <Container>

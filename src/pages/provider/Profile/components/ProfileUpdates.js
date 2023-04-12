@@ -2,18 +2,7 @@ import {observer} from "mobx-react";
 import {CircularLoading} from "../../../../utils/components/CircularLoading";
 import styled from "@emotion/styled";
 import {border} from "../../../../utils/styles/themeConfig";
-import {
-    Timeline,
-    TimelineConnector,
-    TimelineContent,
-    TimelineDot,
-    TimelineItem, TimelineOppositeContent,
-    TimelineSeparator
-} from "@mui/lab";
-import {faCheckCircle, faHourglass} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React, {useState} from "react";
-import formatDate from "../../../../utils/helpers/formatDate";
 import Button from "@mui/material/Button";
 import {ButtonContainer, StyledTextField} from "../../../../utils/styles/formStyles";
 import * as yup from "yup";
@@ -23,6 +12,8 @@ import axiosConfig from "../../../../utils/helpers/axiosConfig";
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../../../utils/helpers/constants";
 import LoadingButton from "@mui/lab/LoadingButton";
+import {useStore} from "../../../../stores/RootStore";
+import UpdateHistory from "../../UpdateHistory";
 
 // Form validation schema
 const schema = yup.object({
@@ -32,6 +23,8 @@ const schema = yup.object({
 });
 
 const ProfileUpdates = (props) => {
+
+    const { adminStore } = useStore();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
@@ -48,8 +41,9 @@ const ProfileUpdates = (props) => {
     const onSubmit = async (data) => {
         setIsSubmitting(true);
         try {
-            await axiosConfig().post( `/profile_update/${provider.id}`, data);
-            navigate(ROUTES.admin.home)
+            await axiosConfig().post( `/profile-update/${provider.id}`, data);
+            adminStore.requestUnapprovedProviders();
+            navigate(ROUTES.admin.newProviders)
         } catch (err) {
             setIsSubmitting(false);
             setError('errorMessage', {
@@ -74,44 +68,8 @@ const ProfileUpdates = (props) => {
         )
     }
 
-    let updateNodes = []
-
-    profileUpdates.forEach((elem, index, array) => {
-        const color = elem.status === 'completed' ? 'success' : 'info'
-
-        updateNodes.push(
-            <TimelineItem key={index}>
-                <TimelineOppositeContent sx={{ py: '12px', px: 2 }} color="textSecondary">
-                    {formatDate(elem.createdAt)}
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                    <TimelineDot color={color}>
-                        {elem.status === 'completed' ?
-                            <FontAwesomeIcon className="fa-fw" icon={faCheckCircle}/> :
-                            <FontAwesomeIcon className="fa-fw" icon={faHourglass}/>
-                        }
-                    </TimelineDot>
-                    <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent sx={{ py: '12px', px: 2 }}>
-                    {elem.reason}
-                </TimelineContent>
-            </TimelineItem>
-        )
-    })
-
     return (
         <Container>
-            <UpdateHistoryContainer>
-                <SectionTitle>Update History</SectionTitle>
-                {updateNodes.length >= 1 ?
-                    <Timeline>
-                        {updateNodes}
-                    </Timeline>
-                    :
-                    <p>No updates were requested</p>
-                }
-            </UpdateHistoryContainer>
             {!provider.isApproved &&
                 <>
                     <SectionTitle>Request Update</SectionTitle>
@@ -122,7 +80,7 @@ const ProfileUpdates = (props) => {
                             label="Reason"
                             variant="outlined"
                             multiline
-                            rows={7}
+                            rows={3}
                             error={!!errors.description}
                             helperText={errors.description ? errors.description.message : ''}
                         />
@@ -137,6 +95,7 @@ const ProfileUpdates = (props) => {
                     </FormContainer>
                 </>
             }
+            <UpdateHistory updates={profileUpdates}/>
         </Container>
     )
 }
@@ -158,6 +117,4 @@ const FormContainer = styled.form`
     padding-bottom: 20px;
 `
 
-const UpdateHistoryContainer = styled.div`
-`
 

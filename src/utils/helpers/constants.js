@@ -5,10 +5,11 @@ export const ROUTES = {
         login: '/provider/login',
         register: '/provider/register',
         home: '/provider/home',
+        editProfile: '/provider/edit-profile',
         serviceRequests: '/provider/service-requests',
         myServices: '/provider/my-services',
         createService: '/provider/create-service',
-        profile: '/provider/profile/:providerId'
+        profile: '/provider/profile/:providerId',
     },
     customer: {
         login: '*',

@@ -12,7 +12,7 @@ import {CircularLoading} from "../../../utils/components/CircularLoading";
  * @returns {JSX.Element}
  * @constructor
  */
-const AdminHomePage = () => {
+const AdminUnapprovedProvidersPage = () => {
 
     const { adminStore } = useStore();
     const unApprovedProviders = adminStore.getUnapprovedProviders();
@@ -47,4 +47,4 @@ const AdminHomePage = () => {
     )
 }
 
-export default observer(AdminHomePage);
+export default observer(AdminUnapprovedProvidersPage);

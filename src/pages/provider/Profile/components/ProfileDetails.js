@@ -32,6 +32,7 @@ const ProfileDetails = (props) => {
         setErrorMessage('');
         try {
             await axiosConfig().put(`/provider/${props.provider.id}/approve`)
+            adminStore.requestUnapprovedProviders();
             navigate(ROUTE.admin.home)
             setIsSubmitting(false);
         } catch (err) {
@@ -46,7 +47,7 @@ const ProfileDetails = (props) => {
         setErrorMessage('');
         try {
             await axiosConfig().put(`/provider/${props.provider.id}/reject`)
-            adminStore.getUnapprovedProviders();
+            adminStore.requestUnapprovedProviders();
             navigate(ROUTE.admin.home)
             setIsSubmitting(false);
         } catch (err) {
