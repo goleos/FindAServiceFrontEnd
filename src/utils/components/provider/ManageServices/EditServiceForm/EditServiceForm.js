@@ -16,11 +16,21 @@ import {
 } from "../../../../styles/formStyles";
 import UploadPhotosGrid from "../../../UploadPhotosGrid";
 import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
-import ServiceAvailabilitySelect from "../../../service/serviceAvailabilitySelect";
+import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
 import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
+import { useFormik } from "formik";
 
-const EditServiceForm = () => {
-  const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
+const EditServiceForm = (props) => {
+  const formik = useFormik({
+    initialValues: {
+      title: "etet",
+      category: "Cleaning",
+      description: "s",
+      price: "120",
+      availability: ["Monday"],
+      areasCovered: ["Southampton"],
+    },
+  });
 
   return (
     <>
@@ -37,21 +47,30 @@ const EditServiceForm = () => {
         <Grid container direction={"row"} spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
-              id="serviceTitle"
+              id="title"
+              name="title"
               label="Title"
               type="text"
+              value={formik.values.title}
+              onChange={formik.handleChange}
               fullWidth
               required
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ServiceCategorySelect />
+            <ServiceCategorySelect
+              id="category"
+              value={formik.values.category}
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="serviceDescription"
+              id="description"
               label="Description"
               type="text"
+              value={formik.values.description}
+              onChange={formik.handleChange}
               fullWidth
               required
               multiline
@@ -62,6 +81,8 @@ const EditServiceForm = () => {
               id="servicePrice"
               label="Price"
               type="number"
+              value={formik.values.price}
+              onChange={formik.handleChange}
               fullWidth
               required
               InputProps={{
@@ -72,10 +93,18 @@ const EditServiceForm = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ServiceAvailabilitySelect />
+            <ServiceAvailabilitySelect
+              id="availability"
+              value={formik.values.availability}
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
-            <ServiceAreasSelect />
+            <ServiceAreasSelect
+              id="areasCovered"
+              value={formik.values.areasCovered}
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
             <UploadPhotosGrid />

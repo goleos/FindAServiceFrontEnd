@@ -5,7 +5,7 @@ import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 
-const ServiceAreasSelect = () => {
+const ServiceAreasSelect = (props) => {
   const [areas, setAreas] = useState([]);
 
   const handleAreasChange = (event) => {
@@ -17,12 +17,7 @@ const ServiceAreasSelect = () => {
   return (
     <FormControl fullWidth>
       <InputLabel required>Areas Covered</InputLabel>
-      <Select
-        label="Areas Covered"
-        multiple
-        value={areas}
-        onChange={handleAreasChange}
-      >
+      <Select {...props} label="Areas Covered" multiple>
         {areaOptions.map((option) => (
           <MenuItem key={option} value={option}>
             {option}

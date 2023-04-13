@@ -5,7 +5,7 @@ import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 
-const ServiceAvailabilitySelect = () => {
+const ServiceAvailabilitySelect = (props) => {
   const [availability, setavailability] = useState([]);
 
   const handleAvailabilityChange = (event) => {
@@ -25,12 +25,7 @@ const ServiceAvailabilitySelect = () => {
   return (
     <FormControl fullWidth>
       <InputLabel required>Availability</InputLabel>
-      <Select
-        label="Availability"
-        multiple
-        value={availability}
-        onChange={handleAvailabilityChange}
-      >
+      <Select {...props} label="Availability" multiple>
         {availabilityOptions.map((option) => (
           <MenuItem key={option} value={option}>
             {option}

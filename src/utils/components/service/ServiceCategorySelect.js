@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { SERVICE_CATEGORIES } from "../../helpers/constants";
 import { useState } from "react";
 
-const ServiceCategorySelect = () => {
+const ServiceCategorySelect = (props) => {
   const [category, setCategory] = useState("");
 
   const handleCategoryChange = (event) => {
@@ -16,7 +16,7 @@ const ServiceCategorySelect = () => {
   return (
     <FormControl fullWidth>
       <InputLabel required>Category</InputLabel>
-      <Select label="Category" value={category} onChange={handleCategoryChange}>
+      <Select {...props} name="category" label="category">
         {SERVICE_CATEGORIES.map((category) => (
           <MenuItem key={category} value={category}>
             {category}
