@@ -11,7 +11,9 @@ export default class ServiceStore {
 
   getServices(provider = null, category = null, area = null) {
     axiosConfig()
-      .post("/service/services", arguments)
+      .get("/service/services", {
+        params: { provider: provider, category: category, area: area },
+      })
       .then((data) => {
         runInAction(() => {
           this.services = data.data;
