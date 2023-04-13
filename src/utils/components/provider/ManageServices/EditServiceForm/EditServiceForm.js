@@ -17,8 +17,8 @@ const EditServiceForm = (props) => {
       title: "",
       category: "",
       description: "",
-      price: "",
-      availability: [""],
+      price: 0,
+      availability: ["Monday"],
       areas_covered: ["Southampton"],
     },
     onSubmit: (values) => {
@@ -30,14 +30,13 @@ const EditServiceForm = (props) => {
   });
 
   return (
-    <>
+    <Stack spacing={2}>
       <Stack>
         <TitleContainer>
           <Title>Add a new service</Title>
         </TitleContainer>
         <Typography variant="subtitle" color={"text.secondary"}>
-          All new services have to be approved by admin before they become
-          visible to customers
+          Services you add must not break the website's terms of service.
         </Typography>
       </Stack>
       <form onSubmit={formik.handleSubmit}>
@@ -109,12 +108,12 @@ const EditServiceForm = (props) => {
         </Grid>
         <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
           <Button variant="contained" type="submit">
-            Submit for approval
+            Create
           </Button>
           <Button onClick={props.onFinish}>Cancel</Button>
         </Stack>
       </form>
-    </>
+    </Stack>
   );
 };
 
