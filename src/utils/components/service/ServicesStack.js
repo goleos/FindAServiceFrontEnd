@@ -8,29 +8,6 @@ import ServiceCard from "./ServiceCard";
 // import { observer } from "mobx-react";
 
 const ServicesStack = (props) => {
-  const sampleServiceCards = props.services.map((service) => (
-    <Grid
-      xs={12}
-      sm={12}
-      md={6}
-      sx={{
-        paddingLeft: 2,
-        paddingRight: 1,
-        paddingTop: 2,
-        paddingBottom: 2,
-      }}
-    >
-      <ServiceCard
-        key={service.id}
-        image="https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
-        title={service.title}
-        price={service.price}
-        description={service.description}
-        perspective="provider"
-      />
-    </Grid>
-  ));
-
   return (
     <Box
       sx={{
@@ -50,7 +27,30 @@ const ServicesStack = (props) => {
         columnSpacing={{ xs: 1, sm: 1, md: 2 }}
       >
         {/* TODO:Fix rendering using native Grid rendering */}
-        {sampleServiceCards}
+
+        {props.services.map((service) => (
+          <Grid
+            item
+            key={service.id}
+            xs={12}
+            sm={12}
+            md={6}
+            sx={{
+              paddingLeft: 2,
+              paddingRight: 1,
+              paddingTop: 2,
+              paddingBottom: 2,
+            }}
+          >
+            <ServiceCard
+              image="https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
+              title={service.title}
+              price={service.price}
+              description={service.description}
+              perspective="provider"
+            />
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
