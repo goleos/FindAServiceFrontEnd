@@ -3,15 +3,8 @@ https://mui.com/material-ui/react-select/ */
 
 import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
 
 const ServiceAreasSelect = (props) => {
-  const [areas, setAreas] = useState([]);
-
-  const handleAreasChange = (event) => {
-    setAreas(event.target.value);
-  };
-
   const areaOptions = ["Southampton", "London", "Portsmouth", "Winchester"];
 
   return (
