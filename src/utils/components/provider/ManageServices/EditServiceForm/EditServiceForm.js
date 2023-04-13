@@ -15,7 +15,9 @@ import {
   TitleContainer,
 } from "../../../../styles/formStyles";
 import UploadPhotosGrid from "../../../UploadPhotosGrid";
-import ServiceCategorySelect from "../../../services/ServiceCategorySelect";
+import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
+import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
+import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
 
 const EditServiceForm = () => {
   const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
@@ -70,46 +72,10 @@ const EditServiceForm = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              id="serviceAvailability"
-              label="Availability"
-              type="text"
-              value="Monday, Tuesday"
-              fullWidth
-              required
-              multiline
-            />
+            <ServiceAvailabilitySelect />
           </Grid>
           <Grid item xs={12}>
-            <FormControl>
-              <InputLabel id="areas-covered">Areas covered</InputLabel>
-              {/* Adapted from:  https://github.com/mui/material-ui/blob/v5.11.16/docs/data/material/components/selects/MultipleSelectChip.js*/}
-              <Select
-                labelId="areas-covered"
-                multiple
-                value={areas}
-                // onChange={handleChange}
-                input={<OutlinedInput label="Chip" />}
-                renderValue={(selected) => (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-                // MenuProps={MenuProps}
-              >
-                {/* {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, personName, theme)}
-                  >
-                    {name}
-                  </MenuItem>
-                ))} */}
-              </Select>
-            </FormControl>
+            <ServiceAreasSelect />
           </Grid>
           <Grid item xs={12}>
             <UploadPhotosGrid />
