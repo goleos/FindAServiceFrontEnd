@@ -15,7 +15,7 @@ import MenuItem from "./MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {device, ROUTES} from "../../utils/helpers/constants";
 
-
+// Contents of the menu
 const MenuBar = () => {
 
     let provider = LoginStore.isProvider();
@@ -35,6 +35,10 @@ const MenuBar = () => {
         items.push(
             <NavLink to={ROUTES.provider.myServices} key={2}>
                 <MenuItem icon={faToolbox} text="My Services"/>
+            </NavLink>)
+        items.push(
+            <NavLink to={ROUTES.provider.editProfile} key={3}>
+                <MenuItem icon={faCog} text="Settings"/>
             </NavLink>)
     } else if (admin) {
         items.push(
@@ -59,11 +63,6 @@ const MenuBar = () => {
                 <MenuItem icon={faComments} text="Requests Made"/>
             </NavLink>)
     }
-
-    items.push(
-        <NavLink to={"/settings"} key={3}>
-            <MenuItem icon={faCog} text="Settings"/>
-        </NavLink>)
 
     return (
         <Container>

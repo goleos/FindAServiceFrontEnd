@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import MenuBar from "./MenuBar";
 import {device} from "../../utils/helpers/constants";
 
+// Menu displayed on the side when the screen size is large enough
 const DesktopMenu = () => {
 
     return (

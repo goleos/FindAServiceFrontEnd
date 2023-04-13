@@ -27,7 +27,7 @@ npm start
 
 <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Roundicons - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Pixel perfect - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/profile-picture" title="profile picture icons">Profile picture icons created by Md Tanvirul Haque - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/profile-picture" title="profile picture icons">ProfileDetails picture icons created by Md Tanvirul Haque - Flaticon</a>
 
 ## Folder Structure
 

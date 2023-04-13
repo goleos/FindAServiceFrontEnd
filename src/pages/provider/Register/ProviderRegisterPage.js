@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {NavLink, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ErrorMessage } from "@hookform/error-message";
 import { useForm } from "react-hook-form";
@@ -18,39 +17,14 @@ import Alert from "@mui/material/Alert";
 import {
     ButtonContainer, FormContainer,
     LinkContainer, LinkSpan,
-    Page,
+    FormPage,
     StyledBox,
     StyledContainer,
     Subtitle,
     Title,
     TitleContainer
 } from "../../../utils/styles/formStyles";
-
-// Form validation schema
-const schema = yup.object({
-    firstName: yup.string()
-        .required('First Name is required')
-        .trim(),
-    lastName: yup.string()
-        .required('Last Name is required')
-        .trim(),
-    email: yup.string()
-        .required('Email is required')
-        .email('Incorrect email format')
-        .trim(),
-    password: yup.string()
-        .required('Password is required')
-        .min(8, 'Password must be at least 8 characters'),
-    confirmPassword: yup.string()
-        .required('Confirm Password is required')
-        .oneOf([yup.ref('password')], 'Passwords must match'),
-    address: yup.string()
-        .required('Address is required')
-        .trim(),
-    description: yup.string()
-        .required('Description is required')
-        .trim(),
-});
+import {providerInfoSchema} from "../../../utils/helpers/formValidationSchemas";
 
 const ProviderRegisterPage = () => {
 
@@ -59,7 +33,7 @@ const ProviderRegisterPage = () => {
 
     // Handling form submission
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(providerInfoSchema)
     });
 
     const onSubmit = async (data) => {
@@ -96,7 +70,7 @@ const ProviderRegisterPage = () => {
     };
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
                     <TitleContainer>
@@ -220,7 +194,7 @@ const ProviderRegisterPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
     )
 }
 

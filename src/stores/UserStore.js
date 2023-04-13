@@ -12,6 +12,8 @@ export default class UserStore {
 
     requested = false;
 
+    admin = LoginStore.isAdmin();
+
     constructor() {
         makeAutoObservable(this);
     }
@@ -29,7 +31,7 @@ export default class UserStore {
 
     // Request current user information from the backend
     requestCurrentUser() {
-        if (LoginStore.isAdmin()) {
+        if (this.admin) {
             this.currentUser = {
                 firstName: "Admin",
                 lastName: "",

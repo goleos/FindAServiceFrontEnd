@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +41,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/provider/EditProfile/components" />
+      <recent name="$PROJECT_DIR$/src/pages/provider/Unapproved" />
+      <recent name="$PROJECT_DIR$/src/pages/admin/Home" />
       <recent name="$PROJECT_DIR$/src/pages/menu" />
       <recent name="$PROJECT_DIR$/src/utils/images" />
     </key>
@@ -55,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680864513491</updated>
-      <workItem from="1680864515247" duration="16619000" />
+      <workItem from="1680864515247" duration="35500000" />
     </task>
     <servers />
   </component>
