@@ -7,7 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CardActionArea, Stack } from "@mui/material";
-import ProfileCard from "./user/ProfileCard";
+import ProfileCard from "../user/ProfileCard";
 import Divider from "@mui/material/Divider";
 
 const ServiceCard = (props) => {

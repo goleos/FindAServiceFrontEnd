@@ -1,24 +1,33 @@
 import { Grid, Stack, Typography } from "@mui/material";
-import {
-  FormControl,
-  InputAdornment,
-  InputLabel,
-  Select,
-  TextField,
-} from "@mui/material";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Chip from "@mui/material/Chip";
-import {
-  FormContainer,
-  Title,
-  TitleContainer,
-} from "../../../../styles/formStyles";
+import { InputAdornment, TextField } from "@mui/material";
+import { Title, TitleContainer } from "../../../../styles/formStyles";
 import UploadPhotosGrid from "../../../UploadPhotosGrid";
-import ServiceCategorySelect from "../../../services/ServiceCategorySelect";
+import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
+import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
+import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
+import { useFormik } from "formik";
+import Button from "@mui/material/Button";
+import { useStore } from "../../../../../stores/RootStore";
 
-const EditServiceForm = () => {
-  const areas = ["Southampton", "London", "Portsmouth", "Winchester"];
+const EditServiceForm = (props) => {
+  const { serviceStore } = useStore();
+
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      category: "",
+      description: "",
+      price: "",
+      availability: [""],
+      areas_covered: ["Southampton"],
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      serviceStore.createService(values);
+      props.onFinish();
+      props.onSuccess();
+    },
+  });
 
   return (
     <>
@@ -31,25 +40,34 @@ const EditServiceForm = () => {
           visible to customers
         </Typography>
       </Stack>
-      <FormContainer>
+      <form onSubmit={formik.handleSubmit}>
         <Grid container direction={"row"} spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
-              id="serviceTitle"
+              id="title"
+              name="title"
               label="Title"
               type="text"
+              value={formik.values.title}
+              onChange={formik.handleChange}
               fullWidth
               required
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ServiceCategorySelect />
+            <ServiceCategorySelect
+              id="category"
+              value={formik.values.category}
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              id="serviceDescription"
+              id="description"
               label="Description"
               type="text"
+              value={formik.values.description}
+              onChange={formik.handleChange}
               fullWidth
               required
               multiline
@@ -60,6 +78,8 @@ const EditServiceForm = () => {
               id="servicePrice"
               label="Price"
               type="number"
+              value={formik.values.price}
+              onChange={formik.handleChange}
               fullWidth
               required
               InputProps={{
@@ -70,52 +90,30 @@ const EditServiceForm = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
-              id="serviceAvailability"
-              label="Availability"
-              type="text"
-              value="Monday, Tuesday"
-              fullWidth
-              required
-              multiline
+            <ServiceAvailabilitySelect
+              id="availability"
+              value={formik.values.availability}
+              onChange={formik.handleChange}
             />
           </Grid>
           <Grid item xs={12}>
-            <FormControl>
-              <InputLabel id="areas-covered">Areas covered</InputLabel>
-              {/* Adapted from:  https://github.com/mui/material-ui/blob/v5.11.16/docs/data/material/components/selects/MultipleSelectChip.js*/}
-              <Select
-                labelId="areas-covered"
-                multiple
-                value={areas}
-                // onChange={handleChange}
-                input={<OutlinedInput label="Chip" />}
-                renderValue={(selected) => (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-                // MenuProps={MenuProps}
-              >
-                {/* {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                    style={getStyles(name, personName, theme)}
-                  >
-                    {name}
-                  </MenuItem>
-                ))} */}
-              </Select>
-            </FormControl>
+            <ServiceAreasSelect
+              id="areas_covered"
+              value={formik.values.areas_covered}
+              onChange={formik.handleChange}
+            />
           </Grid>
           <Grid item xs={12}>
             <UploadPhotosGrid />
           </Grid>
         </Grid>
-      </FormContainer>
+        <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
+          <Button variant="contained" type="submit">
+            Submit for approval
+          </Button>
+          <Button onClick={props.onFinish}>Cancel</Button>
+        </Stack>
+      </form>
     </>
   );
 };
