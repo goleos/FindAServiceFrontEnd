@@ -7,7 +7,7 @@ import notVerifiedImg from "../../../utils/images/nonVerifiedX.png";
 import styled from "@emotion/styled";
 import {border} from "../../../utils/styles/themeConfig";
 import Button from "@mui/material/Button";
-import {Page, StyledBox, StyledContainer} from "../../../utils/styles/formStyles";
+import {FormPage, StyledBox, StyledContainer} from "../../../utils/styles/formStyles";
 
 const EmailVerificationPage = () => {
 
@@ -42,7 +42,7 @@ const EmailVerificationPage = () => {
     }
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer>
                 <StyledBox>
                     <FormContainer>
@@ -56,7 +56,7 @@ const EmailVerificationPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
 
     )
 }

@@ -1,6 +1,9 @@
 import {observer} from "mobx-react";
 import { useStore } from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
+import {Page} from "../../../utils/styles/pageStyles";
+import UnapprovedPage from "../Unapproved/UnapprovedPage";
+import ProviderProfileStore from "../../../stores/ProviderProfileStore";
 
 
 const ProviderHomePage = () => {
@@ -16,10 +19,19 @@ const ProviderHomePage = () => {
         )
     }
 
+    const providerProfileStore = new ProviderProfileStore(provider.id);
+
+    // Unapproved Providers
+    if (!provider.isApproved) {
+        return (
+            <UnapprovedPage store={providerProfileStore}/>
+        )
+    }
+
     return (
-        <div>
+        <Page>
             Hi, {provider.firstName}
-        </div>
+        </Page>
     )
 }
 

@@ -8,6 +8,8 @@ export const ROUTES = {
     serviceRequests: "/provider/service-requests",
     myServices: "/provider/my-services",
     createService: "/provider/create-service",
+    editProfile: '/provider/edit-profile',
+    profile: '/provider/profile/:providerId',
   },
   customer: {
     login: "*",

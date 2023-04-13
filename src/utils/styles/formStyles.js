@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {border} from "./themeConfig";
 
-export const Page = styled.div`
+export const FormPage = styled.div`
   background-color: ${props => props.theme.palette.primary.light};
   display: grid;
   align-items: center;
@@ -62,6 +62,8 @@ export const StyledTextField = styled(TextField)`
   fieldset {
     border-radius: ${border.borderRadius};
   }
+  width: 100%;
+  
   
   input, textarea {
     font-family: 'PoppinsRegular', sans-serif;

@@ -20,7 +20,7 @@ import { useStore } from "../../../stores/RootStore";
 import {
     ButtonContainer, FormContainer,
     LinkContainer, LinkSpan,
-    Page,
+    FormPage,
     StyledBox,
     StyledContainer,
     Subtitle,
@@ -93,14 +93,14 @@ const ProviderLoginPage = () => {
     console.log(fromRegister);
 
     return (
-        <Page>
+        <FormPage>
             <StyledContainer maxWidth="sm">
                 <StyledBox>
+                    {fromRegister !== null && <Alert severity="success">Successful registration</Alert> }
                     <TitleContainer>
                         <Title>Provider Login</Title>
                         <Subtitle>Enter your credentials below</Subtitle>
                     </TitleContainer>
-                    {fromRegister !== null && <Alert severity="success">Successful registration</Alert> }
                     <FormContainer onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             {...register('email')}
@@ -161,7 +161,7 @@ const ProviderLoginPage = () => {
                     </FormContainer>
                 </StyledBox>
             </StyledContainer>
-        </Page>
+        </FormPage>
     )
 }
 

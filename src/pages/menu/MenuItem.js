@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import {border} from "../../utils/styles/themeConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// Item in the menu
 const MenuItem = (props) => {
 
     return (
