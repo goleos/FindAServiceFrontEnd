@@ -15,7 +15,6 @@ export default class ServiceStore {
       .then((data) => {
         runInAction(() => {
           this.services = data.data;
-          console.log("now");
         });
       });
   }
