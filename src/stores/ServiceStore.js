@@ -18,4 +18,15 @@ export default class ServiceStore {
         });
       });
   }
+
+  createService(service) {
+    console.log("hi");
+    axiosConfig()
+      .post("/service/create", service)
+      .then((data) => {
+        runInAction(() => {
+          console.log(data);
+        });
+      });
+  }
 }
