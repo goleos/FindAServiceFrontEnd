@@ -21,7 +21,9 @@ const ProviderMyServicesPage = () => {
 
   // get services of the current provider from the backend
   useEffect(() => {
-    serviceStore.getServices(userStore.currentUser.id);
+    // userStore.requestCurrentUser();
+    //TODO: should read services of current provider
+    serviceStore.getServices();
   }, []);
 
   const refreshServices = () => {
