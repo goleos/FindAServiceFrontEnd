@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
 import ServicesStack from "../../../utils/components/service/ServicesStack";
 import { useStore } from "../../../stores/RootStore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 /* Documentation used:
 https://mui.com/material-ui/api/form-control/
@@ -24,7 +24,7 @@ const ProviderMyServicesPage = () => {
     // userStore.requestCurrentUser();
     //TODO: should read services of current provider
     serviceStore.getServices();
-  }, []);
+  }, [serviceStore]);
 
   const refreshServices = () => {
     serviceStore.getServices(userStore.currentUser.id);

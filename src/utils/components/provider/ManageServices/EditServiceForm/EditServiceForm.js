@@ -1,19 +1,6 @@
 import { Grid, Stack, Typography } from "@mui/material";
-import {
-  FormControl,
-  InputAdornment,
-  InputLabel,
-  Select,
-  TextField,
-} from "@mui/material";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Chip from "@mui/material/Chip";
-import {
-  FormContainer,
-  Title,
-  TitleContainer,
-} from "../../../../styles/formStyles";
+import { InputAdornment, TextField } from "@mui/material";
+import { Title, TitleContainer } from "../../../../styles/formStyles";
 import UploadPhotosGrid from "../../../UploadPhotosGrid";
 import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
 import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
@@ -23,15 +10,15 @@ import Button from "@mui/material/Button";
 import { useStore } from "../../../../../stores/RootStore";
 
 const EditServiceForm = (props) => {
-  const { serviceStore, userStore } = useStore();
+  const { serviceStore } = useStore();
 
   const formik = useFormik({
     initialValues: {
-      title: "etet",
-      category: "Cleaning",
-      description: "s",
-      price: "120",
-      availability: ["Monday"],
+      title: "",
+      category: "",
+      description: "",
+      price: "",
+      availability: [""],
       areas_covered: ["Southampton"],
     },
     onSubmit: (values) => {
