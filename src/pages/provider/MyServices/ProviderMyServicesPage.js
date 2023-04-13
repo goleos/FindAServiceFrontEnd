@@ -1,7 +1,7 @@
 import { observer } from "mobx-react";
 // import { useStore } from "../../../stores/RootStore";
 import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
-import ServicesStack from "../../../utils/components/ServicesStack";
+import ServicesStack from "../../../utils/components/service/ServicesStack";
 import { useStore } from "../../../stores/RootStore";
 import { useEffect, useState } from "react";
 
