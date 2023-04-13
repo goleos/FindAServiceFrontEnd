@@ -19,6 +19,7 @@ import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
 import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
 import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
 import { useFormik } from "formik";
+import Button from "@mui/material/Button";
 
 const EditServiceForm = (props) => {
   const formik = useFormik({
@@ -29,6 +30,10 @@ const EditServiceForm = (props) => {
       price: "120",
       availability: ["Monday"],
       areasCovered: ["Southampton"],
+    },
+    onSubmit: (values) => {
+      console.log("Submit");
+      props.onFinish();
     },
   });
 
@@ -43,7 +48,7 @@ const EditServiceForm = (props) => {
           visible to customers
         </Typography>
       </Stack>
-      <FormContainer>
+      <form onSubmit={formik.handleSubmit}>
         <Grid container direction={"row"} spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -110,7 +115,13 @@ const EditServiceForm = (props) => {
             <UploadPhotosGrid />
           </Grid>
         </Grid>
-      </FormContainer>
+        <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
+          <Button variant="contained" type="submit">
+            Submit for approval
+          </Button>
+          <Button onClick={props.onFinish}>Cancel</Button>
+        </Stack>
+      </form>
     </>
   );
 };

@@ -66,14 +66,8 @@ const NewServiceDialog = () => {
             All new services have to be approved by admin first before they
             become visible to customers.
           </DialogContentText> */}
-          <EditServiceForm />
+          <EditServiceForm onFinish={handleCloseDialog} />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Cancel</Button>
-          <Button variant="contained" onClick={handleSubmit}>
-            Submit for approval
-          </Button>
-        </DialogActions>
       </Dialog>
     </>
   );
