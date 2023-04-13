@@ -20,8 +20,11 @@ import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelec
 import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
 import { useFormik } from "formik";
 import Button from "@mui/material/Button";
+import { useStore } from "../../../../../stores/RootStore";
 
 const EditServiceForm = (props) => {
+  const { serviceStore, userStore } = useStore();
+
   const formik = useFormik({
     initialValues: {
       title: "etet",
@@ -29,11 +32,13 @@ const EditServiceForm = (props) => {
       description: "s",
       price: "120",
       availability: ["Monday"],
-      areasCovered: ["Southampton"],
+      areas_covered: ["Southampton"],
     },
     onSubmit: (values) => {
-      console.log("Submit");
+      console.log(values);
+      serviceStore.createService(values);
       props.onFinish();
+      props.onSuccess();
     },
   });
 
@@ -106,8 +111,8 @@ const EditServiceForm = (props) => {
           </Grid>
           <Grid item xs={12}>
             <ServiceAreasSelect
-              id="areasCovered"
-              value={formik.values.areasCovered}
+              id="areas_covered"
+              value={formik.values.areas_covered}
               onChange={formik.handleChange}
             />
           </Grid>
