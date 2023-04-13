@@ -11,7 +11,7 @@ https://mui.com/material-ui/react-dialog/
 https://mui.com/material-ui/react-select/
 https://mui.com/material-ui/react-snackbar/#customization
 */
-const NewServiceDialog = () => {
+const NewServiceDialog = (props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
@@ -26,6 +26,7 @@ const NewServiceDialog = () => {
   const handleSubmit = () => {
     setDialogOpen(false);
     setSuccessAlertOpen(true);
+    setTimeout(props.onAddServiceSuccess(), 10000);
   };
 
   const handleCloseSuccessAlert = (event) => {
@@ -66,7 +67,10 @@ const NewServiceDialog = () => {
             All new services have to be approved by admin first before they
             become visible to customers.
           </DialogContentText> */}
-          <EditServiceForm onFinish={handleCloseDialog} />
+          <EditServiceForm
+            onFinish={handleCloseDialog}
+            onSuccess={handleSubmit}
+          />
         </DialogContent>
       </Dialog>
     </>

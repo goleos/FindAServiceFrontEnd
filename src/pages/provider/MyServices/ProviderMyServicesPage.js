@@ -24,11 +24,16 @@ const ProviderMyServicesPage = () => {
     serviceStore.getServices(userStore.currentUser.id);
   }, []);
 
+  const refreshServices = () => {
+    serviceStore.getServices(userStore.currentUser.id);
+    console.log("refreshed", serviceStore.services);
+  };
+
   return (
     <>
       <div>My services Page</div>
       <ServicesStack services={serviceStore.services} />
-      <NewServiceDialog />
+      <NewServiceDialog onAddServiceSuccess={refreshServices} />
     </>
   );
 };
