@@ -16,7 +16,7 @@ import {
 } from "../../../../styles/formStyles";
 import UploadPhotosGrid from "../../../UploadPhotosGrid";
 import ServiceCategorySelect from "../../../service/ServiceCategorySelect";
-import ServiceAvailabilitySelect from "../../../service/ServiceAvailabilitySelect";
+import ServiceAvailabilitySelect from "../../../service/serviceAvailabilitySelect";
 import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
 
 const EditServiceForm = () => {
