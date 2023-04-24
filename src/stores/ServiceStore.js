@@ -3,13 +3,34 @@ import { makeAutoObservable, runInAction } from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
 export default class ServiceStore {
-  services = [];
+  services = undefined;
+
+  requested = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  getServices(provider = null, category = null, area = null) {
+  // Get provider profile updates
+  getServices(providerID) {
+    if (this.services === undefined) {
+      this.requestServices(providerID);
+
+      return undefined;
+    } else {
+      return this.services;
+    }
+  }
+
+  requestServices(provider = null, category = null, area = null) {
+    if (!this.requested) {
+      runInAction(() => {
+        this.requested = true;
+      })
+    } else {
+      return;
+    }
+
     axiosConfig()
       .get("/service/services", {
         params: { provider: provider, category: category, area: area },
@@ -17,12 +38,12 @@ export default class ServiceStore {
       .then((data) => {
         runInAction(() => {
           this.services = data.data;
+          this.requested = false
         });
       });
   }
 
   createService(service) {
-    console.log("hi");
     axiosConfig()
       .post("/service/create", service)
       .then((data) => {

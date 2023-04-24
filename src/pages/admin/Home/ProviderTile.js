@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLocationDot, faPaperPlane, faHourglassHalf} from "@fortawesome/free-solid-svg-icons";
 import {useTheme} from "@mui/material";
 import {TextIcon} from "../../../utils/components/TextIcon";
+import {observer} from "mobx-react";
 
 /**
  * Provider tile in the list of unapproved providers
@@ -36,7 +37,7 @@ const ProviderTile = (props) => {
     return (
         <Container>
             <Header>
-                <ProfileImage size="medium" image={props.provider.profileImage} />
+                <ProfileImage size="small" image={props.provider.profileImage} />
                 <InfoContainer>
                     <Name>{props.provider.firstName} {props.provider.lastName}</Name>
                     <AddressContainer>
@@ -50,7 +51,7 @@ const ProviderTile = (props) => {
     )
 }
 
-export default ProviderTile;
+export default observer(ProviderTile);
 
 const Container = styled.div`
   display: flex;
@@ -79,17 +80,18 @@ const InfoContainer = styled.div`
 
 const Header = styled.div`
   display: flex;
-  flex-flow: row;
+  flex-direction: row;
   gap: 20px;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   padding: 20px;
 `
 
 const Name = styled.h2`
   font-size: 1.2rem;
-  margin-bottom: 0;
+  margin: 0;
 `
+
 const AddressContainer = styled.div`
   display: flex;
   align-items: center;

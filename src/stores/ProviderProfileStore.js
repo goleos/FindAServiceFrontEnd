@@ -67,7 +67,7 @@ export default class ProviderProfileStore {
             return;
         }
 
-        axiosConfig().get(`/profile-update/${this.providerId}/`).then(data => {
+        axiosConfig().get(`/profileUpdate/${this.providerId}/`).then(data => {
             runInAction(() => {
                 this.profileUpdates = data.data;
                 this.requested = false

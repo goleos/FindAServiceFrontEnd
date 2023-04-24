@@ -1,12 +1,12 @@
 import {observer} from "mobx-react";
 import {Page} from "../../../utils/styles/pageStyles";
 import NoPendingUpdateWarning from "./NoPendingUpdateWarning";
-import UpdateHistory from "../UpdateHistory";
+import UpdateHistory from "../../../utils/components/UpdateHistory";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
 import React from "react";
 import styled from "@emotion/styled";
 import {border} from "../../../utils/styles/themeConfig";
-import PendingUpdate from "./PendingUpdate";
+import PendingProfileUpdate from "./PendingProfileUpdate";
 
 
 const UnapprovedPage = (props) => {
@@ -29,7 +29,7 @@ const UnapprovedPage = (props) => {
     return (
         <Page>
             <Container>
-                {hasUpdate ? <PendingUpdate store={props.store} update={profileUpdates[0]}/> : <NoPendingUpdateWarning />}
+                {hasUpdate ? <PendingProfileUpdate store={props.store} update={profileUpdates[0]}/> : <NoPendingUpdateWarning />}
                 <UpdateHistoryContainer>
                     <UpdateHistory updates={hasUpdate ? profileUpdates.slice(1): profileUpdates}/>
                 </UpdateHistoryContainer>

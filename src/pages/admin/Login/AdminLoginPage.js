@@ -27,6 +27,7 @@ import {
 } from "../../../utils/styles/formStyles";
 import LoadingButton from "@mui/lab/LoadingButton";
 import LoginStoreInstance from "../../../stores/LoginStore";
+import {useStore} from "../../../stores/RootStore";
 
 // Form validation schema
 const schema = yup.object({
@@ -39,6 +40,8 @@ const schema = yup.object({
 });
 
 const AdminLoginPage = () => {
+
+    const { adminStore, userStore } = useStore();
 
     // For rerouting to Login Page
     let navigate = useNavigate();
@@ -56,8 +59,13 @@ const AdminLoginPage = () => {
             try {
                 const res = await axiosConfig().post("/admin/login", data);
                 if (res.data.status) {
-                    LoginStoreInstance.login(res.data.token);
-                    navigate('/admin/home?fromLogin');
+                    const loginDone = LoginStoreInstance.login(res.data.token);
+
+                    if (loginDone) {
+                        userStore.requestCurrentUser(true);
+                        adminStore.requestUnapprovedProviders();
+                        navigate('/admin/home?fromLogin');
+                    }
                 } else {
                     setIsSubmitting(false);
                     setError('errorMessage', {

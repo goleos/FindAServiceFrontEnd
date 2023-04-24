@@ -13,7 +13,7 @@ import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../../../utils/helpers/constants";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {useStore} from "../../../../stores/RootStore";
-import UpdateHistory from "../../UpdateHistory";
+import UpdateHistory from "../../../../utils/components/UpdateHistory";
 
 // Form validation schema
 const schema = yup.object({
@@ -41,7 +41,7 @@ const ProfileUpdates = (props) => {
     const onSubmit = async (data) => {
         setIsSubmitting(true);
         try {
-            await axiosConfig().post( `/profile-update/${provider.id}`, data);
+            await axiosConfig().post( `/profileUpdate/${provider.id}`, data);
             adminStore.requestUnapprovedProviders();
             navigate(ROUTES.admin.newProviders)
         } catch (err) {

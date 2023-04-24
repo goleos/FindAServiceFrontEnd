@@ -29,7 +29,7 @@ const MenuBar = () => {
                 <MenuItem icon={faHome} text="Home"/>
             </NavLink>)
         items.push(
-            <NavLink to={ROUTES.provider.serviceRequests} key={1}>
+            <NavLink to={ROUTES.service.myRequests} key={1}>
                 <MenuItem icon={faComments} text="Service Requests"/>
             </NavLink>)
         items.push(
@@ -59,7 +59,7 @@ const MenuBar = () => {
                 <MenuItem icon={faGlobe} text="Explore Services"/>
             </NavLink>)
         items.push(
-            <NavLink to={ROUTES.customer.myServiceRequests} key={2}>
+            <NavLink to={ROUTES.service.myRequests} key={2}>
                 <MenuItem icon={faComments} text="Requests Made"/>
             </NavLink>)
     }

@@ -62,7 +62,7 @@ const EditForm = () => {
     const onSubmit = async (data) => {
         if (!!errors) {
             try {
-                const res = await axiosConfig().put( "/provider/edit-profile", data);
+                const res = await axiosConfig().put( "/provider/editProfile", data);
                 if (res.data.status) {
                     userStore.requestCurrentUser();
                     adminStore.requestUnapprovedProviders();

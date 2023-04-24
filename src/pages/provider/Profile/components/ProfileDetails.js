@@ -1,13 +1,13 @@
 import {observer} from "mobx-react";
 import styled from "@emotion/styled";
-import {device, ROUTES as ROUTE} from "../../../../utils/helpers/constants";
+import {device, ROUTES} from "../../../../utils/helpers/constants";
 import {ProfileImage} from "../../../../utils/components/ProfileImage";
 import React, {useState} from "react";
 import {Alert, useTheme} from "@mui/material";
 import {faCheck, faEnvelope, faLocationDot, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {TextIcon} from "../../../../utils/components/TextIcon";
 import ReadMore from "./ReadMore";
-import {Line} from "../../../../utils/styles/pageStyles";
+import {ApprovalButtonsContainer, Line} from "../../../../utils/styles/pageStyles";
 import IconButton from "../../../../utils/components/IconButton";
 import axiosConfig from "../../../../utils/helpers/axiosConfig";
 import {useNavigate} from "react-router-dom";
@@ -33,7 +33,7 @@ const ProfileDetails = (props) => {
         try {
             await axiosConfig().put(`/provider/${props.provider.id}/approve`)
             adminStore.requestUnapprovedProviders();
-            navigate(ROUTE.admin.home)
+            navigate(ROUTES.admin.home)
             setIsSubmitting(false);
         } catch (err) {
             setIsSubmitting(false);
@@ -48,7 +48,7 @@ const ProfileDetails = (props) => {
         try {
             await axiosConfig().put(`/provider/${props.provider.id}/reject`)
             adminStore.requestUnapprovedProviders();
-            navigate(ROUTE.admin.home)
+            navigate(ROUTES.admin.home)
             setIsSubmitting(false);
         } catch (err) {
             setIsSubmitting(false);
@@ -70,7 +70,7 @@ const ProfileDetails = (props) => {
                     </NameContainer>
                 </DetailsContainer>
                 {admin &&
-                    <ButtonsContainer>
+                    <ApprovalButtonsContainer>
                         {!props.provider.isApproved && <IconButton
                             loadingCondition={isSubmitting}
                             icon={faCheck}
@@ -85,7 +85,7 @@ const ProfileDetails = (props) => {
                             onClick={handleReject}
                             color="error"
                         />
-                    </ButtonsContainer>
+                    </ApprovalButtonsContainer>
                 }
             </ProfileContainer>
             <Line />
@@ -157,15 +157,7 @@ const Description = styled.div`
   padding: 10px;
 `
 
-const ButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
 
-  @media only screen and ${device.tablet} {
-    padding: 20px;
-  }
-`
 
 
 

@@ -3,6 +3,8 @@ import AddIcon from "@mui/icons-material/Add";
 import { Dialog, DialogContent, Fab } from "@mui/material";
 import EditServiceForm from "./ManageServices/EditServiceForm/EditServiceForm";
 import { Snackbar, Alert } from "@mui/material";
+import {useStore} from "../../../stores/RootStore";
+import {observer} from "mobx-react";
 
 /* mui documentation pages used:
 https://mui.com/material-ui/api/form-control/
@@ -11,6 +13,7 @@ https://mui.com/material-ui/react-select/
 https://mui.com/material-ui/react-snackbar/#customization
 */
 const NewServiceDialog = (props) => {
+  const { serviceStore } = useStore();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
@@ -22,10 +25,10 @@ const NewServiceDialog = (props) => {
     setDialogOpen(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    await serviceStore.requestServices(props.providerID);
     setDialogOpen(false);
     setSuccessAlertOpen(true);
-    setTimeout(props.onAddServiceSuccess(), 10000);
   };
 
   const handleCloseSuccessAlert = (event) => {
@@ -56,7 +59,7 @@ const NewServiceDialog = (props) => {
         onClose={handleCloseSuccessAlert}
       >
         <Alert severity="success">
-          New service successfully created and submitted for approval
+          New service successfully created
         </Alert>
       </Snackbar>
       <Dialog open={dialogOpen} maxWidth={false} fullWidth>
@@ -76,4 +79,4 @@ const NewServiceDialog = (props) => {
   );
 };
 
-export default NewServiceDialog;
+export default observer(NewServiceDialog);

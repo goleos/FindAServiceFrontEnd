@@ -9,12 +9,14 @@ import styled from "@emotion/styled";
 export const Title = (props) => {
 
     return (
-        <TitleContainer>{props.text}</TitleContainer>
+        <TitleContainer padding={props.padding}>{props.text}</TitleContainer>
     );
 }
 
 const TitleContainer = styled.h1`
-  color: ${props => props.theme.palette.secondary.dark}
+  color: ${props => props.theme.palette.secondary.dark};
+  margin-bottom: 0;
+  padding: ${props => props.padding && '20px'};
 `
 
 

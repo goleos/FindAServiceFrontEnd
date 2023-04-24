@@ -5,7 +5,6 @@ export const ROUTES = {
     login: "/provider/login",
     register: "/provider/register",
     home: "/provider/home",
-    serviceRequests: "/provider/service-requests",
     myServices: "/provider/my-services",
     createService: "/provider/create-service",
     editProfile: '/provider/edit-profile',
@@ -16,7 +15,6 @@ export const ROUTES = {
     register: "/customer/register",
     home: "/customer/home",
     verify: "/customer/verify/:customerId/:token",
-    myServiceRequests: "/customer/my-service-requests",
     services: "/customer/services",
   },
   admin: {
@@ -25,6 +23,12 @@ export const ROUTES = {
     home: "/admin/home",
     newProviders: "/admin/new-providers",
   },
+  service: {
+    serviceInfo: '/service/:serviceId',
+    serviceRequests: '/service/:serviceId/request',
+    serviceRequest: '/service-requests/:requestId',
+    myRequests: '/service-requests'
+  }
 };
 
 // Breakpoints for media queries
@@ -51,6 +55,8 @@ export const device = {
 
 export const PROFILE_IMAGE =
   "https://findaservice.blob.core.windows.net/app/user.png";
+
+export const SERVICE_IMAGE = "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
 
 export const SERVICE_CATEGORIES = [
   "Cleaning",

@@ -1,9 +1,10 @@
 import { observer } from "mobx-react";
-// import { useStore } from "../../../stores/RootStore";
 import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
 import ServicesStack from "../../../utils/components/service/ServicesStack";
 import { useStore } from "../../../stores/RootStore";
-import { useEffect } from "react";
+import {Title} from "../../../utils/components/Title";
+import {Page} from "../../../utils/styles/pageStyles";
+import {CircularLoading} from "../../../utils/components/CircularLoading";
 
 /* Documentation used:
 https://mui.com/material-ui/api/form-control/
@@ -12,31 +13,34 @@ https://mui.com/material-ui/react-select/
 */
 
 const ProviderMyServicesPage = () => {
-  // const { userStore } = useStore();
-
-  // Get current user
-  // let provider = userStore.getCurrentUser();
 
   const { serviceStore, userStore } = useStore();
 
-  // get services of the current provider from the backend
-  useEffect(() => {
-    // userStore.requestCurrentUser();
-    //TODO: should read services of current provider
-    serviceStore.getServices();
-  }, [serviceStore]);
+  // Get current user
+  let provider = userStore.getCurrentUser();
 
-  const refreshServices = () => {
-    serviceStore.getServices(userStore.currentUser.id);
-    console.log("refreshed", serviceStore.services);
-  };
+  // Loading
+  if (provider === undefined) {
+    return (
+        <CircularLoading />
+    )
+  }
+
+  const services = serviceStore.getServices(provider.id);
+
+  // Loading
+  if (services === undefined) {
+    return (
+        <CircularLoading />
+    )
+  }
 
   return (
-    <>
-      <div>My services Page</div>
+    <Page>
+      <Title text="My Services"/>
       <ServicesStack services={serviceStore.services} />
-      <NewServiceDialog onAddServiceSuccess={refreshServices} />
-    </>
+      <NewServiceDialog providerID={provider.id}/>
+    </Page>
   );
 };
 

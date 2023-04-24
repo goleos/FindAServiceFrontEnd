@@ -30,8 +30,8 @@ export default class UserStore {
     }
 
     // Request current user information from the backend
-    requestCurrentUser() {
-        if (this.admin) {
+    requestCurrentUser(admin) {
+        if (this.admin || admin) {
             this.currentUser = {
                 firstName: "Admin",
                 lastName: "",
@@ -45,7 +45,7 @@ export default class UserStore {
                 this.requested = true;
             })
         } else {
-            return;
+            return
         }
 
         let route = LoginStore.isProvider() ? '/provider/currentProvider' : 'customer/currentCustomer'

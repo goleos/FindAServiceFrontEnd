@@ -18,12 +18,12 @@ export const theme = createTheme({
             main: '#083D77',
         },
         secondary: {
-            main: '#00BBF9',
+            main: '#0077CC',
             dark: '#000'
         },
         info: {
             light: '#ffffff',
-            main: '#9094a3'
+            main: '#6f747d'
         },
         success: {
             main: '#26A96C',
@@ -34,7 +34,7 @@ export const theme = createTheme({
             light: '#ffffff'
         },
         warning: {
-            main:  'rgba(255, 255, 255, 0.5)'
+            main:  '#fb8303'
         }
     }
 });

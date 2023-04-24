@@ -17,8 +17,8 @@ export const ProfileImage = (props) => {
 }
 
 const Container = styled.div`
-  min-width: ${props => props.size === 'small' ? '55px': props.size === 'large' ? '120px' : '80px' };
-  min-height: ${props => props.size === 'small' ? '55px': props.size === 'large' ? '120px' : '80px' };
+  min-width: ${props => props.size === 'small' ? '55px': props.size === 'large' ? '120px' : '30px' };
+  min-height: ${props => props.size === 'small' ? '55px': props.size === 'large' ? '120px' : '30px' };
   max-width: 120px;
   max-height: 120px;
   border-radius: 100%;

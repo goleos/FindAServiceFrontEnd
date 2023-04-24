@@ -11,16 +11,16 @@ import {
     TimelineSeparator
 } from "@mui/lab";
 import React from "react";
-import formatDate from "../../utils/helpers/formatDate";
+import {formatDate} from "../helpers/formatDate";
 
 
 const UpdateHistory = (props) => {
 
-    const profileUpdates = props.updates;
+    const updates = props.updates;
 
     let updateNodes = []
 
-    profileUpdates.forEach((elem, index, array) => {
+    updates.forEach((elem, index) => {
         const color = elem.status === 'completed' ? 'success' : 'info'
 
         updateNodes.push(

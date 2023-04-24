@@ -33,7 +33,6 @@ const Container = styled.div`
   align-items: center;
   gap: 5px;
   color: ${props => props.color};
-  width: 300px;
 
   @media only screen and ${device.tablet} {
     text-align: center;

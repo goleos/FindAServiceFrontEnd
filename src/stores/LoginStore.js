@@ -25,7 +25,7 @@ class LoginStore {
     login(authToken) {
         localStorage.setItem("user", authToken);
 
-        this.setAuthStatus();
+        return this.setAuthStatus();
     }
 
     // Logout user

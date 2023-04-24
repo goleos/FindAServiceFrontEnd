@@ -1,9 +1,7 @@
 import {observer} from "mobx-react";
-import styled from "@emotion/styled";
 import PendingUpdateWarning from "./PendingUpdateWarning";
 import React from "react";
-import {border} from "../../../utils/styles/themeConfig";
-import formatDate from "../../../utils/helpers/formatDate";
+import {formatDate} from "../../../utils/helpers/formatDate";
 import {Checkbox} from "@mui/material";
 import {faCircleCheck, faPen} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -12,9 +10,17 @@ import axiosConfig from "../../../utils/helpers/axiosConfig";
 import {useNavigate} from "react-router-dom";
 import IconButton from "../../../utils/components/IconButton";
 import {ROUTES} from "../../../utils/helpers/constants";
+import {
+  Container,
+  CreatedAt,
+  DetailsContainer, Reason,
+  SectionTitle,
+  UpdateInfoContainer
+} from "../../../utils/styles/updateStyles";
+import {ButtonContainer} from "../../../utils/styles/formStyles";
 
 
-const PendingUpdate = (props) => {
+const PendingProfileUpdate = (props) => {
 
     const navigate = useNavigate();
 
@@ -22,7 +28,7 @@ const PendingUpdate = (props) => {
         const status = event.target.checked ? 'completed' : 'pending';
 
         try {
-            const res = await axiosConfig().put(`/profile-update/${props.update.id}/change-status`, {status: status});
+            const res = await axiosConfig().put(`/profileUpdate/${props.update.id}/changeStatus`, {status: status});
 
             if (res.data.status) {
                 props.store.requestProfileUpdates();
@@ -69,43 +75,5 @@ const PendingUpdate = (props) => {
     )
 }
 
-export default observer(PendingUpdate);
+export default observer(PendingProfileUpdate);
 
-const UpdateInfoContainer = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  gap: 5px;
-`
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: column;
-  gap: 10px;
-  border-radius: ${border.borderRadius};
-  background-color: ${props => props.theme.palette.info.light};
-  padding: 10px 20px 5px 20px;
-`
-
-const SectionTitle = styled.h3`
-    margin-bottom: 0;
-`
-
-const DetailsContainer = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  padding: 5px;
-`
-
-const CreatedAt = styled.div`
-  color: ${props => props.theme.palette.info.main};
-`
-
-const Reason = styled.div`
-`
-
-const ButtonContainer = styled.div`
-  align-self: center;
-  margin-bottom: 20px;
-`

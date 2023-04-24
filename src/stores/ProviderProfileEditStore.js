@@ -11,7 +11,7 @@ export default class ProviderProfileEditStore {
     address = undefined;
     description = undefined;
 
-    constructor(id) {
+    constructor() {
         makeAutoObservable(this);
     }
 
@@ -19,40 +19,21 @@ export default class ProviderProfileEditStore {
         return this.firstName;
     }
 
-    setFirstName(firstName) {
-        this.firstName = firstName;
-    }
-
     getLastName() {
         return this.lastName;
-    }
-
-    setLastName(lastName) {
-        this.lastName = lastName;
     }
 
     getEmail() {
         return this.email;
     }
 
-    setEmail(email) {
-        this.email = email;
-    }
 
     getAddress() {
         return this.address;
     }
 
-    setAddress(address) {
-        this.address = address;
-    }
-
     getDescription() {
         return this.description;
-    }
-
-    setDescription(description) {
-        this.description = description;
     }
 
     setProviderInfo(provider) {

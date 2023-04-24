@@ -3,6 +3,36 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/Home/ProviderTile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Home/ProviderTile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/Login/AdminLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Login/AdminLoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/EditProfile/components/EditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/EditProfile/components/EditForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileUpdates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileUpdates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Unapproved/PendingUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Unapproved/PendingProfileUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Unapproved/UnapprovedPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Unapproved/UnapprovedPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/UpdateHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/UpdateHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/LoginStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/LoginStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ProviderProfileEditStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ProviderProfileEditStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ProviderProfileStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ProviderProfileStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/RootStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/RootStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/ServiceStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ServiceStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/UserStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/UserStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/ProfileImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/ProfileImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/TextIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/TextIcon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/Title.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/Title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/NewServiceDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/NewServiceDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/formatDate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/formatDate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/styles/pageStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/pageStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/styles/themeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/themeConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +66,17 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages/provider/EditProfile/components" />
-      <recent name="$PROJECT_DIR$/src/pages/provider/Unapproved" />
-      <recent name="$PROJECT_DIR$/src/pages/admin/Home" />
-      <recent name="$PROJECT_DIR$/src/pages/menu" />
-      <recent name="$PROJECT_DIR$/src/utils/images" />
+      <recent name="$PROJECT_DIR$/src/pages/service/ServiceRequest/components" />
+      <recent name="$PROJECT_DIR$/src/pages/service/ServiceRequest" />
+      <recent name="$PROJECT_DIR$/src/utils/components" />
+      <recent name="$PROJECT_DIR$/src/utils/components/service" />
+      <recent name="$PROJECT_DIR$/src/pages/service/ServiceInfo/components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -57,6 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680864513491</updated>
       <workItem from="1680864515247" duration="35500000" />
+      <workItem from="1682167871774" duration="47127000" />
     </task>
     <servers />
   </component>
