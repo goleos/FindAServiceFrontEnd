@@ -38,7 +38,12 @@ const ManageServiceDialog = (props) => {
             All new services have to be approved by admin first before they
             become visible to customers.
           </DialogContentText> */}
-                    <EditServiceForm editingExistingService={false} onFinish={props.onClose} onSuccess={handleSubmit} />
+                    <EditServiceForm
+                        editingExistingService={props.editingExistingService}
+                        editService={props.editService}
+                        onFinish={props.onClose}
+                        onSuccess={handleSubmit}
+                    />
                 </DialogContent>
             </Dialog>
         </>
