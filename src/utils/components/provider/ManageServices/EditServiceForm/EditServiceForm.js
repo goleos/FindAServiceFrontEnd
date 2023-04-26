@@ -17,7 +17,7 @@ const EditServiceForm = (props) => {
       title: "",
       category: "",
       description: "",
-      price: 0,
+      price: "",
       availability: ["Monday"],
       areas_covered: ["Southampton"],
     },
@@ -74,7 +74,7 @@ const EditServiceForm = (props) => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              id="servicePrice"
+              id="price"
               label="Price"
               type="number"
               value={formik.values.price}
