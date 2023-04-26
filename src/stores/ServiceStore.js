@@ -62,4 +62,14 @@ export default class ServiceStore {
                 });
             });
     }
+
+    deleteService(serviceID) {
+        axiosConfig()
+            .delete("/service/delete", { params: { service_id: serviceID } })
+            .then((data) => {
+                runInAction(() => {
+                    console.log(data);
+                });
+            });
+    }
 }

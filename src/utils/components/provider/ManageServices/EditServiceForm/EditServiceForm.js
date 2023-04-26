@@ -45,6 +45,12 @@ const EditServiceForm = (props) => {
         },
     });
 
+    const handleDeleteService = () => {
+        serviceStore.deleteService(props.editService.id);
+        props.onFinish();
+        window.location.reload(false);
+    };
+
     const formTitleString = props.editingExistingService ? "Manage a service" : "Add a new service";
 
     return (
@@ -126,11 +132,19 @@ const EditServiceForm = (props) => {
                         <UploadPhotosGrid />
                     </Grid>
                 </Grid>
-                <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
-                    <Button variant="contained" type="submit">
-                        Create
-                    </Button>
-                    <Button onClick={props.onFinish}>Cancel</Button>
+                <Stack alignItems={"flex-start"} justifyContent={"space-between"} direction={"row-reverse"}>
+                    <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
+                        <Button variant="contained" type="submit">
+                            Create
+                        </Button>
+                        <Button onClick={props.onFinish}>Cancel</Button>
+                    </Stack>
+
+                    {props.editingExistingService && (
+                        <Button color="error" variant="contained" onClick={handleDeleteService}>
+                            Delete Service
+                        </Button>
+                    )}
                 </Stack>
             </form>
         </Stack>
