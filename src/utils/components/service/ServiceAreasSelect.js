@@ -10,7 +10,7 @@ const ServiceAreasSelect = (props) => {
   return (
     <FormControl fullWidth>
       <InputLabel required>Areas Covered</InputLabel>
-      <Select {...props} label="Areas Covered" multiple>
+      <Select {...props} label="Areas Covered" name="areas_covered" multiple>
         {areaOptions.map((option) => (
           <MenuItem key={option} value={option}>
             {option}

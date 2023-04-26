@@ -18,7 +18,7 @@ const ServiceAvailabilitySelect = (props) => {
   return (
     <FormControl fullWidth>
       <InputLabel required>Availability</InputLabel>
-      <Select {...props} label="Availability" multiple>
+      <Select {...props} label="Availability" name="availability" multiple>
         {availabilityOptions.map((option) => (
           <MenuItem key={option} value={option}>
             {option}

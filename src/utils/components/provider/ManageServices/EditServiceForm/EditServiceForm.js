@@ -18,8 +18,8 @@ const EditServiceForm = (props) => {
       category: "",
       description: "",
       price: "",
-      availability: ["Monday"],
-      areas_covered: ["Southampton"],
+      availability: [], 
+      areas_covered: [],
     },
     onSubmit: (values) => {
       console.log(values);
@@ -102,6 +102,7 @@ const EditServiceForm = (props) => {
               id="areas_covered"
               value={formik.values.areas_covered}
               onChange={formik.handleChange}
+              multiple
               required
             />
           </Grid>
