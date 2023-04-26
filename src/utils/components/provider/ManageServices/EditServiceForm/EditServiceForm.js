@@ -45,8 +45,8 @@ const EditServiceForm = (props) => {
         },
     });
 
-    const handleDeleteService = () => {
-        serviceStore.deleteService(props.editService.id);
+    const handleDeleteService = async () => {
+        await serviceStore.deleteService(props.editService.id);
         props.onFinish();
         window.location.reload(false);
     };

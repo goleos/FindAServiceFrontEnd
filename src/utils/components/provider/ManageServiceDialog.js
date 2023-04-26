@@ -20,6 +20,9 @@ const ManageServiceDialog = (props) => {
         await serviceStore.requestServices(props.providerID);
         props.onClose();
         setSuccessAlertOpen(true);
+        if (props.editingExistingService) {
+            window.location.reload(false);
+        }
     };
 
     const handleCloseSuccessAlert = (event) => {
