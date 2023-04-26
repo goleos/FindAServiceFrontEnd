@@ -21,6 +21,7 @@ const EditServiceForm = (props) => {
         areas_covered: [],
     };
 
+    // if we're editing a service, populate the form with relevant fields
     if (props.editingExistingService) {
         console.log(props.editService);
         initialValues = {
@@ -37,6 +38,7 @@ const EditServiceForm = (props) => {
         initialValues: initialValues,
         onSubmit: (values) => {
             console.log(values);
+            // update service if we're editing or create a new one
             props.editingExistingService
                 ? serviceStore.updateService({ ...values, serviceID: props.editService.id })
                 : serviceStore.createService(values);
@@ -48,6 +50,7 @@ const EditServiceForm = (props) => {
     const handleDeleteService = async () => {
         await serviceStore.deleteService(props.editService.id);
         props.onFinish();
+        // update page to show the new changes
         window.location.reload(false);
     };
 

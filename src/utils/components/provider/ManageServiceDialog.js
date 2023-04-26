@@ -29,10 +29,14 @@ const ManageServiceDialog = (props) => {
         setSuccessAlertOpen(false);
     };
 
+    const successMessageString = props.editingExistingService
+        ? "Changes successfully saved"
+        : "New service successfully created";
+
     return (
         <>
             <Snackbar open={successAlertOpen} autoHideDuration={7000} onClose={handleCloseSuccessAlert}>
-                <Alert severity="success">New service successfully created</Alert>
+                <Alert severity="success">{successMessageString}</Alert>
             </Snackbar>
             <Dialog open={props.open} maxWidth={false} fullWidth>
                 {/* <DialogTitle>Add a new service</DialogTitle> */}
