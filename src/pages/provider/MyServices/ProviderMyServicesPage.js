@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
+import ManageServiceDialog from "../../../utils/components/provider/ManageServiceDialog";
 import ServicesStack from "../../../utils/components/service/ServicesStack";
 import { useStore } from "../../../stores/RootStore";
 import { Title } from "../../../utils/components/Title";
@@ -62,7 +62,7 @@ const ProviderMyServicesPage = () => {
                 <AddIcon sx={{ mr: 1 }} />
                 New Service
             </Fab>
-            <NewServiceDialog providerID={provider.id} open={dialogOpen} onClose={handleCloseDialog} />
+            <ManageServiceDialog providerID={provider.id} open={dialogOpen} onClose={handleCloseDialog} />
         </Page>
     );
 };

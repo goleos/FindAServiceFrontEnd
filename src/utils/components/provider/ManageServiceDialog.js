@@ -12,7 +12,7 @@ https://mui.com/material-ui/react-dialog/
 https://mui.com/material-ui/react-select/
 https://mui.com/material-ui/react-snackbar/#customization
 */
-const NewServiceDialog = (props) => {
+const ManageServiceDialog = (props) => {
     const { serviceStore } = useStore();
     const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
@@ -45,4 +45,4 @@ const NewServiceDialog = (props) => {
     );
 };
 
-export default observer(NewServiceDialog);
+export default observer(ManageServiceDialog);
