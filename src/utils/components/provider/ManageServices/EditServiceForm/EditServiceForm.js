@@ -58,6 +58,7 @@ const EditServiceForm = (props) => {
               id="category"
               value={formik.values.category}
               onChange={formik.handleChange}
+              required
             />
           </Grid>
           <Grid item xs={12}>
@@ -93,6 +94,7 @@ const EditServiceForm = (props) => {
               id="availability"
               value={formik.values.availability}
               onChange={formik.handleChange}
+              required
             />
           </Grid>
           <Grid item xs={12}>
@@ -100,6 +102,7 @@ const EditServiceForm = (props) => {
               id="areas_covered"
               value={formik.values.areas_covered}
               onChange={formik.handleChange}
+              required
             />
           </Grid>
           <Grid item xs={12}>
