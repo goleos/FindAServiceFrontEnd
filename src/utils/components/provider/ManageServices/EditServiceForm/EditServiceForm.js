@@ -37,7 +37,9 @@ const EditServiceForm = (props) => {
         initialValues: initialValues,
         onSubmit: (values) => {
             console.log(values);
-            serviceStore.createService(values);
+            props.editingExistingService
+                ? serviceStore.updateService({ ...values, serviceID: props.editService.id })
+                : serviceStore.createService(values);
             props.onFinish();
             props.onSuccess();
         },
