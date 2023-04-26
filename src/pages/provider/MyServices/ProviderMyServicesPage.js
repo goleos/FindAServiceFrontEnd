@@ -2,9 +2,12 @@ import { observer } from "mobx-react";
 import NewServiceDialog from "../../../utils/components/provider/NewServiceDialog";
 import ServicesStack from "../../../utils/components/service/ServicesStack";
 import { useStore } from "../../../stores/RootStore";
-import {Title} from "../../../utils/components/Title";
-import {Page} from "../../../utils/styles/pageStyles";
-import {CircularLoading} from "../../../utils/components/CircularLoading";
+import { Title } from "../../../utils/components/Title";
+import { Page } from "../../../utils/styles/pageStyles";
+import { CircularLoading } from "../../../utils/components/CircularLoading";
+import AddIcon from "@mui/icons-material/Add";
+import { Fab } from "@mui/material";
+import { useState } from "react";
 
 /* Documentation used:
 https://mui.com/material-ui/api/form-control/
@@ -13,35 +16,55 @@ https://mui.com/material-ui/react-select/
 */
 
 const ProviderMyServicesPage = () => {
+    const { serviceStore, userStore } = useStore();
+    const [dialogOpen, setDialogOpen] = useState(false);
 
-  const { serviceStore, userStore } = useStore();
+    // Get current user
+    let provider = userStore.getCurrentUser();
 
-  // Get current user
-  let provider = userStore.getCurrentUser();
+    // Loading
+    if (provider === undefined) {
+        return <CircularLoading />;
+    }
 
-  // Loading
-  if (provider === undefined) {
+    const services = serviceStore.getServices(provider.id);
+
+    // Loading
+    if (services === undefined) {
+        return <CircularLoading />;
+    }
+
+    const handleOpenDialog = () => {
+        setDialogOpen(true);
+    };
+
+    const handleCloseDialog = () => {
+        setDialogOpen(false);
+    };
+
     return (
-        <CircularLoading />
-    )
-  }
-
-  const services = serviceStore.getServices(provider.id);
-
-  // Loading
-  if (services === undefined) {
-    return (
-        <CircularLoading />
-    )
-  }
-
-  return (
-    <Page>
-      <Title text="My Services"/>
-      <ServicesStack services={serviceStore.services} />
-      <NewServiceDialog providerID={provider.id}/>
-    </Page>
-  );
+        <Page>
+            <Title text="My Services" />
+            <ServicesStack services={serviceStore.services} />
+            <Fab
+                onClick={handleOpenDialog}
+                color="primary"
+                variant="extended"
+                size="large"
+                sx={{
+                    width: 170,
+                    height: 50,
+                    position: "fixed",
+                    bottom: 40,
+                    right: 30,
+                }}
+            >
+                <AddIcon sx={{ mr: 1 }} />
+                New Service
+            </Fab>
+            <NewServiceDialog providerID={provider.id} open={dialogOpen} onClose={handleCloseDialog} />
+        </Page>
+    );
 };
 
 export default observer(ProviderMyServicesPage);
