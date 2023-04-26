@@ -79,8 +79,6 @@ const Service = (props) => {
         setSuccessAlertOpen(false);
     };
 
-    const handleManageServices = () => {};
-
     return (
         <>
             <Container>
