@@ -55,6 +55,7 @@ const EditServiceForm = (props) => {
     };
 
     const formTitleString = props.editingExistingService ? "Manage a service" : "Add a new service";
+    const submitButtonString = props.editingExistingService ? "Update" : "Create";
 
     return (
         <Stack spacing={2}>
@@ -138,7 +139,7 @@ const EditServiceForm = (props) => {
                 <Stack alignItems={"flex-start"} justifyContent={"space-between"} direction={"row-reverse"}>
                     <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
                         <Button variant="contained" type="submit">
-                            Create
+                            {submitButtonString}
                         </Button>
                         <Button onClick={props.onFinish}>Cancel</Button>
                     </Stack>
