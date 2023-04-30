@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/UploadImagesStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/UploadImagesStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/constants.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

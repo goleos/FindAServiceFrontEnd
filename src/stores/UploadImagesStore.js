@@ -39,7 +39,7 @@ export default class UploadImagesStore {
     this.imageUrls = undefined
   }
 
-  uploadImages (serviceId) {
+  async uploadImages (serviceId) {
     const filesData = new FormData();
 
     if (this.images) {

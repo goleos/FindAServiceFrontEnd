@@ -42,10 +42,10 @@ const EditServiceForm = (props) => {
             // update service if we're editing or create a new one
             if (props.editingExistingService) {
               serviceStore.updateService({ ...values, serviceID: props.editService.id })
-              uploadImagesStore.uploadImages(props.editService.id)
+              await uploadImagesStore.uploadImages(props.editService.id)
             } else {
               const res = await axiosConfig().post("/service/create", values)
-              uploadImagesStore.uploadImages(Number(res.data))
+              await uploadImagesStore.uploadImages(Number(res.data))
             }
             props.onFinish();
             props.onSuccess();

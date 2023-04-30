@@ -57,7 +57,7 @@ export const device = {
 export const PROFILE_IMAGE =
   "https://findaservice.blob.core.windows.net/app/user.png";
 
-export const SERVICE_IMAGE = "https://findaservice.blob.core.windows.net/app/service.png"
+export const SERVICE_IMAGE = "https://findaservice.blob.core.windows.net/app/service.jpg"
 
 export const SERVICE_CATEGORIES = [
   "Cleaning",
