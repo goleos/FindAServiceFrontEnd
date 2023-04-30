@@ -45,7 +45,7 @@ const EditServiceForm = (props) => {
               uploadImagesStore.uploadImages(props.editService.id)
             } else {
               const res = await axiosConfig().post("/service/create", values)
-              uploadImagesStore.uploadImages(Number(res.data.id))
+              uploadImagesStore.uploadImages(Number(res.data))
             }
             props.onFinish();
             props.onSuccess();
