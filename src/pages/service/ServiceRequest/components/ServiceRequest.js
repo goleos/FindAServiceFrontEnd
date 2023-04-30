@@ -30,7 +30,6 @@ import {getRequestStatusInfo} from "../../../../utils/helpers/serviceFunctions";
 import PendingRequestUpdate from "./PendingRequestUpdate";
 import UpdateHistory from "../../../../utils/components/UpdateHistory";
 import Alert from "@mui/material/Alert";
-import {ErrorMessage} from "@hookform/error-message";
 
 const ServiceRequest = (props) => {
 

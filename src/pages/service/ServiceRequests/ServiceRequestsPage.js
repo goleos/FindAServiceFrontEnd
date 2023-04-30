@@ -4,7 +4,6 @@ import {Title} from "../../../utils/components/Title";
 import ServiceRequestList from "../../../utils/components/service/ServiceRequestList";
 import {useStore} from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
-import styled from "@emotion/styled";
 
 const ServiceRequestsPage = () => {
   const { serviceRequestsStore } = useStore();
