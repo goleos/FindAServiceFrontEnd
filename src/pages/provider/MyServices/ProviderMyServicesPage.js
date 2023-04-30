@@ -16,7 +16,8 @@ https://mui.com/material-ui/react-select/
 */
 
 const ProviderMyServicesPage = () => {
-    const { serviceStore, userStore } = useStore();
+
+    const { uploadImagesStore, serviceStore, userStore } = useStore();
     const [dialogOpen, setDialogOpen] = useState(false);
 
     // Get current user
@@ -35,6 +36,7 @@ const ProviderMyServicesPage = () => {
     }
 
     const handleOpenDialog = () => {
+        uploadImagesStore.resetImages()
         setDialogOpen(true);
     };
 
@@ -45,7 +47,7 @@ const ProviderMyServicesPage = () => {
     return (
         <Page>
             <Title text="My Services" />
-            <ServicesStack services={serviceStore.services} />
+            <ServicesStack services={services} />
             <Fab
                 onClick={handleOpenDialog}
                 color="primary"

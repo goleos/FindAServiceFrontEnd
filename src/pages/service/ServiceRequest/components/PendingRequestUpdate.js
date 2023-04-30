@@ -2,7 +2,7 @@ import {observer} from "mobx-react";
 import React, {useState} from "react";
 import {formatDate} from "../../../../utils/helpers/formatDate";
 import {Alert, Checkbox, Dialog, DialogContent, Snackbar} from "@mui/material";
-import {faCircleCheck, faPen} from "@fortawesome/free-solid-svg-icons";
+import {faCircleCheck, faPen, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircle} from "@fortawesome/free-regular-svg-icons";
 import axiosConfig from "../../../../utils/helpers/axiosConfig";
@@ -14,16 +14,22 @@ import {
   SectionTitle,
   UpdateInfoContainer
 } from "../../../../utils/styles/updateStyles";
-import {ButtonContainer} from "../../../../utils/styles/formStyles";
 import {useStore} from "../../../../stores/RootStore";
 import styled from "@emotion/styled";
 import UpdateRequestForm from "./UpdateRequestForm";
+import {ROUTES as ROUTE} from "../../../../utils/helpers/constants";
+import {useNavigate} from "react-router-dom";
 
 
 const PendingRequestUpdate = (props) => {
 
   const {serviceRequestsStore} = useStore();
 
+  const navigate = useNavigate();
+
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
@@ -43,6 +49,19 @@ const PendingRequestUpdate = (props) => {
   const handleCloseSuccessAlert = () => {
     setSuccessAlertOpen(false);
   };
+
+  const handleWithdraw = async () => {
+    try {
+      await axiosConfig().put(`/serviceRequest/${props.requestId}/status`, {status: 'withdrawn'})
+      serviceRequestsStore.requestServiceRequests();
+      navigate(ROUTE.service.myRequests)
+      setIsSubmitting(false);
+    } catch (err) {
+      console.log(err)
+      setErrorMessage(err.response.data.message);
+      setIsSubmitting(false);
+    }
+  }
 
   const handleCheck = async (event) => {
     const status = event.target.checked ? 'completed' : 'pending';
@@ -79,14 +98,20 @@ const PendingRequestUpdate = (props) => {
           </UpdateInfoContainer>
           <CreatedAt>{formatDate(props.update.createdAt)} </CreatedAt>
         </DetailsContainer>
-        <ButtonContainer>
+        <ButtonsContainer>
           <IconButton
             icon={faPen}
             name="Edit Request"
             color="primary"
             onClick={handleOpenDialog}
           />
-        </ButtonContainer>
+          <IconButton
+            icon={faTrash}
+            name="Withdraw Request"
+            color="error"
+            onClick={handleWithdraw}
+          />
+        </ButtonsContainer>
         <ServiceRequestDialog>
           <Snackbar
             open={successAlertOpen}
@@ -103,6 +128,7 @@ const PendingRequestUpdate = (props) => {
             </DialogContent>
           </Dialog>
         </ServiceRequestDialog>
+        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
       </Container>
     </>
   )
@@ -112,5 +138,15 @@ export default observer(PendingRequestUpdate);
 
 const ServiceRequestDialog = styled.div`
 `
-
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 30px;
+  
+  button {
+    width: 180px;
+    padding: 5px;
+  }
+`
 

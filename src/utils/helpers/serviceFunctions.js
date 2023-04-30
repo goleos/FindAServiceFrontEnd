@@ -8,7 +8,7 @@ import {
   faCircleXmark,
   faHourglassHalf,
   faPlug,
-  faSprayCanSparkles, faToolbox,
+  faSprayCanSparkles, faToolbox, faTrash,
   faWrench
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -64,11 +64,17 @@ export const getRequestStatusInfo = (status, provider, theme) => {
       statusText = "Completed";
       info = "This request was completed"
       break;
-    default:
+    case "request_further_details":
       color =  provider ? theme.palette.info.main : theme.palette.secondary.main;
       icon = faCircleQuestion;
-      statusText = provider ? "Update Requested" : "Update Needed";
-      info = "Please review and make the requested updates. Make sure to mark the request as completed when finished"
+      statusText = provider ? "Further Details Requested" : "Further Details Needed";
+      info = "Please review and make the requested updates. Make sure to mark the request as completed when finished";
+      break;
+    default :
+      color = theme.palette.error.main;
+      icon = faTrash;
+      statusText = "Withdrawn";
+      info = "This request was withdrawn"
       break;
   }
 

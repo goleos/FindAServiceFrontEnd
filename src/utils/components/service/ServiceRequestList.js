@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import styled from "@emotion/styled";
 import {Grid} from "@mui/material";
-import {Line, Name, NameContainer, Price, PriceContainer, UserDetails} from "../../styles/pageStyles";
+import {Line, Name, NameContainer, Price, PriceContainer, RequestNumber, UserDetails} from "../../styles/pageStyles";
 import {TextIcon} from "../TextIcon";
 import {
   faCalendar,
@@ -36,6 +36,9 @@ const ServiceRequestList = (props) => {
       <Grid item lg={size} md={size} s={12} xs={12} key={index}>
         <NavLink to={`/service-requests/${elem.id}`}>
           <Item>
+            <RequestNumber>
+              Req. Num. #{elem.id}
+            </RequestNumber>
             <Description>
               <ReadMore text={elem.description}/>
             </Description>
@@ -137,6 +140,8 @@ const Item = styled.div`
   border-radius: ${border.borderRadius};
   background-color: ${props => props.theme.palette.info.light};
   transition: box-shaodw 0.5s;
+  display: flex;
+  flex-direction: column;
   
   :hover {
     box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px 2.6px;

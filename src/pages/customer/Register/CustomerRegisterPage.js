@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -50,7 +50,7 @@ const registerSchema = yup.object({
 const CustomerRegisterPage = () => {
 
     // For rerouting to Login Page
-    //let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     // Handling form submission
     const { register, handleSubmit, formState: { errors }, setError, clearErrors } = useForm({
@@ -69,7 +69,7 @@ const CustomerRegisterPage = () => {
                 if (res.data.status) {
                     setRegistrationStatus(true)
                     setIsSubmitting(false)
-                    // navigate('/customer/login?fromRegister');
+                    // navigate('/customer/login?fromRegister=true');
                 } else {
                     setIsSubmitting(false);
                     setError('errorMessage', {

@@ -19,10 +19,12 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import axiosConfig from "../../../../utils/helpers/axiosConfig";
 import {providerInfoSchema} from "../../../../utils/helpers/formValidationSchemas";
-import {PROFILE_IMAGE, ROUTES} from "../../../../utils/helpers/constants";
+import {ROUTES} from "../../../../utils/helpers/constants";
 import styled from "@emotion/styled";
 import {border} from "../../../../utils/styles/themeConfig";
-import {ProfileImage} from "../../../../utils/components/ProfileImage";
+import {faPen} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 
 const EditForm = () => {
@@ -41,11 +43,12 @@ const EditForm = () => {
             lastName: providerProfileEditStore.getLastName(),
             email: providerProfileEditStore.getEmail(),
             address: providerProfileEditStore.getAddress(),
-            description: providerProfileEditStore.getDescription(),
-            //TODO: Upload profile image
-            profileImage: PROFILE_IMAGE
+            description: providerProfileEditStore.getDescription()
         }
     });
+
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Show/Hide Passwords
     const [showPassword1, togglePassword1] = useState(false);
@@ -62,17 +65,32 @@ const EditForm = () => {
     const onSubmit = async (data) => {
         if (!!errors) {
             try {
+                // Edit Profile Information
                 const res = await axiosConfig().put( "/provider/editProfile", data);
-                if (res.data.status) {
-                    userStore.requestCurrentUser();
-                    adminStore.requestUnapprovedProviders();
-                    navigate(ROUTES.provider.home);
-                } else {
-                    setError('errorMessage', {
-                        type: 'manual',
-                        message: res.data.message
-                    })
+
+                if (!res.data.status) {
+                  setIsSubmitting(false);
+                  setError('errorMessage', {
+                    type: 'manual',
+                    message: res.data.message
+                  })
+                  return
                 }
+
+                // Edit Profile Image
+                const uploadProfileRes = await providerProfileEditStore.uploadProfileImage();
+
+                if (!uploadProfileRes.data.status) {
+                  setIsSubmitting(false);
+                  setError('errorMessage', {
+                    type: 'manual',
+                    message: uploadProfileRes.data.message
+                  })
+                }
+
+                userStore.requestCurrentUser();
+                adminStore.requestUnapprovedProviders();
+                navigate(ROUTES.provider.home);
             } catch (err) {
                 setError('errorMessage', {
                     type: 'manual',
@@ -80,6 +98,15 @@ const EditForm = () => {
                 });
             }
         }
+    }
+
+    // Change profile image
+    const uploadImage = (files) => {
+      if (files !== null) {
+        let url = URL.createObjectURL(files[0]);
+        providerProfileEditStore.setProfileImageUrl(url);
+        providerProfileEditStore.setProfileImage(files[0]);
+      }
     }
 
 
@@ -96,7 +123,25 @@ const EditForm = () => {
                 <Alert severity="error">{message}</Alert>
             } />
             <ImageContainer>
-                <ProfileImage size="large" image={provider.profileImage}/>
+              <Image image={providerProfileEditStore.getProfileImageUrl()}/>
+              <ChangeImage>
+                <ButtonContainer>
+                  <EditIcon>
+                    <label htmlFor="file">
+                      <FontAwesomeIcon icon={faPen} />
+                    </label>
+                    <input
+                      id="file"
+                      type="file"
+                      accept="image/*"
+                      {...register('profileImage', {
+                        onChange: (Event) => {uploadImage(Event.target.files)}
+                      })}
+                      hidden
+                    />
+                  </EditIcon>
+                </ButtonContainer>
+              </ChangeImage>
             </ImageContainer>
             <FormContainer onSubmit={handleSubmit(onSubmit)}>
                 <TextField
@@ -198,7 +243,10 @@ const EditForm = () => {
                     <Alert severity="error">{message}</Alert>
                 } />
                 <ButtonContainer>
-                    <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                  {isSubmitting
+                    ? <LoadingButton loading variant="outlined" size="large" >Submit</LoadingButton>
+                    : <Button type="submit" variant="contained" size="large" onClick={() => clearErrors()}>Submit</Button>
+                  }
                 </ButtonContainer>
             </FormContainer>
         </Container>
@@ -216,6 +264,72 @@ const Container = styled.div`
   padding: 20px 100px;
 `
 
+
 const ImageContainer = styled.div`
+  min-width: 100px;
+  min-height: 100px;
+  position: relative;
+  border-radius: 100%;
   align-self: center;
+  
+  :hover div:nth-of-type(2) {
+    background-color: rgba(255,255,255,0.5);
+  }
+`
+
+
+const EditIcon = styled.div`
+    background-color: ${props => props.theme.palette.primary.light};
+    border: 2px solid ${props => props.theme.palette.info.light};
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    cursor: pointer;
+
+    :hover {
+        svg {
+            color: ${props => props.theme.palette.secondary.main};
+        }
+    }
+
+    svg {
+      cursor: pointer;
+      color: ${props => props.theme.palette.primary.main}
+    }
+  
+    input[type="file"] {
+        display: none;
+    }
+`
+
+const ChangeImage = styled.div`
+  background-color: rgba(255,255,255,0);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  
+  :hover div {
+    opacity: 1;
+  }
+`
+
+const Image = styled.div`
+  min-width: 100px;
+  min-height: 100px;
+  position: relative;
+  background-image: url(${props => props.image});
+  background-size: cover;
+  border-radius: 100%;
 `

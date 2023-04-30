@@ -68,3 +68,10 @@ export const ApprovalButtonsContainer = styled.div`
     padding: 20px;
   }
 `
+
+export const RequestNumber = styled.div`
+  color: ${props => props.theme.palette.info.main};
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  align-self: end;
+`

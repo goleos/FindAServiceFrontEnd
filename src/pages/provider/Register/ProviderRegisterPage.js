@@ -81,7 +81,7 @@ const ProviderRegisterPage = () => {
                         <TextField
                             {...register('firstName')}
                             id="firstName"
-                            label="First Name"
+                            label="First Name / Company Name"
                             variant="outlined"
                             error={!!errors.firstName}
                             helperText={errors.firstName ? errors.firstName.message : ''}

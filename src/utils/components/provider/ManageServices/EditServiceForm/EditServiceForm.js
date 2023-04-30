@@ -8,11 +8,12 @@ import ServiceAreasSelect from "../../../service/ServiceAreasSelect";
 import { useFormik } from "formik";
 import Button from "@mui/material/Button";
 import { useStore } from "../../../../../stores/RootStore";
+import axiosConfig from "../../../../helpers/axiosConfig";
 
 const EditServiceForm = (props) => {
-    const { serviceStore } = useStore();
+    const { serviceStore, uploadImagesStore } = useStore();
 
-    var initialValues = {
+    let initialValues = {
         title: "",
         category: "",
         description: "",
@@ -36,12 +37,16 @@ const EditServiceForm = (props) => {
 
     const formik = useFormik({
         initialValues: initialValues,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             console.log(values);
             // update service if we're editing or create a new one
-            props.editingExistingService
-                ? serviceStore.updateService({ ...values, serviceID: props.editService.id })
-                : serviceStore.createService(values);
+            if (props.editingExistingService) {
+              serviceStore.updateService({ ...values, serviceID: props.editService.id })
+              uploadImagesStore.uploadImages(props.editService.id)
+            } else {
+              const res = await axiosConfig().post("/service/create", values)
+              uploadImagesStore.uploadImages(Number(res.data.id))
+            }
             props.onFinish();
             props.onSuccess();
         },
@@ -133,7 +138,7 @@ const EditServiceForm = (props) => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <UploadPhotosGrid />
+                        <UploadPhotosGrid editingExistingService />
                     </Grid>
                 </Grid>
                 <Stack alignItems={"flex-start"} justifyContent={"space-between"} direction={"row-reverse"}>

@@ -42,7 +42,7 @@ const schema = yup.object({
 
 const ProviderLoginPage = () => {
 
-    const { userStore } = useStore();
+    const { userStore, serviceStore } = useStore();
 
     // For rerouting to Login Page
     let navigate = useNavigate();
@@ -62,6 +62,7 @@ const ProviderLoginPage = () => {
                 if (res.data.status) {
                     LoginStoreInstance.login(res.data.token);
                     userStore.requestCurrentUser();
+                    serviceStore.requestServices(userStore.getCurrentUser().id);
                     navigate('/provider/home?fromLogin');
                 } else {
                     setIsSubmitting(false);

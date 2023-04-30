@@ -5,6 +5,7 @@ import AdminStore from "./AdminStore";
 import ProviderProfileEditStore from "./ProviderProfileEditStore";
 import ServiceRequestsStore from "./ServiceRequestsStore";
 import ServiceRequestEditStore from "./ServiceRequestEditStore";
+import UploadImagesStore from "./UploadImagesStore";
 
 /**
  * Initializing all the stores used for managing app state
@@ -15,7 +16,8 @@ export const store = {
     adminStore: new AdminStore(),
     providerProfileEditStore: new ProviderProfileEditStore(),
     serviceRequestsStore: new ServiceRequestsStore(),
-    serviceRequestEditStore: new ServiceRequestEditStore()
+    serviceRequestEditStore: new ServiceRequestEditStore(),
+    uploadImagesStore: new UploadImagesStore()
 };
 
 export const StoreContext = createContext(store);

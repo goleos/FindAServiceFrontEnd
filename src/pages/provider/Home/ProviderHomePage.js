@@ -7,7 +7,7 @@ import ProviderProfileStore from "../../../stores/ProviderProfileStore";
 
 
 const ProviderHomePage = () => {
-    const { userStore, serviceStore } = useStore();
+    const { userStore } = useStore();
 
     // Get current user
     let provider = userStore.getCurrentUser();
@@ -27,8 +27,6 @@ const ProviderHomePage = () => {
             <UnapprovedPage store={providerProfileStore}/>
         )
     }
-
-    serviceStore.requestServices(provider.id);
 
     return (
         <Page>

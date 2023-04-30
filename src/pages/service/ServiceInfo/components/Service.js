@@ -20,6 +20,7 @@ import ServiceRequestForm from "./ServiceRequestForm";
 import ServiceCategory from "../../../../utils/components/service/ServiceCategory";
 import ServiceRequestList from "../../../../utils/components/service/ServiceRequestList";
 import ManageServiceDialog from "../../../../utils/components/provider/ManageServiceDialog";
+import ImageCarousel from "../../../../utils/components/ImageCarousel";
 
 /**
  * Component that displays all profile information
@@ -30,7 +31,7 @@ import ManageServiceDialog from "../../../../utils/components/provider/ManageSer
 const Service = (props) => {
     const params = useParams();
 
-    const { userStore } = useStore();
+    const { userStore, uploadImagesStore } = useStore();
 
     const theme = useTheme();
 
@@ -63,6 +64,7 @@ const Service = (props) => {
     }
 
     const handleOpenDialog = () => {
+        uploadImagesStore.setImageUrls(service.serviceImages)
         setDialogOpen(true);
     };
 
@@ -79,10 +81,12 @@ const Service = (props) => {
         setSuccessAlertOpen(false);
     };
 
+    const images = (service.serviceImages && service.serviceImages.length > 0) ? service.serviceImages : [SERVICE_IMAGE];
+
     return (
         <>
             <Container>
-                <Image image={SERVICE_IMAGE} />
+                <ImageCarousel images={images} />
                 <Header>
                     <ServiceDetails>
                         <ServiceTitle>{service.title}</ServiceTitle>
@@ -202,14 +206,6 @@ const Header = styled.div`
         gap: 20px;
         flex-direction: column;
     }
-`;
-
-const Image = styled.div`
-    width: 100%;
-    height: 200px;
-    background-image: url(${(props) => props.image});
-    background-size: cover;
-    border-radius: ${border.borderRadius} ${border.borderRadius} 0 0;
 `;
 
 const ServiceTitle = styled.h1`

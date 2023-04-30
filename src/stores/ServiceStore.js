@@ -1,10 +1,15 @@
 // import axios from "axios";
-import { makeAutoObservable, runInAction } from "mobx";
+import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
+/**
+ * Class for managing services
+ */
 export default class ServiceStore {
-    services = undefined;
 
+    providerID = null;
+    searchQuery = null;
+    services = undefined;
     requested = false;
 
     constructor() {
@@ -12,8 +17,8 @@ export default class ServiceStore {
     }
 
     // Get provider profile updates
-    getServices(providerID) {
-        if (this.services === undefined) {
+    getServices(providerID= null) {
+        if (this.services === undefined || this.providerID !== providerID) {
             this.requestServices(providerID);
 
             return undefined;
@@ -22,7 +27,7 @@ export default class ServiceStore {
         }
     }
 
-    requestServices(provider = null, category = null, area = null) {
+    requestServices(provider = null, category = null, area = null, searchQuery = null) {
         if (!this.requested) {
             runInAction(() => {
                 this.requested = true;
@@ -33,22 +38,19 @@ export default class ServiceStore {
 
         axiosConfig()
             .get("/service/services", {
-                params: { provider: provider, category: category, area: area },
+                params: {
+                  provider: provider,
+                  category: category,
+                  area: area,
+                  searchQuery: searchQuery
+                },
             })
             .then((data) => {
                 runInAction(() => {
                     this.services = data.data;
+                    this.providerID = provider;
+                    this.searchQuery = searchQuery;
                     this.requested = false;
-                });
-            });
-    }
-
-    createService(service) {
-        axiosConfig()
-            .post("/service/create", service)
-            .then((data) => {
-                runInAction(() => {
-                    console.log(data);
                 });
             });
     }

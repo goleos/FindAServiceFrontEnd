@@ -7,10 +7,10 @@ import {ProfileImage} from "../utils/components/ProfileImage";
 import {border, theme} from "../utils/styles/themeConfig";
 import {faBars, faBell} from "@fortawesome/free-solid-svg-icons";
 import Box from "@mui/material/Box";
-import {device, ROUTES} from "../utils/helpers/constants";
+import {device, ROUTES, SERVICE_CATEGORIES} from "../utils/helpers/constants";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {MenuItem} from "@mui/material";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import LoginStore from "../stores/LoginStore";
 import {CircularLoading} from "../utils/components/CircularLoading";
@@ -20,11 +20,15 @@ import Menu from '@mui/material/Menu';
 const Header = () => {
 
     // Get stores
-    const { userStore } = useStore();
+    const { userStore, serviceStore } = useStore();
+    const navigate = useNavigate();
 
     let user = userStore.getCurrentUser();
 
     let provider = LoginStore.isProvider();
+
+    // Search query
+    const [query, setQuery] = useState('');
 
     // User Menu
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -42,6 +46,19 @@ const Header = () => {
         handleCloseUserMenu();
     };
 
+
+    const handleSubmit = (event) => {
+      if (query && event.key === "Enter") {
+        if (query in SERVICE_CATEGORIES) {
+          serviceStore.requestServices(null, query, null, query);
+        } else {
+          serviceStore.requestServices(null, null, null, query);
+        }
+        setQuery('');
+        navigate(`/search`);
+      }
+    };
+
     // Loading
     if (user === undefined) {
         return (
@@ -55,14 +72,13 @@ const Header = () => {
                 <SideMenu color={theme.palette.primary.main} fontSize="1.7rem" direction="left" icon={faBars} buttonSize="large" menu={<MenuBar />}/>
             </HamburgerContainer>
             <SearchBar
-                // value={query}
-                // onChange={(e) => {
-                //     setQuery(e.target.value);
-                //     searchStore.setQuery(e.target.value);
-                // }}
-                // onKeyDown={(e) => {
-                //     handleSubmit(e);
-                // }}
+                value={query}
+                onChange={(e) => {
+                    setQuery(e.target.value);
+                }}
+                onKeyDown={(e) => {
+                    handleSubmit(e);
+                }}
             />
             <TopRightContainer>
                 <SideMenu

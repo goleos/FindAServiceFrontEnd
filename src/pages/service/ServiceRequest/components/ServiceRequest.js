@@ -10,14 +10,14 @@ import {
   Name,
   NameContainer,
   Price,
-  PriceContainer,
+  PriceContainer, RequestNumber,
   UserDetails
 } from "../../../../utils/styles/pageStyles";
 import {ProfileImage} from "../../../../utils/components/ProfileImage";
 import LoginStoreInstance from "../../../../stores/LoginStore";
 import {NavLink, useNavigate} from "react-router-dom";
 import {TextIcon} from "../../../../utils/components/TextIcon";
-import {faCalendar, faCheck, faLocationDot, faXmark} from "@fortawesome/free-solid-svg-icons";
+import {faCalendar, faCheck, faCheckCircle, faLocationDot, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {formatDate} from "../../../../utils/helpers/formatDate";
 import {useTheme} from "@emotion/react";
 import ReadMore from "../../../provider/Profile/components/ReadMore";
@@ -94,6 +94,22 @@ const ServiceRequest = (props) => {
     }
   }
 
+  const handleComplete = async () => {
+    setIsSubmitting(true);
+    setErrorMessage('');
+    try {
+      await axiosConfig().put(`/serviceRequest/${serviceRequest.id}/status`, {status: 'completed'})
+      serviceRequestsStore.requestServiceRequests();
+      navigate(ROUTE.service.myRequests)
+      setIsSubmitting(false);
+    } catch (err) {
+      setIsSubmitting(false);
+      setErrorMessage(err.response.data.message)
+      console.log(err)
+    }
+  }
+
+
   const userDetailsNode = (
     <UserDetails>
       <ProfileImage size="xs" image={serviceRequest.profileImage}/>
@@ -110,6 +126,9 @@ const ServiceRequest = (props) => {
       {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
       <RowContainer>
         <div>
+          <RequestNumber>
+            Req. Num. #{serviceRequest.id}
+          </RequestNumber>
           <Title text={serviceRequest.title} />
           <PriceContainer>
             <Price>£{serviceRequest.price}</Price>
@@ -124,6 +143,15 @@ const ServiceRequest = (props) => {
             }
           </PriceContainer>
         </div>
+        {provider && serviceRequest.status === 'accepted' &&
+          <IconButton
+            loadingCondition={isSubmitting}
+            icon={faCheckCircle}
+            name="Completed"
+            onClick={handleComplete}
+            color="success"
+          />
+        }
         {provider && serviceRequest.status === 'pending' &&
           <ApprovalButtonsContainer>
             <IconButton
@@ -160,7 +188,7 @@ const ServiceRequest = (props) => {
             <TextIcon color={color} icon={icon} text={statusText}/>
           </StatusContainer>
           <Info>{info}</Info>
-          {serviceRequest.status === 'request_further_details' && <PendingRequestUpdate store={props.store} update={requestUpdates[0]}/>}
+          {serviceRequest.status === 'request_further_details' && <PendingRequestUpdate store={props.store} update={requestUpdates[0]} requestId={serviceRequest.id}/>}
           <Line />
           <UpdateHistory updates={requestUpdates}/>
         </UpdatesContainer>

@@ -50,6 +50,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px;
 `
 export const LinkContainer = styled.div`
   color: ${props => props.theme.palette.info.main};

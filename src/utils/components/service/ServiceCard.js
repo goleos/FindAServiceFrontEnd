@@ -9,15 +9,20 @@ import Button from "@mui/material/Button";
 import { CardActionArea, Stack } from "@mui/material";
 import ProfileCard from "../user/ProfileCard";
 import Divider from "@mui/material/Divider";
+import {SERVICE_IMAGE} from "../../helpers/constants";
+
 
 const ServiceCard = (props) => {
+
+  const image = (props.service.serviceImages && props.service.serviceImages.length > 0) ? props.service.serviceImages[0] : SERVICE_IMAGE;
+
   return (
     <Card sx={{ borderRadius: 3 }}>
       <CardActionArea>
-        <CardMedia image={props.image} sx={{ height: 140 }} />
+        <CardMedia image={image} sx={{ height: 140 }} />
         <CardContent>
           <Typography variant="h5" color="text.primary">
-            {props.title}
+            {props.service.title}
           </Typography>
           <Stack
             direction={"row"}
@@ -25,7 +30,11 @@ const ServiceCard = (props) => {
             justifyContent={"space-between"}
           >
             <Stack spacing={1}>
-              <ProfileCard />
+              <ProfileCard
+                profileImage={props.service.providerProfileImage}
+                firstName={props.service.providerFirstName}
+                lastName={props.service.providerLastName}
+              />
             </Stack>
             <Stack>
               <Typography
@@ -33,13 +42,13 @@ const ServiceCard = (props) => {
                 color="text.primary"
                 sx={{ fontSize: 20 }}
               >
-                £{props.price}
+                £{props.service.price}
               </Typography>
             </Stack>
           </Stack>
           <Divider />
           <Typography variant="body2" color="text.secondary">
-            {props.description}
+            {props.service.description}
           </Typography>
         </CardContent>
       </CardActionArea>

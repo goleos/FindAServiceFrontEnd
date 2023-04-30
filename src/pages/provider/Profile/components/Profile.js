@@ -3,6 +3,8 @@ import {CircularLoading} from "../../../../utils/components/CircularLoading";
 import ProfileDetails from "./ProfileDetails";
 import styled from "@emotion/styled";
 import {border} from "../../../../utils/styles/themeConfig";
+import ServicesStack from "../../../../utils/components/service/ServicesStack";
+import {useStore} from "../../../../stores/RootStore";
 
 /**
  * Component that displays all profile information
@@ -11,6 +13,8 @@ import {border} from "../../../../utils/styles/themeConfig";
  * @constructor
  */
 const Profile = (props) => {
+
+    const {serviceStore} = useStore()
 
     const provider = props.store.getProvider();
 
@@ -27,9 +31,18 @@ const Profile = (props) => {
         )
     }
 
+
+    const services = serviceStore.getServices(provider.id);
+
+    // Loading
+    if (services === undefined) {
+      return <CircularLoading />;
+    }
+
     return (
         <Container>
             <ProfileDetails provider={provider}/>
+            <ServicesStack services={services} />
         </Container>
     )
 }

@@ -1,6 +1,7 @@
 // Routes in the app
 export const ROUTES = {
   home: "*",
+  search: '/search',
   provider: {
     login: "/provider/login",
     register: "/provider/register",
@@ -56,7 +57,7 @@ export const device = {
 export const PROFILE_IMAGE =
   "https://findaservice.blob.core.windows.net/app/user.png";
 
-export const SERVICE_IMAGE = "https://4.img-dpreview.com/files/p/TS1200x900~sample_galleries/8406609137/8530102685.jpg"
+export const SERVICE_IMAGE = "https://findaservice.blob.core.windows.net/app/service.png"
 
 export const SERVICE_CATEGORIES = [
   "Cleaning",

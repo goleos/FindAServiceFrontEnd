@@ -28,7 +28,7 @@ export const SearchBar = (props) => {
                     ),
                 }}
                 variant="outlined"
-                placeholder="Search"
+                placeholder="Search for services"
                 fullWidth={true}
                 {...otherProps}
             />
