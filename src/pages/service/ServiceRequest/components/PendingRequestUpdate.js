@@ -27,8 +27,6 @@ const PendingRequestUpdate = (props) => {
 
   const navigate = useNavigate();
 
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [successAlertOpen, setSuccessAlertOpen] = useState(false);
@@ -55,11 +53,9 @@ const PendingRequestUpdate = (props) => {
       await axiosConfig().put(`/serviceRequest/${props.requestId}/status`, {status: 'withdrawn'})
       serviceRequestsStore.requestServiceRequests();
       navigate(ROUTE.service.myRequests)
-      setIsSubmitting(false);
     } catch (err) {
       console.log(err)
       setErrorMessage(err.response.data.message);
-      setIsSubmitting(false);
     }
   }
 

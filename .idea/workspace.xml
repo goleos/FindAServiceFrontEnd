@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/customer/Login/CustomerLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Login/CustomerLoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/customer/Register/CustomerRegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Register/CustomerRegisterPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/EditProfile/components/EditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/EditProfile/components/EditForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Register/ProviderRegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Register/ProviderRegisterPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceInfo/components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceInfo/components/Service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/PendingRequestUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/PendingRequestUpdate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ProviderProfileEditStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ProviderProfileEditStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/RootStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/RootStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ServiceStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ServiceStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/UploadPhotosGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/UploadPhotosGrid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/UploadedImageList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/UploadedImageList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/user/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/user/ProfileCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/helpers/serviceFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/serviceFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/formStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/formStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/pageStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/pageStyles.js" afterDir="false" />
-    </list>
+    <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
