@@ -138,7 +138,7 @@ const EditServiceForm = (props) => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <UploadPhotosGrid editingExistingService />
+                        <UploadPhotosGrid editingExistingService={props.editingExistingService} />
                     </Grid>
                 </Grid>
                 <Stack alignItems={"flex-start"} justifyContent={"space-between"} direction={"row-reverse"}>
