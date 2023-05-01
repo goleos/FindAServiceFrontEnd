@@ -4,7 +4,7 @@ import { CircularLoading } from "../../../utils/components/CircularLoading";
 import { Stack } from "@mui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@emotion/react";
-import { faHandsHelping } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import { border } from "../../styles/themeConfig";
@@ -27,7 +27,11 @@ const Review = (props) => {
 
             <Stack direction="row" alignItems="center" spacing={1}>
                 <FontAwesomeIcon className="fa-fw" icon={faUser} color={theme.palette.secondary.main} />
-                <Typography>John Doe</Typography>
+                <div>{props.review.customerFirstName + " " + props.review.customerLastName}</div>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={1}>
+                <FontAwesomeIcon className="fa-fw" icon={faCalendar} color={theme.palette.secondary.main} />
+                <div>{props.review.createdAt}</div>
             </Stack>
 
             <Typography variant="subtitle1">{props.review.description}</Typography>
