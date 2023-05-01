@@ -1,10 +1,8 @@
 import { observer } from "mobx-react";
-import { useStore } from "../../../stores/RootStore";
-import { CircularLoading } from "../../../utils/components/CircularLoading";
 import { Stack } from "@mui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@emotion/react";
-import { faCalendar, faHandsHelping } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import { border } from "../../styles/themeConfig";

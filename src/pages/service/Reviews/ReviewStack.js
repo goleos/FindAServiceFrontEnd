@@ -19,7 +19,7 @@ const ReviewStack = (props) => {
         reviewComponents.push(<Review key={review.id} review={review} />);
     });
 
-    if (reviewComponents.length == 0) {
+    if (reviewComponents.length === 0) {
         return <Typography>There are currently no reviews for this service.</Typography>;
     } else {
         return <Stack spacing={1}>{reviewComponents}</Stack>;
