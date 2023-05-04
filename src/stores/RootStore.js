@@ -6,6 +6,7 @@ import ProviderProfileEditStore from "./ProviderProfileEditStore";
 import ServiceRequestsStore from "./ServiceRequestsStore";
 import ServiceRequestEditStore from "./ServiceRequestEditStore";
 import UploadImagesStore from "./UploadImagesStore";
+import NotificationsStore from "./NotificationsStore";
 
 /**
  * Initializing all the stores used for managing app state
@@ -17,7 +18,8 @@ export const store = {
     providerProfileEditStore: new ProviderProfileEditStore(),
     serviceRequestsStore: new ServiceRequestsStore(),
     serviceRequestEditStore: new ServiceRequestEditStore(),
-    uploadImagesStore: new UploadImagesStore()
+    uploadImagesStore: new UploadImagesStore(),
+    notificationsStore: new NotificationsStore()
 };
 
 export const StoreContext = createContext(store);

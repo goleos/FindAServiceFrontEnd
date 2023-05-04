@@ -12,20 +12,26 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {MenuItem} from "@mui/material";
 import {NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
-import LoginStore from "../stores/LoginStore";
 import {CircularLoading} from "../utils/components/CircularLoading";
 import MenuBar from "./menu/MenuBar";
 import Menu from '@mui/material/Menu';
+import LoginStoreInstance from "../stores/LoginStore";
+import NotificationsBar from "../utils/components/notifications/NotificationsBar";
+import axiosConfig from "../utils/helpers/axiosConfig";
 
 const Header = () => {
 
     // Get stores
-    const { userStore, serviceStore } = useStore();
+    const { userStore, serviceStore, notificationsStore } = useStore();
     const navigate = useNavigate();
 
     let user = userStore.getCurrentUser();
 
-    let provider = LoginStore.isProvider();
+    const unreadCount = notificationsStore.getUnreadCount();
+
+    let provider = LoginStoreInstance.isProvider();
+    let admin = LoginStoreInstance.isAdmin();
+    let customer = !provider && !admin;
 
     // Search query
     const [query, setQuery] = useState('');
@@ -42,7 +48,7 @@ const Header = () => {
     };
 
     const handleLogOut = () => {
-        LoginStore.logout();
+        LoginStoreInstance.logout();
         handleCloseUserMenu();
     };
 
@@ -58,6 +64,18 @@ const Header = () => {
         navigate(`/search`);
       }
     };
+
+    // Make requests red
+    const handleRead = async () => {
+      if (unreadCount > 0) {
+        try {
+          await axiosConfig().post("/notification/read");
+          notificationsStore.requestUnreadCount();
+        } catch (err) {
+          console.log(err)
+        }
+      }
+    }
 
     // Loading
     if (user === undefined) {
@@ -81,10 +99,11 @@ const Header = () => {
                 }}
             />
             <TopRightContainer>
-                <SideMenu
+              {customer && <SideMenu
                     buttonElement={
-                    <NotificationContainer>
+                    <NotificationContainer onClick={handleRead}>
                         <FontAwesomeIcon icon={faBell}/>
+                        { unreadCount > 0 && <UnreadBadge>{unreadCount}</UnreadBadge>}
                     </NotificationContainer>
                     }
                     color={theme.palette.info.main}
@@ -92,7 +111,7 @@ const Header = () => {
                     buttonSize="medium"
                     icon={faBell}
                     direction="right"
-                    menu={<div>notifications</div>} />
+                    menu={<NotificationsBar />} />}
                 <Box sx={{ flexGrow: 0 }}>
                     <ProfileImage size="small" onClick={handleOpenUserMenu} image={user.profileImage}/>
                     <StyledMenu
@@ -164,6 +183,7 @@ const NotificationContainer = styled.div`
   border-radius: ${border.borderRadius};
   transition: color 0.5s;
   cursor: pointer;
+  position: relative;
   
   :hover {
     color: ${props => props.theme.palette.primary.main};
@@ -193,4 +213,20 @@ const HamburgerContainer = styled.div`
   @media only screen and ${device.tablet} {
     display: flex;
   }
+`
+
+const UnreadBadge = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color:  red;
+  color:  ${props => props.theme.palette.info.light};
+  
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  text-align: center;
+  padding: 2px 0;
 `
