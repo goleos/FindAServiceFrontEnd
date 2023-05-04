@@ -7,6 +7,7 @@ import ServiceRequestsStore from "./ServiceRequestsStore";
 import ServiceRequestEditStore from "./ServiceRequestEditStore";
 import UploadImagesStore from "./UploadImagesStore";
 import NotificationsStore from "./NotificationsStore";
+import ReviewStore from "./ReviewStore";
 
 /**
  * Initializing all the stores used for managing app state
@@ -19,11 +20,12 @@ export const store = {
     serviceRequestsStore: new ServiceRequestsStore(),
     serviceRequestEditStore: new ServiceRequestEditStore(),
     uploadImagesStore: new UploadImagesStore(),
-    notificationsStore: new NotificationsStore()
+    notificationsStore: new NotificationsStore(),
+    reviewStore: new ReviewStore()
 };
 
 export const StoreContext = createContext(store);
 
 export function useStore() {
-  return useContext(StoreContext);
+    return useContext(StoreContext);
 }

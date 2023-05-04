@@ -21,6 +21,7 @@ import ServiceCategory from "../../../../utils/components/service/ServiceCategor
 import ServiceRequestList from "../../../../utils/components/service/ServiceRequestList";
 import ManageServiceDialog from "../../../../utils/components/provider/ManageServiceDialog";
 import ImageCarousel from "../../../../utils/components/ImageCarousel";
+import ReviewStack from "../../Reviews/ReviewStack";
 
 /**
  * Component that displays all profile information
@@ -64,7 +65,7 @@ const Service = (props) => {
     }
 
     const handleOpenDialog = () => {
-        uploadImagesStore.setImageUrls(service.serviceImages)
+        uploadImagesStore.setImageUrls(service.serviceImages);
         setDialogOpen(true);
     };
 
@@ -81,7 +82,7 @@ const Service = (props) => {
         setSuccessAlertOpen(false);
     };
 
-    const images = (service.serviceImages && service.serviceImages.length > 0) ? service.serviceImages : [SERVICE_IMAGE];
+    const images = service.serviceImages && service.serviceImages.length > 0 ? service.serviceImages : [SERVICE_IMAGE];
 
     return (
         <>
@@ -172,6 +173,8 @@ const Service = (props) => {
                     <ServiceRequestList serviceRequests={serviceRequests} byService={true} />
                 </>
             )}
+            <Subtitle>Reviews</Subtitle>
+            <ReviewStack serviceID={service.id} />
         </>
     );
 };
