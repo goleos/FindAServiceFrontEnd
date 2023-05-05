@@ -30,7 +30,7 @@ const ServiceRequestList = (props) => {
 
     let {color, icon, statusText} = getRequestStatusInfo(elem.status, provider, theme)
 
-    const size = props.byService ? 6 : 12
+    // const size = props.byService ? 6 : 12
 
     serviceRequestNodes.push(
       <Grid item lg={12} md={12} s={12} xs={12} key={index}>
