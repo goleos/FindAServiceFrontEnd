@@ -33,7 +33,7 @@ const ServiceRequestList = (props) => {
     const size = props.byService ? 6 : 12
 
     serviceRequestNodes.push(
-      <Grid item lg={size} md={size} s={12} xs={12} key={index}>
+      <Grid item lg={12} md={12} s={12} xs={12} key={index}>
         <NavLink to={`/service-requests/${elem.id}`}>
           <Item>
             <RequestNumber>
@@ -44,7 +44,7 @@ const ServiceRequestList = (props) => {
             </Description>
             <Line />
             <DetailsContainer>
-              {!props.byService  &&
+              {!props.byService &&
                 <ServiceDetails>
                   <Subtitle>{elem.title}</Subtitle>
                   <PriceContainer>
@@ -53,7 +53,7 @@ const ServiceRequestList = (props) => {
                   </PriceContainer>
                 </ServiceDetails>
               }
-              <FlexContainer>
+              <FlexContainer byService={props.byService}>
                 <RequestDetails>
                   <TextIcon color={theme.palette.info.main} icon={faCalendar} text={formatDate(elem.bookingTime)}/>
                   <TextIcon color={theme.palette.info.main} icon={faLocationDot} text={elem.customerAddress}/>
@@ -88,6 +88,8 @@ export default observer(ServiceRequestList);
 
 const Container = styled.div`
   padding: 0 10px;
+  height: 50vh;
+  overflow-y: scroll;
 `
 
 const ServiceDetails = styled.div`
@@ -122,7 +124,7 @@ const DetailsContainer = styled.div`
 
 
 const FlexContainer = styled.div`
-  width: 500px;
+  width: ${props => props.byService ? '100%' : '50%'};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -3,27 +3,30 @@ import styled from "@emotion/styled";
 import {ProfileImage} from "../ProfileImage";
 import {formatDate} from "../../helpers/formatDate";
 import {border} from "../../styles/themeConfig";
+import {NavLink} from "react-router-dom";
 
 
 const NotificationsItem = (props) => {
 
-  const {providerFirstName, providerLastName, providerProfileImage, type, date, read } = props.notification;
+  const {providerFirstName, providerLastName, providerProfileImage, type, date, read, serviceId } = props.notification;
 
   const message = type === 'service_completed' ? ' completed the requested service. Leave a review!' : ' added a new service. View.'
 
   return (
-    <Container>
-      <ProfileImage size="small" image={providerProfileImage}/>
-      <MessageContainer>
-        <Message><Name>{providerFirstName} {providerLastName}</Name> {message}</Message>
-        <Date>{formatDate(date)}</Date>
-      </MessageContainer>
-      {!read &&
-        <div>
-          <UnreadDot />
-        </div>
-      }
-    </Container>
+    <NavLink to={`/service/${serviceId}`}>
+      <Container>
+        <ProfileImage size="small" image={providerProfileImage}/>
+        <MessageContainer>
+          <Message><Name>{providerFirstName} {providerLastName}</Name> {message}</Message>
+          <Date>{formatDate(date)}</Date>
+        </MessageContainer>
+        {!read &&
+          <div>
+            <UnreadDot />
+          </div>
+        }
+      </Container>
+    </NavLink>
   )
 }
 

@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import { Stack } from "@mui/system";
+import { Stack } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "@emotion/react";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";

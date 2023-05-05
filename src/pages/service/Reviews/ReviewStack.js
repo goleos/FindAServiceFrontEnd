@@ -1,9 +1,9 @@
 import { observer } from "mobx-react";
 import { useStore } from "../../../stores/RootStore";
 import { CircularLoading } from "../../../utils/components/CircularLoading";
-import { Stack } from "@mui/system";
+import { Stack } from "@mui/material";
 import Review from "../../../utils/components/review/Review";
-import { Typography } from "@mui/material";
+import styled from "@emotion/styled";
 
 const ReviewStack = (props) => {
     const { reviewStore } = useStore();
@@ -13,6 +13,7 @@ const ReviewStack = (props) => {
     if (reviews === undefined) {
         return <CircularLoading />;
     }
+
     const reviewComponents = [];
 
     reviews.forEach((review) => {
@@ -20,10 +21,14 @@ const ReviewStack = (props) => {
     });
 
     if (reviewComponents.length === 0) {
-        return <Typography>There are currently no reviews for this service.</Typography>;
+        return <Text>There are currently no reviews for this service.</Text>;
     } else {
-        return <Stack spacing={1}>{reviewComponents}</Stack>;
+      return <Stack spacing={1}>{reviewComponents}</Stack>;
     }
 };
 
 export default observer(ReviewStack);
+
+const Text = styled.p`
+  padding-left: 10px;
+`
