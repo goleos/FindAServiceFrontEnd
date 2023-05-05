@@ -9,6 +9,7 @@ const ReviewStack = (props) => {
     const { reviewStore } = useStore();
 
     const reviews = reviewStore.getReviews(props.serviceID);
+
     // Loading
     if (reviews === undefined) {
         return <CircularLoading />;

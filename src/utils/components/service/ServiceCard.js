@@ -10,6 +10,7 @@ import { CardActionArea, Stack } from "@mui/material";
 import ProfileCard from "../user/ProfileCard";
 import Divider from "@mui/material/Divider";
 import {SERVICE_IMAGE} from "../../helpers/constants";
+import styled from "@emotion/styled";
 
 
 const ServiceCard = (props) => {
@@ -36,6 +37,7 @@ const ServiceCard = (props) => {
                 profileImage={props.service.providerProfileImage}
                 firstName={props.service.providerFirstName}
                 lastName={props.service.providerLastName}
+                avgRating={props.service.avgRating}
               />
             </Stack>
             <Stack>
@@ -48,7 +50,7 @@ const ServiceCard = (props) => {
               </Typography>
             </Stack>
           </Stack>
-          <Divider />
+          <StyledDivider />
           <Typography variant="body2" color="text.secondary">
             {props.service.description}
           </Typography>
@@ -67,3 +69,7 @@ const ServiceCard = (props) => {
 };
 
 export default ServiceCard;
+
+const StyledDivider = styled(Divider)`
+  margin: 5px 0;
+`

@@ -4,6 +4,7 @@ import axiosConfig from "../utils/helpers/axiosConfig";
 export default class ReviewStore {
     reviews = undefined;
     requested = false;
+    serviceID = null;
 
     constructor() {
         makeAutoObservable(this);
@@ -11,7 +12,7 @@ export default class ReviewStore {
 
     // Get provider profile updates
     getReviews(serviceID = null) {
-        if (this.reviews === undefined) {
+        if (this.reviews === undefined || this.serviceID !== serviceID) {
             this.requestReviews(serviceID);
 
             return undefined;
@@ -38,6 +39,8 @@ export default class ReviewStore {
             .then((data) => {
                 runInAction(() => {
                     this.reviews = data.data;
+                    this.serviceID = serviceID;
+                    this.requested = false;
                 });
             });
     }
