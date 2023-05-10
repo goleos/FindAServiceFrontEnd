@@ -10,7 +10,7 @@ export const FormPage = styled.div`
   align-items: center;
   justify-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 99vw;
 `
 
 export const TitleContainer = styled.div`

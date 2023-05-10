@@ -25,7 +25,7 @@ const CustomerExploreServicesPage = () => {
 
   return (
     <Page>
-      <ServicesStack services={services} />
+      <ServicesStack services={services} perspective="provider"/>
     </Page>
   )
 }
