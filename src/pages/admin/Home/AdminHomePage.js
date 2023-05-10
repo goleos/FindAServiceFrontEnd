@@ -1,17 +1,11 @@
 import {observer} from "mobx-react";
-import {CircularLoading} from "../../../utils/components/CircularLoading";
 import {Page} from "../../../utils/styles/pageStyles";
-import React from "react";
-import {useStore} from "../../../stores/RootStore";
 import ServicesStack from "../../../utils/components/service/ServicesStack";
+import {useStore} from "../../../stores/RootStore";
+import {CircularLoading} from "../../../utils/components/CircularLoading";
 
-/**
- * List of all available services
- * @returns {JSX.Element}
- * @constructor
- */
-const CustomerExploreServicesPage = () => {
 
+const AdminHomePage = () => {
   const { serviceStore } = useStore();
 
   const services = serviceStore.getServices();
@@ -30,4 +24,4 @@ const CustomerExploreServicesPage = () => {
   )
 }
 
-export default observer(CustomerExploreServicesPage);
+export default observer(AdminHomePage);

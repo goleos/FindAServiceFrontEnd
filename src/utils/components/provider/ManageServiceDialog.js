@@ -11,6 +11,13 @@ https://mui.com/material-ui/react-dialog/
 https://mui.com/material-ui/react-select/
 https://mui.com/material-ui/react-snackbar/#customization
 */
+
+/**
+ * Dialog for creating or editing a service
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ManageServiceDialog = (props) => {
     const { serviceStore } = useStore();
     const [successAlertOpen, setSuccessAlertOpen] = useState(false);

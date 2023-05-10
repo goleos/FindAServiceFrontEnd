@@ -8,7 +8,12 @@ import styled from "@emotion/styled";
 import {border} from "../../../utils/styles/themeConfig";
 import PendingProfileUpdate from "./PendingProfileUpdate";
 
-
+/**
+ * Page to display for unapproved providers
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UnapprovedPage = (props) => {
 
     const profileUpdates = props.store.getProfileUpdates();

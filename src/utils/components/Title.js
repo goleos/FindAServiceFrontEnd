@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 
 /**
- * Title component that adapts to theme change
+ * Title component
  * @param props
  */
 export const Title = (props) => {

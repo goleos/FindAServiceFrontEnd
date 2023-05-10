@@ -14,6 +14,12 @@ import {useNavigate} from "react-router-dom";
 import {useStore} from "../../../../stores/RootStore";
 import LoginStore from "../../../../stores/LoginStore";
 
+/**
+ * Provider profile page
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProfileDetails = (props) => {
 
     const { adminStore } = useStore();

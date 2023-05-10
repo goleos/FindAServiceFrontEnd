@@ -10,7 +10,13 @@ import {observer} from "mobx-react";
 import styled from "@emotion/styled";
 import {border} from "../styles/themeConfig";
 
-function ImageCarousel(props) {
+/**
+ * Slider for displaying service images
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const ImageCarousel = (props) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = props.images.length;

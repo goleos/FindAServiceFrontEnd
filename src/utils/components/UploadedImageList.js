@@ -6,6 +6,11 @@ import {ImageList, ImageListItem} from "@mui/material";
 import {useStore} from "../../stores/RootStore";
 import {observer} from "mobx-react";
 
+/**
+ * Gallery of images for preview before upload
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UploadedImageList = () => {
 
   const {uploadImagesStore} = useStore();
@@ -17,10 +22,11 @@ const UploadedImageList = () => {
   }
 
   return (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+    <ImageList sx={{ maxHeight: 450 }} cols={3} rowHeight={200}>
       {imageUrls.map((imageUrl) => (
         <ImageListItem key={imageUrl}>
           <img
+            style={{height: 200}}
             src={imageUrl}
             alt={imageUrl}
             loading="lazy"/>

@@ -4,7 +4,12 @@ import {border} from "../../styles/themeConfig";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {getServiceIcon} from "../../helpers/serviceFunctions";
 
-
+/**
+ * Text and icon for service category
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceCategory = (props) => {
   return (
     <Container>

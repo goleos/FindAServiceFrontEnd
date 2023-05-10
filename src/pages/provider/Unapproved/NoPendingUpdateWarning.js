@@ -4,7 +4,12 @@ import {faClock} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styled from "@emotion/styled";
 
-
+/**
+ * Text and icon to display when provider is
+ * waiting for admin approval
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NoPendingUpdateWarning = () => {
     return (
         <Page>

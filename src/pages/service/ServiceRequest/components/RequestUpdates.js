@@ -22,6 +22,12 @@ const schema = yup.object({
     .trim()
 });
 
+/**
+ * Form for requesting an update to the service request
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const RequestUpdates = (props) => {
 
   const {serviceRequestsStore} = useStore()

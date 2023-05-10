@@ -4,7 +4,12 @@ import {faFrownOpen} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styled from "@emotion/styled";
 
-
+/**
+ * Page to display if a service was deleted or its provider
+ * removed
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UnavailableServicePage = () => {
     return (
         <Page>

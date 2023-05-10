@@ -5,7 +5,11 @@ import {Page} from "../../../utils/styles/pageStyles";
 import EditForm from "./components/EditForm";
 import {Title} from "../../../utils/components/Title";
 
-
+/**
+ * Page for editing provider profile information
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProviderEditProfilePage = () => {
 
     const { userStore, providerProfileEditStore } = useStore();

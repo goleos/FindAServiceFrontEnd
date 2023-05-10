@@ -12,7 +12,7 @@ import AdminLoginPage from "./pages/admin/Login/AdminLoginPage";
 import EmailVerificationPage from "./pages/customer/Login/EmailVerificationPage";
 import Dashboard from "./pages/Dashboard";
 
-
+// Entrypoint of the app
 function App() {
 
   return (

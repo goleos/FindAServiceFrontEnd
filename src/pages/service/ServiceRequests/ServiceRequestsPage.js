@@ -5,6 +5,11 @@ import ServiceRequestList from "../../../utils/components/service/ServiceRequest
 import {useStore} from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
 
+/**
+ * Page for viewing all service requests
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceRequestsPage = () => {
   const { serviceRequestsStore } = useStore();
 

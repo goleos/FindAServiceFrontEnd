@@ -4,6 +4,12 @@ import Typography from "@mui/material/Typography";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * Image, first name and last name of a user
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProfileCard = (props) => {
 
   return (

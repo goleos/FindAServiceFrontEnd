@@ -40,9 +40,14 @@ const schema = yup.object({
         .required('Password is required')
 });
 
+/**
+ * Login Page for providers
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProviderLoginPage = () => {
 
-    const { userStore, serviceStore } = useStore();
+    const { userStore, serviceStore, serviceRequestsStore } = useStore();
 
     // For rerouting to Login Page
     let navigate = useNavigate();
@@ -63,6 +68,7 @@ const ProviderLoginPage = () => {
                     LoginStoreInstance.login(res.data.token);
                     userStore.requestCurrentUser();
                     serviceStore.requestServices(userStore.getCurrentUser().id);
+                    serviceRequestsStore.requestServiceRequests();
                     navigate('/provider/home?fromLogin');
                 } else {
                     setIsSubmitting(false);
@@ -91,7 +97,6 @@ const ProviderLoginPage = () => {
     // Is the user coming after registration?
     let url = new URL(window.location.href);
     let fromRegister = url.searchParams.get('fromRegister');
-    console.log(fromRegister);
 
     return (
         <FormPage>

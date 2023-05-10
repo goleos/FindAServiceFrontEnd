@@ -17,8 +17,6 @@ const ServiceCard = (props) => {
 
   const image = (props.service.serviceImages && props.service.serviceImages.length > 0) ? props.service.serviceImages[0] : SERVICE_IMAGE;
 
-  console.log(image)
-
   return (
     <Card sx={{ borderRadius: 3 }}>
       <CardActionArea>

@@ -1,3 +1,11 @@
+# COMP6251 Find a Service Web Application
+
+## Team Members
+- Mihaela Florea (mf2u19@soton.ac.uk)
+- Leonid Goldberg (lg1n22@soton.ac.uk)
+- Boyang Wang (bw10g22@soton.ac.uk)
+- Jianyu Sun (js5g22@soton.ac.uk)
+
 ## Frontend Development Instructions
 
 - Frontend root:
@@ -23,12 +31,6 @@ npm start
 5. The server should automatically restart whenever you make changes to a file
 6. Check the server started by going to http://localhost:3000/
 
-## Attributions (to add in the footer later)
-
-<a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Roundicons - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Pixel perfect - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/profile-picture" title="profile picture icons">ProfileDetails picture icons created by Md Tanvirul Haque - Flaticon</a>
-
 ## Folder Structure
 
 ```
@@ -51,48 +53,4 @@ npm start
 └── README.md
 ```
 
-## Auto-generated React Docs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Available Scripts
-
-In the project directory, you can run:
-
-#### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-#### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-#### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-#### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-#### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-#### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-#### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

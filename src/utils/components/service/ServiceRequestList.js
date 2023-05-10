@@ -18,6 +18,12 @@ import ServiceCategory from "./ServiceCategory";
 import {NavLink} from "react-router-dom";
 import {getRequestStatusInfo} from "../../helpers/serviceFunctions";
 
+/**
+ * List of service requests
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceRequestList = (props) => {
 
   const theme = useTheme();
@@ -76,7 +82,7 @@ const ServiceRequestList = (props) => {
   })
 
   return (
-    <Container>
+    <Container byService={props.byService}>
       <Grid container spacing={2}>
         {serviceRequestNodes}
       </Grid>
@@ -88,8 +94,9 @@ export default observer(ServiceRequestList);
 
 const Container = styled.div`
   padding: 0 10px;
-  height: 50vh;
-  overflow-y: scroll;
+  min-height: ${props => props.byService && '20vh'};
+  max-height: ${props => props.byService && '50vh'};
+  overflow: ${props => props.byService && 'auto'};
 `
 
 const ServiceDetails = styled.div`

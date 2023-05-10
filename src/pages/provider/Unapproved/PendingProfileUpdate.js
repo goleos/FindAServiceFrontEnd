@@ -19,7 +19,13 @@ import {
 } from "../../../utils/styles/updateStyles";
 import {ButtonContainer} from "../../../utils/styles/formStyles";
 
-
+/**
+ * Component to display when the provider has a profile update request
+ * from the admin
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const PendingProfileUpdate = (props) => {
 
     const navigate = useNavigate();

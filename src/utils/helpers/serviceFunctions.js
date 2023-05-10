@@ -12,6 +12,7 @@ import {
   faWrench
 } from "@fortawesome/free-solid-svg-icons";
 
+// Return a corresponding icon for each service category
 export const getServiceIcon = (category) => {
   switch (category) {
     case "Cleaning":

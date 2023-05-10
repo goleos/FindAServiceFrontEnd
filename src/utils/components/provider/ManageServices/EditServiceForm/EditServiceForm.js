@@ -10,6 +10,12 @@ import Button from "@mui/material/Button";
 import { useStore } from "../../../../../stores/RootStore";
 import axiosConfig from "../../../../helpers/axiosConfig";
 
+/**
+ * Form for editing or creating a service
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const EditServiceForm = (props) => {
     const { serviceStore, uploadImagesStore } = useStore();
 
@@ -24,7 +30,7 @@ const EditServiceForm = (props) => {
 
     // if we're editing a service, populate the form with relevant fields
     if (props.editingExistingService) {
-        console.log(props.editService);
+
         initialValues = {
             title: props.editService.title,
             category: props.editService.category,
@@ -38,8 +44,8 @@ const EditServiceForm = (props) => {
     const formik = useFormik({
         initialValues: initialValues,
         onSubmit: async (values) => {
-            console.log(values);
-            // update service if we're editing or create a new one
+
+            // Update service if we're editing or create a new one
             if (props.editingExistingService) {
               serviceStore.updateService({ ...values, serviceID: props.editService.id })
               await uploadImagesStore.uploadImages(props.editService.id)

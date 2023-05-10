@@ -5,6 +5,12 @@ import {Stack} from "@mui/material";
 import Review from "../../../utils/components/review/Review";
 import styled from "@emotion/styled";
 
+/**
+ * Display list of reviews
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ReviewStack = (props) => {
   const {reviewStore} = useStore();
   let reviews = reviewStore.getReviews(props.serviceID);
@@ -16,7 +22,7 @@ const ReviewStack = (props) => {
 
   const reviewComponents = [];
   reviews.forEach((review) => {
-    reviewComponents.push(<Review review={review}/>);
+    reviewComponents.push(<Review serviceID={props.serviceID} review={review}/>);
   });
 
   if (reviewComponents.length === 0) {
