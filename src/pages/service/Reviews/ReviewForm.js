@@ -56,8 +56,8 @@ const ReviewForm = (props) => {
     }
 
     try {
-      await axiosConfig().post(`/review/create?service_id=${params.serviceId}`, newReview);
-      reviewStore.requestReviews(params.serviceId)
+      await axiosConfig().post(`/review/create?service_id=${props.serviceId}`, newReview);
+      reviewStore.requestReviews(props.serviceId)
       props.submit()
     } catch (err) {
       setIsSubmitting(false);
