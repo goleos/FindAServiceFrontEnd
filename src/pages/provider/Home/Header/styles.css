@@ -1,0 +1,22 @@
+.provider-home-header {
+  text-align: center;
+  margin: auto;
+  height:100%;
+}
+
+.provider-home-header h1 {
+  color: #0F52BA;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.provider-home-header p {
+  color: black;
+}
+
+.provider-home-header-bg {
+  background-image: url("../../../../../public/assets/images/providerhomebg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height:70%;
+}

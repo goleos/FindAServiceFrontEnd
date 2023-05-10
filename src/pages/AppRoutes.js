@@ -17,6 +17,8 @@ import ServiceRequestInfoPage from "./service/ServiceRequest/ServiceRequestInfoP
 import ServiceRequestsPage from "./service/ServiceRequests/ServiceRequestsPage";
 import SearchPage from "./search/SearchPage";
 import AdminHomePage from "./admin/Home/AdminHomePage";
+import ServiceTypeContentPage from "./customer/Home/ServiceContent/index"
+
 
 /**
  * Routing for logged in users
@@ -131,6 +133,11 @@ const AppRoutes = () => {
           <Route path={ROUTES.customer.services}
                  element={<CustomerExploreServicesPage/>} key={"customer_explore"}/>
       )
+
+      routeNodes.push(
+        <Route path={ROUTES.customer.serviceType}
+               element={<ServiceTypeContentPage/>} key={"customer_service_type"}/>
+    )
 
       routeNodes.push(
           <Route path={ROUTES.service.myRequests}

@@ -15,6 +15,7 @@ export const ROUTES = {
     login: "*",
     register: "/customer/register",
     home: "/customer/home",
+    serviceType: "/customer/home/service/:id",
     verify: "/customer/verify/:customerId/:token",
     services: "/customer/services",
   },
