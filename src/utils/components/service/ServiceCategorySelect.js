@@ -5,11 +5,21 @@ import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import { SERVICE_CATEGORIES } from "../../helpers/constants";
 
+/**
+ * Drop-down for selecting service category
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceCategorySelect = (props) => {
   return (
     <FormControl fullWidth>
-      <InputLabel required>Category</InputLabel>
-      <Select {...props} name="category" label="category">
+      <InputLabel required={!props.filter}>Category</InputLabel>
+      <Select {...props}
+              name="category"
+              label="category"
+              displayEmpty={props.filter}
+      >
         {SERVICE_CATEGORIES.map((category) => (
           <MenuItem key={category} value={category}>
             {category}

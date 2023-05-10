@@ -26,6 +26,11 @@ import {
 } from "../../../utils/styles/formStyles";
 import {providerInfoSchema} from "../../../utils/helpers/formValidationSchemas";
 
+/**
+ * Page for creating a new provider account
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProviderRegisterPage = () => {
 
     // For rerouting to Login Page

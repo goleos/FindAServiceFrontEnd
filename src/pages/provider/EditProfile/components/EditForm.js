@@ -26,9 +26,14 @@ import {faPen} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import LoadingButton from "@mui/lab/LoadingButton";
 
-
+/**
+ * Form for editing provider profile information
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const EditForm = () => {
-    const { userStore, providerProfileEditStore, adminStore } = useStore();
+
+  const { userStore, providerProfileEditStore, adminStore } = useStore();
 
     // Get current user
     let provider = userStore.getCurrentUser();

@@ -3,7 +3,7 @@ import LoginStore from "../stores/LoginStore";
 import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "../utils/helpers/constants";
 import ProviderHomePage from "./provider/Home/ProviderHomePage";
-import AdminUnapprovedProvidersPage from "./admin/Home/AdminUnapprovedProvidersPage";
+import AdminUnapprovedProvidersPage from "./admin/UnapprovedProviders/AdminUnapprovedProvidersPage";
 import CustomerHomePage from "./customer/Home/CustomerHomePage";
 import ProviderMyServicesPage from "./provider/MyServices/ProviderMyServicesPage";
 import ProviderProfile from "./provider/Profile/ProviderProfilePage";
@@ -16,8 +16,15 @@ import CustomerExploreServicesPage from "./customer/ExploreServices/CustomerExpl
 import ServiceRequestInfoPage from "./service/ServiceRequest/ServiceRequestInfoPage";
 import ServiceRequestsPage from "./service/ServiceRequests/ServiceRequestsPage";
 import SearchPage from "./search/SearchPage";
+import AdminHomePage from "./admin/Home/AdminHomePage";
+import ServiceTypeContentPage from "./customer/Home/ServiceContent/index"
 
 
+/**
+ * Routing for logged in users
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const AppRoutes = () => {
 
   const { userStore } = useStore();
@@ -109,7 +116,7 @@ const AppRoutes = () => {
   } else if (admin) {
       routeNodes.push(
           <Route path={ROUTES.admin.home}
-                  element={<AdminUnapprovedProvidersPage/>} key={"admin_home"}/>
+                  element={<AdminHomePage/>} key={"admin_home"}/>
       )
 
       routeNodes.push(
@@ -126,6 +133,11 @@ const AppRoutes = () => {
           <Route path={ROUTES.customer.services}
                  element={<CustomerExploreServicesPage/>} key={"customer_explore"}/>
       )
+
+      routeNodes.push(
+        <Route path={ROUTES.customer.serviceType}
+               element={<ServiceTypeContentPage/>} key={"customer_service_type"}/>
+    )
 
       routeNodes.push(
           <Route path={ROUTES.service.myRequests}

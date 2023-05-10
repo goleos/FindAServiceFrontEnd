@@ -1,6 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
+/**
+ * Class for managing the service reviews
+ */
 export default class ReviewStore {
     reviews = undefined;
     requested = false;
@@ -12,13 +15,12 @@ export default class ReviewStore {
 
     // Get provider profile updates
     getReviews(serviceID = null) {
-        // if (this.reviews === undefined || this.serviceID !== serviceID) {
+        if (this.reviews === undefined || this.serviceID !== serviceID) {
             this.requestReviews(serviceID);
-
-            // return undefined;
-        // } else {
+            return undefined;
+        } else {
             return this.reviews;
-        // }
+        }
     }
 
     requestReviews(serviceID) {

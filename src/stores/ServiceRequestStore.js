@@ -1,7 +1,9 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
-
+/**
+ * Class for managing a particular service request
+ */
 export default class ServiceRequestStore {
 
   requestUpdates = undefined

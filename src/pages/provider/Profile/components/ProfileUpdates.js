@@ -22,6 +22,13 @@ const schema = yup.object({
         .trim()
 });
 
+/**
+ * Component for displaying any updates to the provider
+ * profile information requested by the admin
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ProfileUpdates = (props) => {
 
     const { adminStore } = useStore();

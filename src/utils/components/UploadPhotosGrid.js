@@ -7,13 +7,19 @@ import {useStore} from "../../stores/RootStore";
 import {observer} from "mobx-react";
 import styled from "@emotion/styled";
 
+/**
+ * Form element for uploading service images
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UploadPhotosGrid = (props) => {
 
   const {  uploadImagesStore } = useStore()
 
   // Change images frontend
   const uploadImage = (files) => {
-    console.log(files)
+
     if (files !== null) {
 
       const imageUrls = []
@@ -34,10 +40,6 @@ const UploadPhotosGrid = (props) => {
         {props.editingExistingService &&
           <div>This will replace any previously uploaded photos</div>
         }
-        {/* <Fab color="primary" variant="extended" size="large">
-        <PhotoCamera sx={{ mr: 1 }} />
-        Choose Photos
-      </Fab> */}
         <ButtonContainer>
           <Button
             variant="contained"

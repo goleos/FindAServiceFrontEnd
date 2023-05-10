@@ -1,7 +1,9 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
-
+/**
+ * Class for managing the service information
+ */
 export default class ServiceInfoStore {
 
     serviceId = undefined

@@ -5,7 +5,12 @@ import {formatDate} from "../../helpers/formatDate";
 import {border} from "../../styles/themeConfig";
 import {NavLink} from "react-router-dom";
 
-
+/**
+ * A particular notification
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NotificationsItem = (props) => {
 
   const {providerFirstName, providerLastName, providerProfileImage, type, date, read, serviceId } = props.notification;

@@ -6,6 +6,12 @@ import ServiceRequest from "./components/ServiceRequest";
 import LoginStoreInstance from "../../../stores/LoginStore";
 import RequestUpdates from "./components/RequestUpdates";
 
+/**
+ * Page for viewing all information about a service
+ * request
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceRequestInfoPage = () => {
   const params = useParams();
 

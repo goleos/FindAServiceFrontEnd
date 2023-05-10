@@ -4,6 +4,12 @@ https://mui.com/material-ui/react-select/ */
 import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
+/**
+ * Drop-down for selecting service availability
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceAvailabilitySelect = (props) => {
   const availabilityOptions = [
     "Monday",

@@ -15,6 +15,7 @@ export const ROUTES = {
     login: "*",
     register: "/customer/register",
     home: "/customer/home",
+    serviceType: "/customer/home/service/:id",
     verify: "/customer/verify/:customerId/:token",
     services: "/customer/services",
   },
@@ -22,7 +23,7 @@ export const ROUTES = {
     login: "/admin/login",
     register: "/admin/register",
     home: "/admin/home",
-    newProviders: "/admin/new-providers",
+    newProviders: "/admin/new-providers"
   },
   service: {
     serviceInfo: '/service/:serviceId',
@@ -54,11 +55,13 @@ export const device = {
   desktopL: `(max-width: ${size.desktop})`,
 };
 
+// Default profile and service images
 export const PROFILE_IMAGE =
   "https://findaservice.blob.core.windows.net/app/user.png";
 
 export const SERVICE_IMAGE = "https://findaservice.blob.core.windows.net/app/service.jpg"
 
+// Service categories
 export const SERVICE_CATEGORIES = [
   "Cleaning",
   "Babysitting",

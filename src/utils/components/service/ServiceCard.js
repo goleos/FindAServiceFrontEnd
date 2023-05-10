@@ -11,13 +11,12 @@ import ProfileCard from "../user/ProfileCard";
 import Divider from "@mui/material/Divider";
 import {SERVICE_IMAGE} from "../../helpers/constants";
 import styled from "@emotion/styled";
+import ReadMore from "../../../pages/provider/Profile/components/ReadMore";
 
 
 const ServiceCard = (props) => {
 
   const image = (props.service.serviceImages && props.service.serviceImages.length > 0) ? props.service.serviceImages[0] : SERVICE_IMAGE;
-
-  console.log(image)
 
   return (
     <Card sx={{ borderRadius: 3 }}>
@@ -52,7 +51,7 @@ const ServiceCard = (props) => {
           </Stack>
           <StyledDivider />
           <Typography variant="body2" color="text.secondary">
-            {props.service.description}
+            <ReadMore text={props.service.description} />
           </Typography>
         </CardContent>
       </CardActionArea>

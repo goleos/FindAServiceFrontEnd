@@ -16,7 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {Line, Price} from "../../../../utils/styles/pageStyles";
 import ReadMore from "../../../provider/Profile/components/ReadMore";
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {device, SERVICE_IMAGE} from "../../../../utils/helpers/constants";
 import {NavLink, useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -45,7 +45,7 @@ const Service = (props) => {
   const theme = useTheme();
 
   const service = props.store.getService();
-  let count = 0;
+
   const provider = LoginStore.isProvider();
   const admin = LoginStore.isAdmin();
 
@@ -177,7 +177,7 @@ const Service = (props) => {
                   onClose={handleCloseSuccessAlert}>
           <Alert severity="success">New service request successfully created</Alert>
         </Snackbar>
-        <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false} fullWidth>
+        <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false}>
           <DialogContent>
             <ServiceRequestForm submit={handleSubmit}/>
           </DialogContent>
@@ -188,14 +188,14 @@ const Service = (props) => {
                   onClose={reviewCloseSuccessAlert}>
           <Alert severity="success">Review successful</Alert>
         </Snackbar>
-        <Dialog open={reviewOpen} onClose={handleCloseReview} maxWidth={false} fullWidth>
+        <Dialog open={reviewOpen} onClose={handleCloseReview} maxWidth={false}>
           <DialogContent>
             <ReviewForm serviceId={params.serviceId} submit={reviewSubmit}/>
           </DialogContent>
         </Dialog>
       </ReviewDialog>)}
     </Container>
-    {serviceRequests.length > 0 && (<>
+    {(serviceRequests.length > 0 && !admin) && (<>
       <Line/>
       <Subtitle>Requests</Subtitle>
       <ServiceRequestList serviceRequests={serviceRequests} byService={true}/>

@@ -65,40 +65,36 @@ const UpdateRequestForm = (props) => {
       <SectionTitle>Update Request</SectionTitle>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <FieldContainer>
-          <ColumnContainer>
-            <StyledTextField
-              {...register('description')}
-              id="description"
-              label="Description"
-              variant="outlined"
-              multiline
-              rows={3}
-              error={!!errors.description}
-              helperText={errors.description ? errors.description.message : ''}
-            />
-            <StyledTextField
-              {...register('customerAddress')}
-              id="customerAddress"
-              label="Address"
-              variant="outlined"
-              error={!!errors.description}
-              helperText={errors.description ? errors.description.message : ''}
-            />
-          </ColumnContainer>
-          <ColumnContainer>
-            <StyledTextField
-              {...register('bookingTime')}
-              id="bookingTime"
-              variant="outlined"
-              label="Booking Time"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              type="date"
-              error={!!errors.description}
-              helperText={errors.description ? errors.description.message : ''}
-            />
-          </ColumnContainer>
+          <StyledTextField
+            {...register('bookingTime')}
+            id="bookingTime"
+            variant="outlined"
+            label="Booking Time"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            type="date"
+            error={!!errors.description}
+            helperText={errors.description ? errors.description.message : ''}
+          />
+          <StyledTextField
+            {...register('description')}
+            id="description"
+            label="Description"
+            variant="outlined"
+            multiline
+            rows={3}
+            error={!!errors.description}
+            helperText={errors.description ? errors.description.message : ''}
+          />
+          <StyledTextField
+            {...register('customerAddress')}
+            id="customerAddress"
+            label="Address"
+            variant="outlined"
+            error={!!errors.description}
+            helperText={errors.description ? errors.description.message : ''}
+          />
         </FieldContainer>
         <ErrorMessage errors={errors} name="errorMessage" render={({ message }) =>
           <Alert severity="error">{message}</Alert>
@@ -125,6 +121,8 @@ const Container = styled.div`
   border-radius: ${border.borderRadius};
   background-color: ${props => props.theme.palette.info.light};
   padding: 10px 20px 5px 20px;
+  align-items: center;
+  width: 600px;
 `
 
 const SectionTitle = styled.h3`
@@ -134,21 +132,17 @@ const FormContainer = styled.form`
   display: flex;
   gap: 10px;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 `
 
 const FieldContainer = styled.div`
   padding-bottom: 20px;
   display: flex;
   gap: 10px;
-  align-items: center;
-`
-
-const ColumnContainer = styled.div`
-  padding-bottom: 20px;
-  display: flex;
-  gap: 10px;
-  width: 100%;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 `
 
 

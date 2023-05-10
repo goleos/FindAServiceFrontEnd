@@ -20,7 +20,13 @@ import UpdateRequestForm from "./UpdateRequestForm";
 import {ROUTES as ROUTE} from "../../../../utils/helpers/constants";
 import {useNavigate} from "react-router-dom";
 
-
+/**
+ * Display component when the provider requested an update to the
+ * service request
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const PendingRequestUpdate = (props) => {
 
   const {serviceRequestsStore} = useStore();
@@ -118,7 +124,7 @@ const PendingRequestUpdate = (props) => {
               Service request successfully updated
             </Alert>
           </Snackbar>
-          <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false} fullWidth>
+          <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false} >
             <DialogContent>
               <UpdateRequestForm store={props.store} submit={handleSubmit}/>
             </DialogContent>

@@ -92,8 +92,6 @@ const CustomerLoginPage = () => {
     // For Google authentication
     const responseMessage = async (response) => {
 
-        console.log(response)
-
         try {
             const res = await axiosConfig().post("/customer/googleLogin", response);
             if (res.data.status) {

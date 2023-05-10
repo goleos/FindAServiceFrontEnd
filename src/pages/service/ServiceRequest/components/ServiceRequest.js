@@ -31,6 +31,13 @@ import PendingRequestUpdate from "./PendingRequestUpdate";
 import UpdateHistory from "../../../../utils/components/UpdateHistory";
 import Alert from "@mui/material/Alert";
 
+/**
+ * Service Request Details and options for approval / rejection
+ * or requesting an update
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServiceRequest = (props) => {
 
   const { serviceRequestsStore, serviceRequestEditStore } = useStore();

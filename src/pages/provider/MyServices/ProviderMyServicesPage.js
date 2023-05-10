@@ -47,7 +47,7 @@ const ProviderMyServicesPage = () => {
     return (
         <Page>
             <Title text="My Services" />
-            <ServicesStack services={services} />
+            <ServicesStack services={services} perspective="provider"/>
             <Fab
                 onClick={handleOpenDialog}
                 color="primary"

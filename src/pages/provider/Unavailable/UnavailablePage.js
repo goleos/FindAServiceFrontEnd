@@ -4,7 +4,11 @@ import {faFrownOpen} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styled from "@emotion/styled";
 
-
+/**
+ * Page to display for a provider that was removed by the admin
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UnavailablePage = () => {
     return (
         <Page>

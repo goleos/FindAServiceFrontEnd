@@ -13,7 +13,12 @@ import {
 import React from "react";
 import {formatDate} from "../helpers/formatDate";
 
-
+/**
+ * Timeline for displaying updates requested
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const UpdateHistory = (props) => {
 
     const updates = props.updates;

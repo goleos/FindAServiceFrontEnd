@@ -3,7 +3,12 @@ import {faTriangleExclamation} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styled from "@emotion/styled";
 
-
+/**
+ * Text and icon to display when the provider has
+ * an profile update from the admin
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const PendingUpdateWarning = () => {
     return (
         <Container>

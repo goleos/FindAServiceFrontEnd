@@ -4,6 +4,11 @@ import AppRoutes from "./AppRoutes";
 import Header from "./Header";
 import DesktopMenu from "./menu/DesktopMenu";
 
+/**
+ * Entrypoint for loggedin users
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Dashboard = () => {
 
     return (

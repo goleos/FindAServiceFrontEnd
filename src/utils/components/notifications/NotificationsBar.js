@@ -6,7 +6,11 @@ import {Title} from "../Title";
 import {device} from "../../helpers/constants";
 import NotificationsItem from "./NotificationsItem";
 
-
+/**
+ * Side menu for displaying customer notifications
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const NotificationsBar = () => {
   const { notificationsStore } = useStore();
 

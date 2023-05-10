@@ -4,10 +4,12 @@ import {CircularLoading} from "../../../utils/components/CircularLoading";
 import {Page} from "../../../utils/styles/pageStyles";
 import UnapprovedPage from "../Unapproved/UnapprovedPage";
 import ProviderProfileStore from "../../../stores/ProviderProfileStore";
+import Header from "./Header/index"
+import CurrentServiceList from "./CurrentServices/index"
 
 
 const ProviderHomePage = () => {
-    const { userStore } = useStore();
+    const { userStore  } = useStore();
 
     // Get current user
     let provider = userStore.getCurrentUser();
@@ -27,10 +29,12 @@ const ProviderHomePage = () => {
             <UnapprovedPage store={providerProfileStore}/>
         )
     }
-
+    
     return (
         <Page>
-            Hi, {provider.firstName}
+            <h3>Hi, {provider.firstName}</h3>
+            <Header />
+            <CurrentServiceList/>
         </Page>
     )
 }

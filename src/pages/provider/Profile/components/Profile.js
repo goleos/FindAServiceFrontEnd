@@ -42,7 +42,10 @@ const Profile = (props) => {
     return (
         <Container>
             <ProfileDetails provider={provider}/>
-            <ServicesStack services={services} />
+            <ServicesContainer>
+              <Subtitle>Services</Subtitle>
+              <ServicesStack services={services} perspective="admin"/>
+            </ServicesContainer>
         </Container>
     )
 }
@@ -57,3 +60,10 @@ const Container = styled.div`
   background-color: ${props => props.theme.palette.info.light};
 `
 
+const ServicesContainer = styled.div`
+  padding: 0 20px;
+`
+
+const Subtitle = styled.h3`
+  padding-left: 10px;
+`;

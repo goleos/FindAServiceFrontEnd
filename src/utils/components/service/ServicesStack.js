@@ -7,6 +7,12 @@ import ServiceCard from "./ServiceCard";
 import { observer } from "mobx-react";
 import {NavLink} from "react-router-dom";
 
+/**
+ * List of services
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ServicesStack = (props) => {
 
 
@@ -32,7 +38,7 @@ const ServicesStack = (props) => {
           <ServiceCard
             id={service.id}
             service={service}
-            perspective="provider"
+            perspective={props.perspective}
           />
         </NavLink>
       </Grid>

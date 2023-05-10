@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 import {formatDateStringISO} from "../utils/helpers/formatDate";
 
 /**
- * Class for managing the profile of a provider
+ * Class for editing a service request
  */
 export default class ServiceRequestEditStore {
 
