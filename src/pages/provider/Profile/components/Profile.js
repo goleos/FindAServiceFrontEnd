@@ -44,7 +44,7 @@ const Profile = (props) => {
             <ProfileDetails provider={provider}/>
             <ServicesContainer>
               <Subtitle>Services</Subtitle>
-              <ServicesStack services={services} />
+              <ServicesStack services={services} perspective="admin"/>
             </ServicesContainer>
         </Container>
     )

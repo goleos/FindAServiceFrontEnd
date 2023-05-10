@@ -38,7 +38,7 @@ const ServicesStack = (props) => {
           <ServiceCard
             id={service.id}
             service={service}
-            perspective="provider"
+            perspective={props.perspective}
           />
         </NavLink>
       </Grid>

@@ -19,7 +19,7 @@ const AdminHomePage = () => {
 
   return (
     <Page>
-      <ServicesStack services={services} />
+      <ServicesStack services={services} perspective="admin"/>
     </Page>
   )
 }
