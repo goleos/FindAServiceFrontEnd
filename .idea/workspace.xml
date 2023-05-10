@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/service/Reviews/ReviewForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/Reviews/ReviewForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceContent/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceContent/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
