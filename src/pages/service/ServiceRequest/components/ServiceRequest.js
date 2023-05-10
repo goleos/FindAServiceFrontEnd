@@ -136,7 +136,9 @@ const ServiceRequest = (props) => {
           <RequestNumber>
             Req. Num. #{serviceRequest.id}
           </RequestNumber>
-          <Title text={serviceRequest.title} />
+          <NavLink to={`/service/${serviceRequest.serviceId}`}>
+            <Title text={serviceRequest.title} />
+          </NavLink>
           <PriceContainer>
             <Price>£{serviceRequest.price}</Price>
             <ServiceCategory category={serviceRequest.category} />
