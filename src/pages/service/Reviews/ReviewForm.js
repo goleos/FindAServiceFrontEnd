@@ -50,12 +50,12 @@ const ReviewForm = (props) => {
   // Sent update request
   const onSubmit = async (data) => {
     // console.log(data)
-    // console.log(props.serviceId)
-    data.service_id = params.serviceId
+    console.log(props.serviceId)
+    data.service_id = props.serviceId
     setIsSubmitting(true);
     try {
-      await axiosConfig().post(`/review/create?service_id=${params.serviceId}`, data);
-      serviceRequestsStore.requestServiceRequests(params.serviceId)
+      await axiosConfig().post(`/review/create?service_id=${props.serviceId}`, data);
+      serviceRequestsStore.requestServiceRequests(props.serviceId)
       props.submit()
       // navigate(`/service/${params.serviceId}`)
     } catch (err) {

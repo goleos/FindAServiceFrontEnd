@@ -157,8 +157,8 @@ const Service = (props) => {
             {!customer && currentUser.id === service.providerId && (
                 <IconButton icon={faPencil} name="Manage" onClick={handleOpenDialog}/>)}
             {customer && (<IconButton icon={faBellConcierge} name="Request" onClick={handleOpenDialog}/>)}
-            &emsp;
-            {customer && (<IconButton color="success" icon={faComments} name="Review" onClick={handleOpenReview}/>)}
+            {/*&emsp;*/}
+            {/*{customer && (<IconButton color="success" icon={faComments} name="Review" onClick={handleOpenReview}/>)}*/}
           </ButtonsContainer>
         </ActionsContainer>
       </Header>
@@ -190,7 +190,7 @@ const Service = (props) => {
         </Snackbar>
         <Dialog open={reviewOpen} onClose={handleCloseReview} maxWidth={false} fullWidth>
           <DialogContent>
-            <ReviewForm submit={reviewSubmit}/>
+            <ReviewForm serviceId={params.serviceId} submit={reviewSubmit}/>
           </DialogContent>
         </Dialog>
       </ReviewDialog>)}
