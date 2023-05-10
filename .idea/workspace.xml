@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Home/AdminHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Home/AdminHomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/customer/ExploreServices/CustomerExploreServicesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/ExploreServices/CustomerExploreServicesPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/MyServices/ProviderMyServicesPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServicesStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/formStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/formStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/styles/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/styles/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Home/ProviderHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceCategorySelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceCategorySelect.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +67,7 @@
       <workItem from="1680864515247" duration="35500000" />
       <workItem from="1682167871774" duration="47127000" />
       <workItem from="1683033398242" duration="10378000" />
-      <workItem from="1683705859874" duration="11634000" />
+      <workItem from="1683705859874" duration="15823000" />
     </task>
     <servers />
   </component>

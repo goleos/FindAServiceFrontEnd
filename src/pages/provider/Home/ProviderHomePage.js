@@ -29,8 +29,6 @@ const ProviderHomePage = () => {
             <UnapprovedPage store={providerProfileStore}/>
         )
     }
-
-    const services = serviceStore.getServices(provider.id);
     
     return (
         <Page>
