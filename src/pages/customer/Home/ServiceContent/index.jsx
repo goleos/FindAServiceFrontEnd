@@ -20,7 +20,7 @@ const ServiceTypeContentPage = () => {
     if (selectedService) {
       setService(selectedService);
     }
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -37,7 +37,7 @@ const ServiceTypeContentPage = () => {
         </div>
       ):(
         // If the service is not found, display an empty div
-        <div></div>
+        <div/>
       )}
     </>
   );

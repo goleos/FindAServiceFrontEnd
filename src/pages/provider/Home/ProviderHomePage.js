@@ -9,7 +9,7 @@ import CurrentServiceList from "./CurrentServices/index"
 
 
 const ProviderHomePage = () => {
-    const { userStore, serviceStore } = useStore();
+    const { userStore  } = useStore();
 
     // Get current user
     let provider = userStore.getCurrentUser();
