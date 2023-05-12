@@ -69,7 +69,7 @@ const ProviderLoginPage = () => {
                     userStore.requestCurrentUser();
                     serviceStore.requestServices(userStore.getCurrentUser().id);
                     serviceRequestsStore.requestServiceRequests();
-                    navigate('/provider/home?fromLogin');
+                    navigate('/provider/home');
                 } else {
                     setIsSubmitting(false);
                     setError('errorMessage', {

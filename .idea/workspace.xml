@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Login/ProviderLoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServiceDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServiceDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +67,7 @@
       <workItem from="1682167871774" duration="47127000" />
       <workItem from="1683033398242" duration="10378000" />
       <workItem from="1683705859874" duration="16325000" />
-      <workItem from="1683794304348" duration="12250000" />
+      <workItem from="1683794304348" duration="13182000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Review UI fix&quot;&#10;&#10;This reverts commit debcc562">
       <created>1683747557940</created>
