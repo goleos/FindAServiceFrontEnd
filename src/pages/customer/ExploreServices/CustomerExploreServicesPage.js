@@ -38,9 +38,7 @@ const CustomerExploreServicesPage = () => {
     }
   }
 
-
-
-  const services = serviceStore.getServices();
+  const services = serviceStore.getServices(null);
 
   // Loading
   if (services === undefined) {

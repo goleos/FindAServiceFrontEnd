@@ -140,7 +140,7 @@ const ServiceRequest = (props) => {
             <Title text={serviceRequest.title} />
           </NavLink>
           <PriceContainer>
-            <Price>£{serviceRequest.price}</Price>
+            <Price>£{serviceRequest.price}/h</Price>
             <ServiceCategory category={serviceRequest.category} />
             {provider ?
               <>

@@ -55,7 +55,7 @@ const ServiceRequestList = (props) => {
                   <Subtitle>{elem.title}</Subtitle>
                   <PriceContainer>
                     <ServiceCategory category={elem.category} />
-                    <Price>£{elem.price}</Price>
+                    <Price>£{elem.price}/h</Price>
                   </PriceContainer>
                 </ServiceDetails>
               }

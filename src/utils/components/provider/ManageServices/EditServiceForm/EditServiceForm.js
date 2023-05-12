@@ -9,6 +9,8 @@ import { useFormik } from "formik";
 import Button from "@mui/material/Button";
 import { useStore } from "../../../../../stores/RootStore";
 import axiosConfig from "../../../../helpers/axiosConfig";
+import React, {useState} from "react";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 /**
  * Form for editing or creating a service
@@ -18,6 +20,8 @@ import axiosConfig from "../../../../helpers/axiosConfig";
  */
 const EditServiceForm = (props) => {
     const { serviceStore, uploadImagesStore } = useStore();
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     let initialValues = {
         title: "",
@@ -45,6 +49,8 @@ const EditServiceForm = (props) => {
         initialValues: initialValues,
         onSubmit: async (values) => {
 
+            setIsSubmitting(true)
+
             // Update service if we're editing or create a new one
             if (props.editingExistingService) {
               serviceStore.updateService({ ...values, serviceID: props.editService.id })
@@ -60,7 +66,7 @@ const EditServiceForm = (props) => {
     });
 
     const handleDeleteService = async () => {
-        await serviceStore.deleteService(props.editService.id);
+        serviceStore.deleteService(props.editService.id);
         props.onFinish();
         // update page to show the new changes
         window.location.reload(false);
@@ -116,7 +122,7 @@ const EditServiceForm = (props) => {
                     <Grid item xs={12} sm={6}>
                         <TextField
                             id="price"
-                            label="Price"
+                            label="Price per Hour"
                             type="number"
                             value={formik.values.price}
                             onChange={formik.handleChange}
@@ -150,9 +156,13 @@ const EditServiceForm = (props) => {
                 </Grid>
                 <Stack alignItems={"flex-start"} justifyContent={"space-between"} direction={"row-reverse"}>
                     <Stack alignItems={"flex-end"} direction={"row-reverse"} spacing={1}>
-                        <Button variant="contained" type="submit">
+                        {isSubmitting ?
+                          <LoadingButton loading variant="outlined" size="large">{submitButtonString}</LoadingButton>
+                          :
+                          <Button variant="contained" type="submit">
                             {submitButtonString}
-                        </Button>
+                          </Button>
+                        }
                         <Button onClick={props.onFinish}>Cancel</Button>
                     </Stack>
 

@@ -117,7 +117,7 @@ const Service = (props) => {
         <ServiceDetails>
           <ServiceTitle>{service.title}</ServiceTitle>
           <DetailsContainer>
-            <Price>£{service.price}</Price>
+            <Price>£{service.price}/h</Price>
             <ServiceCategory category={service.category}/>
           </DetailsContainer>
           <AreasCoveredContainer>

@@ -60,7 +60,7 @@ const Header = () => {
     const handleSubmit = (event) => {
       if (query && event.key === "Enter") {
         if (query in SERVICE_CATEGORIES) {
-          serviceStore.requestServices(null, query, null, query);
+          serviceStore.requestServices(null, query, null, null);
         } else {
           serviceStore.requestServices(null, null, null, query);
         }

@@ -45,7 +45,7 @@ const ServiceCard = (props) => {
                 color="text.primary"
                 sx={{ fontSize: 20 }}
               >
-                £{props.service.price}
+                £{props.service.price}/h
               </Typography>
             </Stack>
           </Stack>
