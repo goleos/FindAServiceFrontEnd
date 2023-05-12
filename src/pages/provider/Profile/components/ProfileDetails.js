@@ -13,6 +13,7 @@ import axiosConfig from "../../../../utils/helpers/axiosConfig";
 import {useNavigate} from "react-router-dom";
 import {useStore} from "../../../../stores/RootStore";
 import LoginStore from "../../../../stores/LoginStore";
+import LoginStoreInstance from "../../../../stores/LoginStore";
 
 /**
  * Provider profile page
@@ -24,7 +25,7 @@ const ProfileDetails = (props) => {
 
     const { adminStore } = useStore();
 
-    const admin = LoginStore.isAdmin();
+    const admin = LoginStoreInstance.isAdmin();
 
     const navigate = useNavigate()
 
@@ -96,7 +97,7 @@ const ProfileDetails = (props) => {
             </ProfileContainer>
             <Line />
             <Description>
-                <ReadMore text={props.provider.description} />
+                <ReadMore text={props.provider.description} length={300}/>
             </Description>
         </Container>
     )

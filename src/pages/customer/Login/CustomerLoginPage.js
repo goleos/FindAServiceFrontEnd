@@ -43,7 +43,7 @@ const schema = yup.object({
 
 const CustomerLoginPage = () => {
 
-    const { userStore } = useStore();
+    const { userStore, notificationsStore} = useStore();
 
     // For rerouting to Login Page
     let navigate = useNavigate();
@@ -63,6 +63,8 @@ const CustomerLoginPage = () => {
                 if (res.data.status) {
                     LoginStoreInstance.login(res.data.token);
                     userStore.requestCurrentUser();
+                    notificationsStore.requestNotifications();
+                    notificationsStore.requestUnreadCount();
                     navigate('/customer/home?fromLogin');
                 } else {
                     setIsSubmitting(false);
@@ -97,6 +99,7 @@ const CustomerLoginPage = () => {
             if (res.data.status) {
                 LoginStoreInstance.login(res.data.token);
                 userStore.requestCurrentUser();
+                notificationsStore.requestNotifications();
                 navigate('/customer/home?fromLogin');
             } else {
                 setError('errorMessage', {

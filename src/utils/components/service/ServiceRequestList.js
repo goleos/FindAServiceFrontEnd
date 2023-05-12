@@ -46,7 +46,7 @@ const ServiceRequestList = (props) => {
               Req. Num. #{elem.id}
             </RequestNumber>
             <Description>
-              <ReadMore text={elem.description}/>
+              <ReadMore text={elem.description} length={300}/>
             </Description>
             <Line />
             <DetailsContainer>

@@ -11,6 +11,7 @@ import CustomerRegisterPage from "./pages/customer/Register/CustomerRegisterPage
 import AdminLoginPage from "./pages/admin/Login/AdminLoginPage";
 import EmailVerificationPage from "./pages/customer/Login/EmailVerificationPage";
 import Dashboard from "./pages/Dashboard";
+import LoginStoreInstance from "./stores/LoginStore";
 
 // Entrypoint of the app
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         {
           // Route to Login and Register if user is not logged
-          LoginStore.isAuth() ?
+          LoginStoreInstance.isAuth() ?
           <>
             <Route path={ROUTES.home} element={<Dashboard/>} />
           </>

@@ -27,11 +27,15 @@ const Header = () => {
 
     let user = userStore.getCurrentUser();
 
-    const unreadCount = notificationsStore.getUnreadCount();
-
     let provider = LoginStoreInstance.isProvider();
     let admin = LoginStoreInstance.isAdmin();
     let customer = !provider && !admin;
+
+    let unreadCount = 0
+
+    if (customer) {
+      unreadCount = notificationsStore.getUnreadCount();
+    }
 
     // Search query
     const [query, setQuery] = useState('');

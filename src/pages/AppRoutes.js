@@ -1,5 +1,4 @@
 import { observer } from "mobx-react";
-import LoginStore from "../stores/LoginStore";
 import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "../utils/helpers/constants";
 import ProviderHomePage from "./provider/Home/ProviderHomePage";
@@ -17,7 +16,8 @@ import ServiceRequestInfoPage from "./service/ServiceRequest/ServiceRequestInfoP
 import ServiceRequestsPage from "./service/ServiceRequests/ServiceRequestsPage";
 import SearchPage from "./search/SearchPage";
 import AdminHomePage from "./admin/Home/AdminHomePage";
-import ServiceTypeContentPage from "./customer/Home/ServiceContent/index"
+import ServiceTypeContentPage from "./customer/Home/ServiceContent/ServiceTypeContentPage"
+import LoginStoreInstance from "../stores/LoginStore";
 
 
 /**
@@ -29,8 +29,8 @@ const AppRoutes = () => {
 
   const { userStore } = useStore();
 
-  let provider = LoginStore.isProvider();
-  let admin = LoginStore.isAdmin();
+  let provider = LoginStoreInstance.isProvider();
+  let admin = LoginStoreInstance.isAdmin();
 
   // Get current user
   let user = userStore.getCurrentUser();

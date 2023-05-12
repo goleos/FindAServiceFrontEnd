@@ -1,6 +1,5 @@
 import {observer} from "mobx-react";
 import styled from "@emotion/styled";
-import LoginStore from "../../stores/LoginStore";
 import {NavLink } from "react-router-dom";
 import {
     faComments,
@@ -14,12 +13,13 @@ import {
 import MenuItem from "./MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {device, ROUTES} from "../../utils/helpers/constants";
+import LoginStoreInstance from "../../stores/LoginStore";
 
 // List of menu links
 const MenuBar = () => {
 
-    let provider = LoginStore.isProvider();
-    let admin = LoginStore.isAdmin();
+    let provider = LoginStoreInstance.isProvider();
+    let admin = LoginStoreInstance.isAdmin();
 
     let items = []
 

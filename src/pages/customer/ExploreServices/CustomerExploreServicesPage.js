@@ -69,8 +69,7 @@ const CustomerExploreServicesPage = () => {
         </Container>
 
       </FilterContainer>
-      <ServicesStack services={services} perspective="provider"/>
-
+      <ServicesStack services={services} perspective="customer"/>
     </Page>
   )
 }

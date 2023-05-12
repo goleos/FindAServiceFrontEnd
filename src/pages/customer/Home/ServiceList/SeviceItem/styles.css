@@ -16,18 +16,9 @@
 
 .serviceItem-desc {
   position: relative;
-  max-height: 2.5em;
-  overflow: hidden;
   padding-right: 0.6rem;
   font-size: 0.8rem;
   text-align: left;
-}
-
-.serviceItem-desc::before {
-  position: absolute;
-  content: '...';
-  bottom: 0;
-  right: 0;
 }
 
 .serviceItem-link {

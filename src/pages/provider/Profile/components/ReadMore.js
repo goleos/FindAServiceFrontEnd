@@ -19,9 +19,9 @@ const ReadMore = (props) => {
     return (
         <Container>
             <Description>
-                {isReadMore ? props.text.slice(0, 300) : props.text}
+                {isReadMore ? props.text.slice(0, props.length) : props.text}
             </Description>
-            {props.text.length >= 300 &&
+            {props.text.length >= props.length &&
                 <ReadMoreLink onClick={toggleReadMore} className="read-or-hide">
                 {isReadMore ? "...more" : " less"}
                 </ReadMoreLink>

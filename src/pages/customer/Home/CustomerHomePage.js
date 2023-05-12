@@ -2,8 +2,8 @@ import {observer} from "mobx-react";
 import {useStore} from "../../../stores/RootStore";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
 import React, { useState } from 'react';
-import ServiceList from "./ServiceList"
-import Header from "./Header"
+import ServiceList from "./ServiceList/ServiceList"
+import Header from "./Header/Header"
 import { serviceList } from './ServiceList/SeviceItem/data';
 import {Page} from "../../../utils/styles/pageStyles";
 
@@ -32,7 +32,7 @@ const CustomerHomePage = () => {
             {/* Customer Home Header */}
             <Header />
             {/* Customer Home Service List */}
-            {<ServiceList Services={Services} />}
+            {<ServiceList services={Services} />}
         </Page>    
     )
 }

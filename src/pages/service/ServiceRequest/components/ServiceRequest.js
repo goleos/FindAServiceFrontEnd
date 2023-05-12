@@ -182,7 +182,7 @@ const ServiceRequest = (props) => {
       </RowContainer>
       <Line />
       <Description>
-        <ReadMore text={serviceRequest.description}/>
+        <ReadMore text={serviceRequest.description} length={300}/>
       </Description>
       <BookingDetails>
         Booking Details:

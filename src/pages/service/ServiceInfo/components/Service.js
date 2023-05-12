@@ -20,7 +20,6 @@ import React, {useState} from "react";
 import {device, SERVICE_IMAGE} from "../../../../utils/helpers/constants";
 import {NavLink, useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import LoginStore from "../../../../stores/LoginStore";
 import IconButton from "../../../../utils/components/IconButton";
 import {useStore} from "../../../../stores/RootStore";
 import ServiceRequestForm from "./ServiceRequestForm";
@@ -30,6 +29,7 @@ import ServiceRequestList from "../../../../utils/components/service/ServiceRequ
 import ManageServiceDialog from "../../../../utils/components/provider/ManageServiceDialog";
 import ImageCarousel from "../../../../utils/components/ImageCarousel";
 import ReviewStack from "../../Reviews/ReviewStack";
+import LoginStoreInstance from "../../../../stores/LoginStore";
 
 /**
  * Component that displays all profile information
@@ -46,8 +46,8 @@ const Service = (props) => {
 
   const service = props.store.getService();
 
-  const provider = LoginStore.isProvider();
-  const admin = LoginStore.isAdmin();
+  const provider = LoginStoreInstance.isProvider();
+  const admin = LoginStoreInstance.isAdmin();
 
   const currentUser = userStore.getCurrentUser();
   const customer = !provider && !admin;
@@ -164,25 +164,30 @@ const Service = (props) => {
       </Header>
       <Line/>
       <Description>
-        <ReadMore text={service.description}/>
+        <ReadMore text={service.description} length={300}/>
       </Description>
-      {provider ? (<ManageServiceDialog
+      {provider ? (
+        <ManageServiceDialog
           providerID={service.providerId}
           open={dialogOpen}
+          store={props.store}
           onClose={handleCloseDialog}
           editingExistingService={true}
           editService={service}
-      />) : (<ServiceRequestDialog>
-        <Snackbar open={successAlertOpen} autoHideDuration={7000}
-                  onClose={handleCloseSuccessAlert}>
-          <Alert severity="success">New service request successfully created</Alert>
-        </Snackbar>
-        <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false}>
-          <DialogContent>
-            <ServiceRequestForm submit={handleSubmit}/>
-          </DialogContent>
-        </Dialog>
-      </ServiceRequestDialog>)}
+        />
+      ) : (
+        <ServiceRequestDialog>
+          <Snackbar open={successAlertOpen} autoHideDuration={7000}
+                    onClose={handleCloseSuccessAlert}>
+            <Alert severity="success">New service request successfully created</Alert>
+          </Snackbar>
+          <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={false}>
+            <DialogContent>
+              <ServiceRequestForm submit={handleSubmit}/>
+            </DialogContent>
+          </Dialog>
+        </ServiceRequestDialog>
+      )}
       {(<ReviewDialog>
         <Snackbar open={successReviewOpen} autoHideDuration={7000}
                   onClose={reviewCloseSuccessAlert}>

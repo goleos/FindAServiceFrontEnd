@@ -6,6 +6,7 @@ export default class NotificationsStore {
 
   notifications = undefined
   unreadCount = undefined
+  requested = false
 
   constructor() {
     makeAutoObservable(this);

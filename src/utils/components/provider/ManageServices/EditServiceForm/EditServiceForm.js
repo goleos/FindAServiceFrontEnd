@@ -49,6 +49,7 @@ const EditServiceForm = (props) => {
             if (props.editingExistingService) {
               serviceStore.updateService({ ...values, serviceID: props.editService.id })
               await uploadImagesStore.uploadImages(props.editService.id)
+              await props.store.requestService()
             } else {
               const res = await axiosConfig().post("/service/create", values)
               await uploadImagesStore.uploadImages(Number(res.data))

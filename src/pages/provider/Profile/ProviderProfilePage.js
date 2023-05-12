@@ -3,9 +3,9 @@ import {Page} from "../../../utils/styles/pageStyles";
 import {useParams} from "react-router-dom";
 import ProviderProfileStore from "../../../stores/ProviderProfileStore";
 import Profile from "./components/Profile";
-import LoginStore from "../../../stores/LoginStore";
 import ProfileUpdates from "./components/ProfileUpdates";
 import styled from "@emotion/styled";
+import LoginStoreInstance from "../../../stores/LoginStore";
 
 /**
  * Profile page of a provider
@@ -19,7 +19,7 @@ const ProviderProfilePage = () => {
 
     const providerProfileStore = new ProviderProfileStore(providerId);
 
-    const admin = LoginStore.isAdmin();
+    const admin = LoginStoreInstance.isAdmin();
 
     return (
         <Page>

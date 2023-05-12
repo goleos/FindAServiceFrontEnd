@@ -1,6 +1,5 @@
 import {observer} from "mobx-react";
 import {CircularLoading} from "../../../utils/components/CircularLoading";
-import LoginStore from "../../../stores/LoginStore";
 import {useNavigate, useParams} from "react-router-dom";
 import verifiedImg from "../../../utils/images/verifiedCheck.png";
 import notVerifiedImg from "../../../utils/images/nonVerifiedX.png";
@@ -8,6 +7,7 @@ import styled from "@emotion/styled";
 import {border} from "../../../utils/styles/themeConfig";
 import Button from "@mui/material/Button";
 import {FormPage, StyledBox, StyledContainer} from "../../../utils/styles/formStyles";
+import LoginStoreInstance from "../../../stores/LoginStore";
 
 const EmailVerificationPage = () => {
 
@@ -17,7 +17,7 @@ const EmailVerificationPage = () => {
     let navigate = useNavigate();
 
     // Do email verification
-    const verified = LoginStore.isVerified(params.customerId, params.token)
+    const verified = LoginStoreInstance.isVerified(params.customerId, params.token)
 
     // Loading
     if (verified === undefined) {

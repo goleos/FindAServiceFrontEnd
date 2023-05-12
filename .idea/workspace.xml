@@ -4,10 +4,34 @@
     <list default="true" id="dc4e1d32-c174-47ea-8c25-e97af4032e52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/ServiceStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/ServiceStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/UploadImagesStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/UploadImagesStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/components/UploadedImageList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/UploadedImageList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/ExploreServices/CustomerExploreServicesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/ExploreServices/CustomerExploreServicesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/CustomerHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/CustomerHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceContent/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceContent/ServiceTypeContentPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/SeviceItem/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/SeviceItem/ServiceItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/SeviceItem/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/SeviceItem/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/ServiceList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Home/ServiceList/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Login/CustomerLoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Login/CustomerLoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/customer/Login/EmailVerificationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/Login/EmailVerificationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/menu/MenuBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/ProviderProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/ProviderProfilePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ProfileDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/provider/Profile/components/ReadMore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/provider/Profile/components/ReadMore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceInfo/components/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceInfo/components/Service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/ServiceRequest/components/ServiceRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/NotificationsStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/NotificationsStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/UserStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/UserStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/notifications/NotificationsBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/notifications/NotificationsBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServiceDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServiceDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/provider/ManageServices/EditServiceForm/EditServiceForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/components/service/ServiceRequestList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helpers/axiosConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helpers/axiosConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +93,7 @@
       <workItem from="1682167871774" duration="47127000" />
       <workItem from="1683033398242" duration="10378000" />
       <workItem from="1683705859874" duration="16325000" />
-      <workItem from="1683794304348" duration="5800000" />
+      <workItem from="1683794304348" duration="12044000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Review UI fix&quot;&#10;&#10;This reverts commit debcc562">
       <created>1683747557940</created>

@@ -51,7 +51,7 @@ const ServiceCard = (props) => {
           </Stack>
           <StyledDivider />
           <Typography variant="body2" color="text.secondary">
-            <ReadMore text={props.service.description} />
+            <ReadMore text={props.service.description} length={63}/>
           </Typography>
         </CardContent>
       </CardActionArea>

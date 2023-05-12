@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@mui/material";
 import EditServiceForm from "./ManageServices/EditServiceForm/EditServiceForm";
 import { Snackbar, Alert } from "@mui/material";
-import { useStore } from "../../../stores/RootStore";
 import { observer } from "mobx-react";
 
 /* mui documentation pages used:
@@ -19,16 +18,12 @@ https://mui.com/material-ui/react-snackbar/#customization
  * @constructor
  */
 const ManageServiceDialog = (props) => {
-    const { serviceStore } = useStore();
     const [successAlertOpen, setSuccessAlertOpen] = useState(false);
 
     const handleSubmit = async () => {
-        await serviceStore.requestServices(props.providerID);
+        // await serviceStore.requestServices(props.providerID);
         props.onClose();
         setSuccessAlertOpen(true);
-        if (props.editingExistingService) {
-            window.location.reload(false);
-        }
     };
 
     const handleCloseSuccessAlert = (event) => {
@@ -52,6 +47,8 @@ const ManageServiceDialog = (props) => {
             become visible to customers.
           </DialogContentText> */}
                     <EditServiceForm
+                        store={props.store}
+                        providerID={props.providerID}
                         editingExistingService={props.editingExistingService}
                         editService={props.editService}
                         onFinish={props.onClose}

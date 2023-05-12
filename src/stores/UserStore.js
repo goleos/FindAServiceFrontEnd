@@ -1,7 +1,7 @@
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
-import LoginStore from "./LoginStore";
 import {PROFILE_IMAGE} from "../utils/helpers/constants";
+import LoginStoreInstance from "./LoginStore";
 
 /**
  * Class for managing current user state and information
@@ -12,7 +12,7 @@ export default class UserStore {
 
     requested = false;
 
-    admin = LoginStore.isAdmin();
+    admin = LoginStoreInstance.isAdmin();
 
     constructor() {
         makeAutoObservable(this);
@@ -48,7 +48,7 @@ export default class UserStore {
             return
         }
 
-        let route = LoginStore.isProvider() ? '/provider/currentProvider' : 'customer/currentCustomer'
+        let route = LoginStoreInstance.isProvider() ? '/provider/currentProvider' : 'customer/currentCustomer'
 
         axiosConfig().get(route).then(data => {
             runInAction(() => {

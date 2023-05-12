@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import {Title} from "../Title";
 import {device} from "../../helpers/constants";
 import NotificationsItem from "./NotificationsItem";
+import LoginStoreInstance from "../../../stores/LoginStore";
 
 /**
  * Side menu for displaying customer notifications
@@ -15,7 +16,16 @@ const NotificationsBar = () => {
   const { notificationsStore } = useStore();
 
   // Get current user
-  let notifications = notificationsStore.getNotifications();
+  let provider = LoginStoreInstance.isProvider();
+  let admin = LoginStoreInstance.isAdmin();
+
+  let notifications;
+
+  if (!provider && !admin) {
+    notifications = notificationsStore.getNotifications();
+  } else {
+    notifications = []
+  }
 
   // Loading
   if (notifications === undefined) {
