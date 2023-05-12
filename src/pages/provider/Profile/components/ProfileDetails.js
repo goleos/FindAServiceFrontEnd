@@ -12,7 +12,6 @@ import IconButton from "../../../../utils/components/IconButton";
 import axiosConfig from "../../../../utils/helpers/axiosConfig";
 import {useNavigate} from "react-router-dom";
 import {useStore} from "../../../../stores/RootStore";
-import LoginStore from "../../../../stores/LoginStore";
 import LoginStoreInstance from "../../../../stores/LoginStore";
 
 /**

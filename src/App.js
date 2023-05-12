@@ -4,7 +4,6 @@ import ProviderLoginPage from './pages/provider/Login/ProviderLoginPage';
 import ProviderRegisterPage from './pages/provider/Register/ProviderRegisterPage';
 import {theme} from './utils/styles/themeConfig';
 import {ThemeProvider} from "@mui/material";
-import LoginStore from './stores/LoginStore';
 import {observer} from "mobx-react";
 import CustomerLoginPage from "./pages/customer/Login/CustomerLoginPage";
 import CustomerRegisterPage from "./pages/customer/Register/CustomerRegisterPage";
