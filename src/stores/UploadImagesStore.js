@@ -50,7 +50,10 @@ export default class UploadImagesStore {
         i++;
       }
 
-      return axiosConfig().post( `/service/${serviceId}/upload`, filesData);
+      return axiosConfig().post(
+        `/service/${serviceId}/upload`,
+        filesData
+      );
     }
   }
 

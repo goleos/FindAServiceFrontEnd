@@ -26,14 +26,12 @@ function App() {
           </>
           :
           <>
-
             <Route path={ROUTES.provider.login} element={<ProviderLoginPage/>} />
             <Route path={ROUTES.provider.register} element={<ProviderRegisterPage />} />
             <Route path={ROUTES.customer.login} element={<CustomerLoginPage/>} />
             <Route path={ROUTES.customer.register} element={<CustomerRegisterPage />} />
             <Route path={ROUTES.admin.login} element={<AdminLoginPage/>} />
-            <Route path={ROUTES.customer.verify}
-                     element={<EmailVerificationPage/>} />
+            <Route path={ROUTES.customer.verify} element={<EmailVerificationPage/>} />
           </>
         }
       </Routes>

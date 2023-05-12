@@ -1,4 +1,3 @@
-
 import {makeAutoObservable, runInAction} from "mobx";
 import axiosConfig from "../utils/helpers/axiosConfig";
 
@@ -16,7 +15,6 @@ export default class ServiceStore {
         makeAutoObservable(this);
     }
 
-    // Get provider profile updates
     getServices(providerID= null) {
         if (this.services === undefined || this.providerID !== providerID) {
             this.requestServices(providerID);
@@ -27,7 +25,10 @@ export default class ServiceStore {
         }
     }
 
-    requestServices(provider = null, category = null, area = null, searchQuery = null) {
+    requestServices(provider = null,
+                    category = null,
+                    area = null,
+                    searchQuery = null) {
         if (!this.requested) {
             runInAction(() => {
                 this.requested = true;

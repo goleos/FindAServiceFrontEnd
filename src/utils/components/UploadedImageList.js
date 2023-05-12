@@ -17,7 +17,7 @@ const UploadedImageList = () => {
 
   const imageUrls = uploadImagesStore.getImageUrls()
 
-  if (imageUrls === undefined) {
+  if (imageUrls === undefined || imageUrls === null) {
     return <></>
   }
 
